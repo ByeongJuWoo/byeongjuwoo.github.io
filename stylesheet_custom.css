@@ -81,6 +81,34 @@ a:hover {
   text-decoration: none;
 }
 
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  border-bottom: 2px solid #444;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.navbar .name {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  padding-right: 16px;
+}
+
 body,
 td,
 th,
@@ -98,7 +126,7 @@ strong {
 
 h2 {
   margin: 0;
-  font-weight: normal;
+  font-weight: 500;
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
   font-size: 22px;
 }
