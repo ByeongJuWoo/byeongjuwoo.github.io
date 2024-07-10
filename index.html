@@ -68,13 +68,14 @@
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr onmouseout="nuvo_stop()" onmouseover="nuvo_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
+            <td style="padding:15px;width:30%;vertical-align:middle">
               <div class="one">
                 <div class="two" id='nuvo_image'><video  width=100% muted autoplay loop>
                 <source src="images/nuvo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 </video></div>
-                <img src='images/tqdm.jpg' width=100%>
+                <!-- <div class="two" id='nuvo_image'><img src='images/tqdm.JPG'  width="100%"></div> -->
+                <img src='images/tqdm.jpg' width=100% object-fit: contain>
               </div>
               <script type="text/javascript">
                 function nuvo_start() {
@@ -87,23 +88,21 @@
                 nuvo_stop()
               </script>
             </td>
-            <td style="padding:20px;width:75%;vertical-align:top">
-              <a href="https://pratulsrinivasan.github.io/nuvo/">
-                <span class="papertitle">Textual Query-Driven Mask Transformer for Domain Generalized Segmentation</span>
-              </a>
+            <td style="padding:15px;width:70%;vertical-align:middle">
+              <span class="papertitle">Textual Query-Driven Mask Transformer for Domain Generalized Segmentation</span>
               <br>
               <u>Byeongju Woo</u>*,
-              <a href="http://byeonghyunpak.github.io/"><span class="author">Byeonghyun Pak</span></a>,
-              <a href="https://sunghwan.me">Sunghwan Kim</a>,
-              <a href="https://bmild.github.io/">Daehwan Kim</a>,
-              <a href="https://bmild.github.io/">Hosung Kim</a>
+              <a href="http://byeonghyunpak.github.io/"><span class="author">Byeonghyun Pak*</span></a>,
+              <a href="https://sunghwan.me"><span class="author">Sunghwan Kim*</span></a>,
+              <a href="https://scholar.google.com/citations?hl=en&user=_5Scn8YAAAAJ"><span class="author">Daehwan Kim</span></a>,
+              <a href="https://scholar.google.com/citations?hl=en&user=Zy7Sz5UAAAAJ"><span class="author">Hosung Kim</span></a>
               <br>
               <em>ECCV</em>, 2024
               <br>
-              <a href="https://pratulsrinivasan.github.io/nuvo/">project page</a>
-              /
+              <a href="https://byeonghyunpak.github.io/tqdm/">project page</a>
+              |
               <a href="https://www.youtube.com/watch?v=hmJiOSTDQZI">video</a>
-              /
+              |
               <a href="http://arxiv.org/abs/2312.05283">arXiv</a>
               <p></p>
               <p>
@@ -115,8 +114,8 @@
           <tr onmouseout="dpzlearn_stop()" onmouseover="dpzlearn_start()">
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
-                <div class="two" id='dpzlearn_image'><img src='images/dpzlearn_after.jpg'></div>
-                <img src='images/dpzlearn_before.jpg'>
+                <div class="two" id='dpzlearn_image'><img src='images/EddxlPose.JPG'  width="400%"></div>
+                <img src='images/ExlPose.JPG' width="100%">
               </div>
               <script type="text/javascript">
                 function dpzlearn_start() {
@@ -131,17 +130,20 @@
             </td>
             <td style="padding:20px;width:75%;vertical-align:top">
               <a href="https://arxiv.org/abs/1904.05822">
-                <span class="papertitle">Learning Single Camera Depth Estimation using Dual-Pixels</span>
+                <span class="papertitle">Human Pose Estimation in Extremely Low-Light Conditions</span>
               </a>
               <br>
-              <a href="http://rahuldotgarg.appspot.com/">Rahul Garg</a>,
-              <a href="http://nealwadhwa.com">Neal Wadhwa</a>,
-              <a href="">Sameer Ansari</a>,
-              <strong>Jonathan T. Barron</strong>
+              <a href="https://sohyun-l.github.io/"><span class="author">Sohyun Lee*</span></a>,
+              Jaesung Rim*,
+              Boseung Jeong,
+              Geonu Kim,
+              <u>ByungJu Woo</u>,
+              Sunghyun Cho,
+              Suha Kwak
               <br>
-              <em>ICCV</em>, 2019 &nbsp <font color="red"><strong>(Oral Presentation)</strong></font>
+              <em>ICCV</em>, 2019
               <br>
-              <a href="https://github.com/google-research/google-research/tree/master/dual_pixels">code</a> /
+              <a href="https://github.com/google-research/google-research/tree/master/dual_pixels">code</a> |
               <a href="data/GargICCV2019.bib">bibtex</a>
               <p></p>
               <p>Considering the optics of dual-pixel image sensors improves monocular depth estimation techniques.</p>
@@ -166,7 +168,7 @@
                 <source src="images/nuvo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 </video></div>
-                <img src='images/project-sk_hynix.webp' width=100%>
+                <img src='images/project-sk_hynix.webp' width=100% max-width="20px">
               </div>
               <script type="text/javascript">
                 function nuvo_start() {
@@ -179,14 +181,14 @@
                 nuvo_stop()
               </script>
             </td>
-            <td style="padding:20px;width:75%;vertical-align:top">
+            <td style="padding:20px;width:75%;vertical-align:middle">
               <span class="papertitle">Object Detection for 3D NAND Flash Failure Detection</span>
               <br>
               <a href="https://www.skhynix.com//eng/">SK Hynix</a>, department of DS Algorithm, 2021-2021
               <br>
               <!-- <p></p> -->
               <p>
-              We developed an automated algorithm to pre-check for rejects in 3D NAND FLASH manufacturing. We developed a domain-specific object detection model with a small number of industrial data.
+              We developed an automated algorithm to pre-check for rejects in 3D NAND Flash manufacturing. We developed a domain-specific object detection model with a small number of industrial data.
               </p>
             </td>
           </tr>
