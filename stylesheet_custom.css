@@ -113,10 +113,28 @@ body,
 td,
 th,
 tr,
-p,
-a {
+p {
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
   font-size: 14px;
+  font-weight: 400;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  font-family: 'Roboto', Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333399
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #333399
 }
 
 strong {
@@ -141,8 +159,8 @@ h2 {
   padding-top: 20px;
   margin: 0;
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 .one {
