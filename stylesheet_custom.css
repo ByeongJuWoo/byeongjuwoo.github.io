@@ -149,10 +149,27 @@ h2 {
   font-size: 22px;
 }
 
+ul {
+  padding-left: 15px;
+}
+
+li {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
 .papertitle {
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 700;
+  color: black
+}
+
+.author {
+  font-family: 'Roboto', Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: black
 }
 
 .name {
