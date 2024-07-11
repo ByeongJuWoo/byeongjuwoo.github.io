@@ -115,7 +115,7 @@ th,
 tr,
 p {
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
 }
 
@@ -124,7 +124,7 @@ a:visited,
 a:hover,
 a:active {
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   color: #333399
 }
@@ -139,7 +139,7 @@ a:visited {
 
 strong {
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 h2 {
@@ -160,7 +160,7 @@ li {
 
 .papertitle {
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   /* margin-bottom: 5px; */
   color: black
@@ -168,7 +168,7 @@ li {
 
 .author {
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   color: black
 }
@@ -182,8 +182,8 @@ li {
 }
 
 .one {
-  width: 250px;
-  height: 190px;
+  width: 160px;
+  height: 160px;
   position: relative;
   /* display: flex; */
 }
