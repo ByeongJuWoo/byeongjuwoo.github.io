@@ -70,22 +70,29 @@
           <tr onmouseout="nuvo_stop()" onmouseover="nuvo_start()">
             <td style="padding:10px;width:25%;vertical-align:middle">
               <div class="one">
-                <div class="two" id='nuvo_image'><video  width=100% muted autoplay loop>
-                <source src="images/nuvo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-                </video></div>
-                <!-- <div class="two" id='nuvo_image'><img src='images/tqdm.JPG'  width="100%"></div> -->
-                <img src='images/tqdm.jpg' width=100% object-fit: contain>
+                <div class="image-container">
+                  <img src="images/tqdm_teaser.jpg" alt="Descriptive Alt Text" id="tqdm" width="100%">
+                </div>
               </div>
-              <script type="text/javascript">
-                function nuvo_start() {
-                  document.getElementById('nuvo_image').style.opacity = "1";
+              <div id="tqdm-modal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="zoomed-image1">
+              </div>
+              <script>
+                var modal = document.getElementById("tqdm-modal");
+                var img = document.getElementById("tqdm");
+                var modalImg = document.getElementById("zoomed-image1");
+                img.onclick = function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
                 }
-
-                function nuvo_stop() {
-                  document.getElementById('nuvo_image').style.opacity = "0";
+                var span = document.getElementsByClassName("close")[0];
+                span.onclick = function() {
+                    modal.style.display = "none";
                 }
-                nuvo_stop()
+                modal.onclick = function() {
+                    modal.style.display = "none";
+                }
               </script>
             </td>
             <td style="padding:10px;width:75%;vertical-align:middle">
@@ -115,17 +122,17 @@
             <td style="padding:10px;width:25%;vertical-align:middle">
               <div class="one">
                 <div class="image-container">
-                  <img src="images/ExlPose_teaser.jpg" alt="Descriptive Alt Text" id="main-image" width="100%">
+                  <img src="images/ExlPose_teaser.jpg" alt="Descriptive Alt Text" id="ExlPose" width="100%">
                 </div>
               </div>
-              <div id="image-modal" class="modal">
+              <div id="ExlPose-modal" class="modal">
                 <span class="close">&times;</span>
-                <img class="modal-content" id="zoomed-image">
+                <img class="modal-content" id="zoomed-image2">
               </div>
               <script>
-                var modal = document.getElementById("image-modal");
-                var img = document.getElementById("main-image");
-                var modalImg = document.getElementById("zoomed-image");
+                var modal = document.getElementById("ExlPose-modal");
+                var img = document.getElementById("ExlPose");
+                var modalImg = document.getElementById("zoomed-image2");
                 img.onclick = function() {
                     modal.style.display = "block";
                     modalImg.src = this.src;
@@ -206,33 +213,6 @@
         
         </tbody></table>
 
-      <div class="image-container">
-        <img src="images/ExlPose_teaser.jpg" alt="Descriptive Alt Text" id="main-image">
-      </div>
-  
-      <!-- 모달 창 구조 -->
-      <div id="image-modal" class="modal">
-          <span class="close">&times;</span>
-          <img class="modal-content" id="zoomed-image">
-      </div>
-  
-      <script>
-        var modal = document.getElementById("image-modal");
-        var img = document.getElementById("main-image");
-        var modalImg = document.getElementById("zoomed-image");
-        img.onclick = function() {
-            modal.style.display = "block";
-            modalImg.src = this.src;
-        }
-        var span = document.getElementsByClassName("close")[0];
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-        modal.onclick = function() {
-            modal.style.display = "none";
-        }
-      </script>
-
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
@@ -255,7 +235,7 @@
             <td style="padding:0px">
               <br>
               <p style="text-align:right;font-size:small;">
-                <a href="https://github.com/jonbarron/website">webpage template from Jon Barron</a>
+                <a href="https://github.com/jonbarron/website">website template from Jon Barron</a>
               </p>
             </td>
           </tr>
