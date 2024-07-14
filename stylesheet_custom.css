@@ -115,7 +115,7 @@ th,
 tr,
 p {
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -124,7 +124,7 @@ a:visited,
 a:hover,
 a:active {
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   color: #333399
 }
@@ -168,7 +168,7 @@ li {
 
 .author {
   font-family: 'Roboto', Verdana, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   color: black
 }
