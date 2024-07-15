@@ -203,7 +203,30 @@
           <tr onmouseout="nuvo_stop()" onmouseover="nuvo_start()">
             <td style="padding:10px;width:25%;vertical-align:middle">
               <div class="one">
-                <img src='images/hynix_teaser.jpg' width=100% max-width="20px">
+                <div class="image-container">
+                  <img src="images/hynix_teaser.png" alt="Descriptive Alt Text" id="hynix" width="100%">
+                </div>
+              </div>
+              <div id="hynix-modal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="zoomed-image3">
+              </div>
+              <script>
+                var modal = document.getElementById("hynix-modal");
+                var img = document.getElementById("hynix");
+                var modalImg = document.getElementById("zoomed-image3");
+                img.onclick = function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                }
+                var span = document.getElementsByClassName("close")[0];
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+                modal.onclick = function() {
+                    modal.style.display = "none";
+                }
+              </script>
             </td>
             <td style="padding:10px;width:75%;vertical-align:middle">
               <span class="papertitle">Object Detection for 3D NAND Flash Failure Detection</span>
