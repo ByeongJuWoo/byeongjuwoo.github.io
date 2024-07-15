@@ -231,7 +231,11 @@ span.highlight {
 }
 
 .modal-content, #main-image {
-  cursor: zoom-out;
+  cursor: zoom-in;
+}
+
+.image-container:hover{
+  cursor: zoom-in;
 }
 
 .close {
