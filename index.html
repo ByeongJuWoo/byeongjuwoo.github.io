@@ -202,16 +202,16 @@
             <td style="padding:10px;width:25%;vertical-align:middle">
               <div class="one">
                 <div class="image-container">
-                  <img src="images/projects/adv_teaser.png" alt="Descriptive Alt Text" id="adv" width="100%">
+                  <img src="images/projects/ir_teaser.png" alt="Descriptive Alt Text" id="ir" width="100%">
                 </div>
               </div>
-              <div id="adv-modal" class="modal">
+              <div id="ir-modal" class="modal">
                 <span class="close">&times;</span>
                 <img class="modal-content" id="zoomed-image3">
               </div>
               <script>
-                var modal = document.getElementById("adv-modal");
-                var img = document.getElementById("adv");
+                var modal = document.getElementById("ir-modal");
+                var img = document.getElementById("ir");
                 var modalImg = document.getElementById("zoomed-image3");
                 img.onclick = function() {
                     modal.style.display = "block";
@@ -227,14 +227,15 @@
               </script>
             </td>
             <td style="padding:10px;width:75%;vertical-align:middle">
-              <span class="papertitle">Adversarial Patches with Enhanced Camouflage against Soldier Detection</span>
+              <span class="papertitle">Object Detection in Infrared Imagery for UAVs</span>
               <br>
-              <a href="https://www.msit.go.kr/eng/">Ministry of Science and ICT</a>, 2021
+              <a href="https://www.add.re.kr/eps">Agency for Defense Development(ADD)</a>, 2023-Present
               <br>
               <!-- <p></p> -->
               <p>
-              We develop adversarial patches, to hide from the deep learning models that detect allies.
-              We also aim for patches to resemble military uniform patterns, in order to camouflage well to humans.
+                We designed real-time object detection algorithms for UAVs. 
+                We generated synthetic infrared images using a 3D engine for training data,
+                 and established an end-to-end training pipeline.
               </p>
             </td>
           </tr>
