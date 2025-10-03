@@ -68,38 +68,40 @@ export const aboutMe: AboutMe = {
     Previously, I completed my bachelor's degree (<em>Summa Cum Laude</em>) in Computer Science and Engineering at <a href='https://www.postech.ac.kr/eng/'>POSTECH</a> \
     ",
   researchInterests:  
-    "\
-    <div style='margin-bottom: 0.5rem;'>\
-      My research goal is to develop robots with human-level versatility that can \
-      (1) generalize across diverse tasks and environments, \
-      (2) adapt to unseen domains via physics-aware reasoning, and \
-      (3) deploy in dynamic, real-world settings.\
-    </div>\
-    <div style='margin-bottom: 0.5rem;'>\
-      To this end, my research focuses on three core areas:\
-    </div>\
-    <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
-        • <strong>Vision–Language Representations (ECCV 2024)</strong>\
-    </div>\
-    <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
-        for open-world semantics and domain generalization.\
-    </div>\
-    <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
-      • <strong>Neural Scene Dynamics (ongoing)</strong>\
-    </div>\
-    <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
-        for learning physics-aware policies.\
-    </div>\
-    <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
-      • <strong>Implicit Neural Representations (CVPR 2023)</strong>\
-    </div>\
-    <div style='margin-left: 0.6rem; margin-bottom: 0.5rem;'>\
-        for continuous scene representations from sensor observations.\
-    </div>\
-        ",
+    // "\
+    // <div style='margin-bottom: 0.5rem;'>\
+    //   My research goal is to develop robots with human-level versatility that can \
+    //   (1) generalize across diverse tasks and environments, \
+    //   (2) adapt to unseen domains via physics-aware reasoning, and \
+    //   (3) deploy in dynamic, real-world settings.\
+    // </div>\
+    // <div style='margin-bottom: 0.5rem;'>\
+    //   To this end, my research focuses on three core areas:\
+    // </div>\
+    // <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
+    //     • <strong>Vision–Language Representations (ECCV 2024)</strong>\
+    // </div>\
+    // <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
+    //     for open-world semantics and domain generalization.\
+    // </div>\
+    // <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
+    //   • <strong>Neural Scene Dynamics (ongoing)</strong>\
+    // </div>\
+    // <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
+    //     for learning physics-aware policies.\
+    // </div>\
+    // <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
+    //   • <strong>Implicit Neural Representations (CVPR 2023)</strong>\
+    // </div>\
+    // <div style='margin-left: 0.6rem; margin-bottom: 0.5rem;'>\
+    //     for continuous scene representations from sensor observations.\
+    // </div>\
+    //     "
+    "TBA"
+        ,
     
   email: "woobj903@postech.ac.kr",
-  imageUrl: "/images/me_v3_2.png",
+  // imageUrl: "/images/me_v3_2.png",
   googleScholarUrl: "https://scholar.google.co.kr/citations?user=GuMKuJwAAAAJ&hl=en",
   githubUsername: "ByeongJuWoo",
   linkedinUsername: "byeongju-woo",

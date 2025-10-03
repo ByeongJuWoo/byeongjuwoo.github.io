@@ -50,7 +50,7 @@ export const publicationData: Publication[] = [
     // award: "🏆 Highlight (Top 2.5%)",
     // if you have an image in public/images, you can use it like this:
     // imageUrl: "/images/btc.gif"
-    imageUrl: "/images/btc.gif"
+    imageUrl: "/images/ExlPose_teaser.jpg"
   },
 ];
 
