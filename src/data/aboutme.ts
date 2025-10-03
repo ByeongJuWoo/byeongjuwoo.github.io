@@ -43,7 +43,7 @@ export interface AboutMe {
 // };
 
 export const aboutMe: AboutMe = {
-  name: "Byeonghyun Pak",
+  name: "Byeongju Woo",
   title: "Research Officer",
   institution: "Agency for Defense Development",
   // Note that links work in the description
@@ -62,9 +62,10 @@ export const aboutMe: AboutMe = {
     // Previously, I received my bachelor's degree from the College of Transdisciplinary Studies at <a href='https://www.dgist.ac.kr/'>DGIST</a>.\
     // ",
     // version 3
-    "I am a Research Officer at the <a href='https://www.add.re.kr/eps'>Agency for Defense Development</a>, Korea's national defense R&D agency (akin to DARPA)\
-    and a First Lieutenant in the <a href='https://www.army.mil.kr/english/index..do'>Republic of Korea Army</a>.\
-    I received my B.S. from <a href='https://www.dgist.ac.kr/'>DGIST</a>'s Interdisciplinary Program, concentrating in Computer Science & Engineering. \
+    "I am a first lieutenant in the Republic of Korea Air Force (ROKAF), currently serving as a research officer at the <a href='https://www.add.re.kr/eps'>Agency for Defense Development (ADD)</a>,\
+    the Korean counterpart to the U.S. DARPA. Concurrently, I am fortunate to work under the guidance of <a href='https://web.eecs.umich.edu/~stellayu/'>Prof. Stella X. Yu</a> \
+    and <a href='https://sites.google.com/view/sangwoomo'>Dr. Sangwoo Mo</a> from the <a href='https://umich.edu/'>University of Michigan.</a> \
+    Previously, I completed my bachelor's degree (<em>Summa Cum Laude</em>) in Computer Science and Engineering at <a href='https://www.postech.ac.kr/eng/'>POSTECH</a> \
     ",
   researchInterests:  
     "\
@@ -97,15 +98,15 @@ export const aboutMe: AboutMe = {
     </div>\
         ",
     
-  email: "byeonghyun.pak@gmail.com",
+  email: "woobj903@postech.ac.kr",
   imageUrl: "/images/me_v3_2.png",
-  googleScholarUrl: "https://scholar.google.com/citations?user=2dyH0ZQAAAAJ",
-  githubUsername: "ByeongHyunPak",
-  linkedinUsername: "byeonghyun-pak",
-  twitterUsername: "Byeonghyun_Pak",
+  googleScholarUrl: "https://scholar.google.co.kr/citations?user=GuMKuJwAAAAJ&hl=en",
+  githubUsername: "ByeongJuWoo",
+  linkedinUsername: "byeongju-woo",
+  twitterUsername: "byeongju903",
   // blogUrl: "https://",
   // cvUrl: "https://byeonghyunpak.github.io/CV_byeonghyunpak.pdf",
-  cvUrl: "/cv_byeonghyun_pak.pdf",
+  cvUrl: "/CV.pdf",
   // rsUrl: "/CV_byeonghyunpak.pdf",
   institutionUrl: "https://www.add.re.kr/eps",
   // altName: "",
