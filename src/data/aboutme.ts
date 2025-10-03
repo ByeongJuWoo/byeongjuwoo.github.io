@@ -103,7 +103,7 @@ export const aboutMe: AboutMe = {
         ,
     
   email: "woobj903@postech.ac.kr",
-  // imageUrl: "/images/me_v3_2.png",
+  imageUrl: "/images/profile_3.jpg",
   googleScholarUrl: "https://scholar.google.co.kr/citations?user=GuMKuJwAAAAJ&hl=en",
   githubUsername: "ByeongJuWoo",
   linkedinUsername: "byeongju-woo",

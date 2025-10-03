@@ -9,6 +9,7 @@ export function PublicationEntry({
   publication: Publication;
 }) {
   const baseName = "Byeonghyun Pak";
+  const highlightNames = ["Byeongju Woo", "ByuengJu Woo"];
 
   const renderAuthors = (authors: string) => {
     const names = authors.split(", ");
@@ -18,7 +19,9 @@ export function PublicationEntry({
           const match = name.match(/^(.*?)(\*+)?$/);
           const raw = match?.[1] || name;
           const stars = match?.[2] || "";
-          const isHighlighted = raw === baseName;
+          // const isHighlighted = raw === baseName;
+          const isHighlighted = highlightNames.includes(raw);
+
 
           return (
             <React.Fragment key={i}>
