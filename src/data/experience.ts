@@ -31,7 +31,6 @@ export const experienceData: Experience[] = [
       // "Published a first-author paper at ECCV'24, proposing a novel framework for Domain Generalized Semantic Segmentation that achieved state-of-the-art results on public benchmarks.",
       // "Developed deep learning models for robustly detecting data-scarce military assets (e.g., fighter jets) in real-world infrared (IR) imagery.",
       "Investigated and improved domain generalization for reliable infrared imagery object detection in data-scarce settings (1 publication in ECCV 2024).",
-      "Constructed synthetic datasets for rare/low-visibility targets via diffusion models and accelerated the generation process (1 publication in NeurIPS 2025).",
     ]
   },
   // {

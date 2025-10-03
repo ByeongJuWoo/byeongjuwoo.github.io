@@ -63,8 +63,8 @@ export const aboutMe: AboutMe = {
     // ",
     // version 3
     "I am a first lieutenant in the Republic of Korea Air Force (ROKAF), currently serving as a research officer \
-    at the <a href='https://www.add.re.kr/eps'>Agency for Defense Development (ADD)</a>, the Korean counterpart\
-    to the U.S. DARPA. I am fortunate to work under the guidance of <a href='https://web.eecs.umich.edu/~stellayu/>Prof. Stella X. Yu</a>\
+    at the <a href='https://www.add.re.kr/eps'>Agency for Defense Development (ADD)</a>, the Korean counterpart \
+    to the U.S. DARPA. I am fortunate to work under the guidance of <a href='https://web.eecs.umich.edu/~stellayu/'>Prof. Stella X. Yu</a> \
     from the <a href='https://umich.edu/'>University of Michigan</a> and <a href='https://sites.google.com/view/sangwoomo'>Prof. Sangwoo Mo</a> \
     from <a href='https://www.postech.ac.kr/eng/'>POSTECH</a>. Previously, I completed my bachelor's degree (<em>Summa Cum Laude</em>) \
     in Computer Science and Engineering at <a href='https://www.postech.ac.kr/eng/'>POSTECH</a>.\
