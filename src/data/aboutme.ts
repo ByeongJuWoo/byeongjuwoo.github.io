@@ -110,7 +110,7 @@ export const aboutMe: AboutMe = {
   twitterUsername: "byeongju903",
   // blogUrl: "https://",
   // cvUrl: "https://byeonghyunpak.github.io/CV_byeonghyunpak.pdf",
-  cvUrl: "/CV.pdf",
+  cvUrl: "/cv_2.0.pdf",
   // rsUrl: "/CV_byeonghyunpak.pdf",
   institutionUrl: "https://www.add.re.kr/eps",
   // altName: "",
