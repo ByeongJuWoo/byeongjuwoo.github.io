@@ -99,7 +99,23 @@ export const aboutMe: AboutMe = {
     //     for continuous scene representations from sensor observations.\
     // </div>\
     //     "
-    "TBA"
+    "<div style='margin-bottom: 0.5rem;'>\
+     My research interests lie in computer vision and deep learning, with a particular focus on developing systems that emulate human cognitive processes. \
+     I aim to create machines that perceive not merely to recognize, but to truly comprehend the physical world. \
+     Accordingly, I am currently focusing on the following topics, among others:\
+    </div>\
+    <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
+      Grounded visual understanding \
+    </div> \
+    <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'> \
+      Structured visual priors \
+    </div>\
+    <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'> \
+      Robust generalization \
+    </div>\
+    <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'> \
+      Context-aware representation \
+    </div>\ "
         ,
     
   email: "woobj903@postech.ac.kr",
