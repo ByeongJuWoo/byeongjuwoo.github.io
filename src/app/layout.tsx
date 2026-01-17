@@ -26,7 +26,7 @@ const ptSerif = PT_Serif({
 });
 
 // app/layout.tsx
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://byeonghyunpak.github.io/";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://byeongjuwoo.github.io/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
