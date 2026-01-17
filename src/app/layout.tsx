@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Serif, PT_Serif } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Serif, PT_Serif, Inter } from "next/font/google";
 import "./globals.css";
 import { aboutMe } from "@/data/aboutme";
 import { customMetadata } from "@/data/title-description";
@@ -25,6 +25,12 @@ const ptSerif = PT_Serif({
   weight: ["400", "700"],
 });
 
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  // weight: ["400", "700"],
+});
+
 // app/layout.tsx
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://byeongjuwoo.github.io/";
 
@@ -44,7 +50,7 @@ export const metadata: Metadata = {
     description: customMetadata.description || aboutMe.description,
     images: [
       {
-        url: "/images/me_v2_2.png",
+        url: "/images/profile_3.jpg",
         width: 374,
         height: 267,
         alt: `${aboutMe.name} – preview`,
@@ -55,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: customMetadata.title || aboutMe.name,
     description: customMetadata.description || aboutMe.description,
-    images: ["/images/me_v2_2.png"],
+    images: ["/images/profile_3.jpg"],
   },
 };
 
@@ -68,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${notoSerif.variable} ${ptSerif.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${notoSerif.variable} ${ptSerif.variable} ${inter.variable} antialiased`}
       >
         <main className="">{children}</main>
         {/* <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-[#FFFCF8]"> */}
