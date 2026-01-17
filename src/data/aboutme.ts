@@ -49,25 +49,21 @@ export const aboutMe: AboutMe = {
   // Note that links work in the description
   description:
     // "I'm a final-year <a href='https://www.stanford.edu'>PhD candidate</a> working at the intersection of causal inference and machine learning. My research focuses on developing robust, interpretable systems that can reason about cause and effect in complex environments.",
-    // version 1
-    // "I am a First Lieutenant in the <a href='https://www.army.mil.kr/english/index..do'>Republic of Korea Army (ROKA)</a> \
-    // and currently serve as a Research Officer at the <a href='https://www.add.re.kr/eps'>Agency for Defense Development (ADD)</a>, \
-    // which is the Korean counterpart to the U.S. DARPA.\
-    // My current work involves robustly detecting data-scarce objects, like fighter jets and mobile launchers, \
-    // in infrared imagery by mitigating the synthetic-to-real domain gap and incorporating open-world semantic knowledge.\
+    // until 26.01.16
+    // "I am a first lieutenant in the Republic of Korea Air Force (ROKAF), currently serving as a research officer \
+    // at the <a href='https://www.add.re.kr/eps'>Agency for Defense Development (ADD)</a>, the Korean counterpart \
+    // to the U.S. DARPA. I am fortunate to work under the guidance of <a href='https://web.eecs.umich.edu/~stellayu/'>Prof. Stella X. Yu</a> \
+    // from the <a href='https://umich.edu/'>University of Michigan</a> and <a href='https://sites.google.com/view/sangwoomo'>Prof. Sangwoo Mo</a> \
+    // from <a href='https://www.postech.ac.kr/eng/'>POSTECH</a>. Previously, I completed my bachelor's degree (<em>Summa Cum Laude</em>) \
+    // in Computer Science and Engineering at <a href='https://www.postech.ac.kr/eng/'>POSTECH</a>.\
     // ",
-    // version 2
-    // "I am a research officer at the <a href='https://www.add.re.kr/eps'>Agency for Defense Development (ADD)</a>—the nation's DARPA equivalent—while\
-    // also serving as a first lieutenant in the <a href='https://www.army.mil.kr/english/index..do'>Republic of Korea Army</a>.\
-    // Previously, I received my bachelor's degree from the College of Transdisciplinary Studies at <a href='https://www.dgist.ac.kr/'>DGIST</a>.\
-    // ",
-    // version 3
-    "I am a first lieutenant in the Republic of Korea Air Force (ROKAF), currently serving as a research officer \
-    at the <a href='https://www.add.re.kr/eps'>Agency for Defense Development (ADD)</a>, the Korean counterpart \
-    to the U.S. DARPA. I am fortunate to work under the guidance of <a href='https://web.eecs.umich.edu/~stellayu/'>Prof. Stella X. Yu</a> \
-    from the <a href='https://umich.edu/'>University of Michigan</a> and <a href='https://sites.google.com/view/sangwoomo'>Prof. Sangwoo Mo</a> \
-    from <a href='https://www.postech.ac.kr/eng/'>POSTECH</a>. Previously, I completed my bachelor's degree (<em>Summa Cum Laude</em>) \
-    in Computer Science and Engineering at <a href='https://www.postech.ac.kr/eng/'>POSTECH</a>.\
+    // from 26.01.17
+    "I am an incoming Ph.D. student in Computer Science and Engineering at the University of Michigan, \
+    advised by Prof. <a href='https://web.eecs.umich.edu/~stellayu/'>Stella X. Yu</a>, starting Fall 2026. \
+    I am currently serving as a First Lieutenant in the Republic of Korea Air Force (ROKAF) \
+    and working as a research officer at the Agency for Defense Development (ADD), the Korean counterpart to the U.S. DARPA. \
+    Previously, I completed my bachelor's degree (<em>Summa Cum Laude</em>) \
+    in Computer Science and Engineering at POSTECH. \
     ",
   researchInterests:  
     // "\
