@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Noto_Serif, PT_Serif, Inter } from "next/font/google
 import "./globals.css";
 import { aboutMe } from "@/data/aboutme";
 import { customMetadata } from "@/data/title-description";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,20 +29,18 @@ const ptSerif = PT_Serif({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  // weight: ["400", "700"],
 });
 
 // app/layout.tsx
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://byeongjuwoo.github.io/";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://byeongjuwoo.github.io/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: customMetadata.title || aboutMe.name,
   description: customMetadata.description || aboutMe.description,
   icons: {
-    icon: [
-      { url: "/male-technologist.png", sizes: "any" },
-    ],
+    icon: [{ url: "/male-technologist.png", sizes: "any" }],
   },
   openGraph: {
     type: "website",
@@ -65,7 +64,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,9 +75,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${notoSerif.variable} ${ptSerif.variable} ${inter.variable} antialiased`}
       >
         <main className="">{children}</main>
-        {/* <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-[#FFFCF8]"> */}
+
         <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-[#FFFFFF]">
-          <div className="flex flex-row mx-auto max-w-7xl px-6 py-12 md:flex md:items-start md:justify-between ">
+          <div className="flex flex-row mx-auto max-w-7xl px-6 py-12 md:flex md:items-start md:justify-between">
             <div className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
               <p>
                 © {new Date().getFullYear()} {aboutMe.name}.
@@ -90,8 +88,25 @@ export default function RootLayout({
                 </p>
               )}
             </div>
-            <div className="mb-4">
-              <p className="text-sm text-neutral-500 dark:text-neutral-500 justify">
+
+            {/* Right side: Map + Built with (hidden on mobile) */}
+            <div className="mb-4 hidden sm:flex items-end gap-4">
+              <a
+                href="https://mapmyvisitors.com/web/1c1vt"
+                title="Visit tracker"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-80 hover:opacity-100 transition"
+              >
+                <img
+                  src="https://mapmyvisitors.com/map.png?cl=323232&w=271&t=tt&d=XX51c4aOOh2OQm10KNfLEwc4iyOnS0YF5455gNsRRK4&co=ffffff&ct=323232"
+                  alt="Visit tracker"
+                  loading="lazy"
+                  className="w-[110px] h-auto"
+                />
+              </a>
+
+              <p className="text-sm text-neutral-500 dark:text-neutral-500 whitespace-nowrap">
                 Built with{" "}
                 <a
                   href="https://github.com/tovacinni/research-website-template"
