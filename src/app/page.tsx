@@ -38,7 +38,7 @@ export default function Home() {
             {aboutMe.description && (
               <section>
                 <p
-                  className="font-serif text-md leading-relaxed text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600 mb-5"
+                  className="font-serif text-md leading-relaxed text-zinc-800 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600 mb-5"
                   dangerouslySetInnerHTML={{ __html: aboutMe.description }}
                 />
                 {/* Research Interests - collapsible with <details> */}
