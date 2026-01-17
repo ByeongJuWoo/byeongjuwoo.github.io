@@ -77,47 +77,23 @@ export default function RootLayout({
         <main className="">{children}</main>
 
         <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-[#FFFFFF]">
-          <div className="flex flex-row mx-auto max-w-7xl px-6 py-12 md:flex md:items-start md:justify-between">
-            <div className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
-              <p>
-                © {new Date().getFullYear()} {aboutMe.name}.
-              </p>
-              {aboutMe.secretDescription && (
-                <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-4">
-                  {aboutMe.secretDescription}
-                </p>
-              )}
-            </div>
+          <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">
+            <span>
+              © {new Date().getFullYear()} {aboutMe.name}.
+            </span>
 
-            {/* Right side: Map + Built with (hidden on mobile) */}
-            <div className="mb-4 hidden sm:flex items-end gap-4">
+            <span className="whitespace-nowrap">
+              Built with{" "}
               <a
-                href="https://mapmyvisitors.com/web/1c1vt"
-                title="Visit tracker"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-80 hover:opacity-100 transition"
+                href="https://github.com/tovacinni/research-website-template"
+                className="underline hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors"
               >
-                <img
-                  src="https://mapmyvisitors.com/map.png?cl=323232&w=271&t=tt&d=XX51c4aOOh2OQm10KNfLEwc4iyOnS0YF5455gNsRRK4&co=ffffff&ct=323232"
-                  alt="Visit tracker"
-                  loading="lazy"
-                  className="w-[110px] h-auto"
-                />
+                research-website-template
               </a>
-
-              <p className="text-sm text-neutral-500 dark:text-neutral-500 whitespace-nowrap">
-                Built with{" "}
-                <a
-                  href="https://github.com/tovacinni/research-website-template"
-                  className="underline hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors"
-                >
-                  research-website-template
-                </a>
-              </p>
-            </div>
+            </span>
           </div>
         </footer>
+
       </body>
     </html>
   );
