@@ -118,7 +118,7 @@ export const aboutMe: AboutMe = {
     </div>\ "
         ,
     
-  email: "woobj903@postech.ac.kr",
+  email: "byeongju@umich.edu",
   imageUrl: "/images/profile_3.jpg",
   googleScholarUrl: "https://scholar.google.co.kr/citations?user=GuMKuJwAAAAJ&hl=en",
   githubUsername: "ByeongJuWoo",
@@ -126,7 +126,7 @@ export const aboutMe: AboutMe = {
   twitterUsername: "byeongju903",
   // blogUrl: "https://",
   // cvUrl: "https://byeonghyunpak.github.io/CV_byeonghyunpak.pdf",
-  cvUrl: "/cv_2.0.pdf",
+  cvUrl: "/bjwoo_umich_CV.pdf",
   // rsUrl: "/CV_byeonghyunpak.pdf",
   institutionUrl: "https://www.add.re.kr/eps",
   // altName: "",

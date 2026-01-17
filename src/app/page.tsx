@@ -176,22 +176,6 @@ export default function Home() {
                   return null;
               }
             })}
-
-            {/* Visitor Map (Map My Visitors) */}
-            <div className="pt-10 mt-16 border-t border-zinc-200 flex justify-center">
-              <a
-                href="https://mapmyvisitors.com/web/1c1vt"
-                title="Visit tracker"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://mapmyvisitors.com/map.png?d=XX51c4aOOh2OQm10KNfLEwc4iyOnS0YF5455gNsRRK4&cl=ffffff"
-                  alt="Visit tracker"
-                  loading="lazy"
-                />
-              </a>
-            </div>
           </div>
         </div>
       </div>
