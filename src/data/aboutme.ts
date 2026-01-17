@@ -59,7 +59,7 @@ export const aboutMe: AboutMe = {
     // ",
     // from 26.01.17
     "I am an incoming Ph.D. student in Computer Science and Engineering at the University of Michigan, \
-    advised by Prof. <a href='https://web.eecs.umich.edu/~stellayu/'>Stella X. Yu</a>, starting Fall 2026. \
+    advised by Prof. <a href='https://web.eecs.umich.edu/~stellayu/'>Stella X. Yu</a>, starting Fall 2026.<br /><br /> \
     I am currently serving as a First Lieutenant in the Republic of Korea Air Force (ROKAF) \
     and working as a research officer at the Agency for Defense Development (ADD), the Korean counterpart to the U.S. DARPA. \
     Previously, I completed my bachelor's degree (<em>Summa Cum Laude</em>) \
@@ -120,7 +120,7 @@ export const aboutMe: AboutMe = {
   githubUsername: "ByeongJuWoo",
   linkedinUsername: "byeongju-woo",
   twitterUsername: "byeongju903",
-  // blogUrl: "https://",
+  blogUrl: "https://innate-ship-06e.notion.site/Byeongju-Woo-2eb36f71c91e803982c5d5b7329b53b0?pvs=74",
   // cvUrl: "https://byeonghyunpak.github.io/CV_byeonghyunpak.pdf",
   cvUrl: "/bjwoo_umich_CV.pdf",
   // rsUrl: "/CV_byeonghyunpak.pdf",
