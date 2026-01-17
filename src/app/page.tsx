@@ -17,7 +17,7 @@ import { OngoingData } from "@/data/ongoing";
 export default function Home() {
   return (
     // <div className="min-h-screen bg-[#FFFCF8]">
-      <div className="min-h-screen bg-[#FFFFFF]">
+    <div className="min-h-screen bg-[#FFFFFF]">
       {/* Don't have a great call on whether max-w-screen-xl is better */}
       {/* <div className="max-w-screen-lg mx-auto px-8 py-24"> */}
       <div className="max-w-screen-lg mx-auto px-8 py-16">
@@ -33,7 +33,7 @@ export default function Home() {
 
           {/* Right Column - Scrolling Content */}
           {/* <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-12"> */}
-            <div className="col-span-12 md:col-span-9 md:col-start-6 space-y-12">
+          <div className="col-span-12 md:col-span-9 md:col-start-6 space-y-12">
             {/* About section is typically first */}
             {aboutMe.description && (
               <section>
@@ -47,11 +47,14 @@ export default function Home() {
                     <summary className="cursor-pointer select-none font-serif text-md text-zinc-700 mb-1 tracking-wide font-bold uppercase">
                       Research Interests
                     </summary>
-                    <div className="mt-2 font-serif text-md leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: aboutMe.researchInterests }} />
+                    <div
+                      className="mt-2 font-serif text-md leading-relaxed"
+                      dangerouslySetInnerHTML={{
+                        __html: aboutMe.researchInterests,
+                      }}
+                    />
                   </details>
                 )}
-                
               </section>
             )}
 
@@ -84,7 +87,10 @@ export default function Home() {
                         </h2>
                         <div className="space-y-6">
                           {educationData.map((education, index) => (
-                            <EducationEntry key={index} education={education} />
+                            <EducationEntry
+                              key={index}
+                              education={education}
+                            />
                           ))}
                         </div>
                       </section>
@@ -157,7 +163,10 @@ export default function Home() {
                         </h2>
                         <div className="space-y-12">
                           {portfolioData.map((portfolio, index) => (
-                            <PortfolioEntry key={index} portfolio={portfolio} />
+                            <PortfolioEntry
+                              key={index}
+                              portfolio={portfolio}
+                            />
                           ))}
                         </div>
                       </section>
@@ -167,6 +176,22 @@ export default function Home() {
                   return null;
               }
             })}
+
+            {/* Visitor Map (Map My Visitors) */}
+            <div className="pt-10 mt-16 border-t border-zinc-200 flex justify-center">
+              <a
+                href="https://mapmyvisitors.com/web/1c1vt"
+                title="Visit tracker"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://mapmyvisitors.com/map.png?d=XX51c4aOOh2OQm10KNfLEwc4iyOnS0YF5455gNsRRK4&cl=ffffff"
+                  alt="Visit tracker"
+                  loading="lazy"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
