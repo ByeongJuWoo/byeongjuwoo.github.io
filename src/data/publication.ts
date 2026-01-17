@@ -40,7 +40,7 @@ export const publicationData: Publication[] = [
     year: "2023",
     conference: "CVPR",
     title: "Human Pose Estimation in Extremely Low-Light Conditions",
-    authors: "Sohyun Lee*, Jaesung Rim*, Boseung Jeong, Geonu Kim, ByungJu Woo, Haechan Lee, Sunghyun Cho, Suha Kwak",
+    authors: "Sohyun Lee*, Jaesung Rim*, Boseung Jeong, Geonu Kim, Byungju Woo, Haechan Lee, Sunghyun Cho, Suha Kwak",
     paperUrl: "https://arxiv.org/abs/2303.15410",
     codeUrl: "https://github.com/sohyun-l/ExLPose",
     pageUrl: "https://cg.postech.ac.kr/research/ExLPose/",

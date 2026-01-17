@@ -8,7 +8,7 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
     <div className="mb-6">
       {/* First line: title left, date right */}
       <div className="flex justify-between items-baseline">
-        <h3 className="text-lg font-serif text-zinc-900">{experience.title}</h3>
+        <h3 className="text-md font-serif text-zinc-900">{experience.title}</h3>
         <span className="text-sm text-zinc-500">{formattedDate}</span>
       </div>
 

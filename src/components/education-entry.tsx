@@ -5,7 +5,7 @@ export function EducationEntry({ education }: { education: Education }) {
     <div>
       <div className="grid grid-cols-4 gap-x-2 mb-2">
         <div className="col-span-4">
-          <h3 className="text-lg mb-1 font-serif">{education.institution}</h3>
+          <h3 className="text-md mb-1 font-serif">{education.institution}</h3>
           <div className="flex flex-row gap-2 justify-between text-sm text-zinc-500 mb-1">
             <span>{education.degree}</span>
             <span>{education.date}</span>

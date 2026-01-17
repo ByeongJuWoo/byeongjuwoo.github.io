@@ -9,7 +9,7 @@ export function PublicationEntry({
   publication: Publication;
 }) {
   // const baseName = "Byeonghyun Pak";
-  const highlightNames = ["Byeongju Woo", "ByungJu Woo"];
+  const highlightNames = ["Byeongju Woo", "Byungju Woo"];
 
   const renderAuthors = (authors: string) => {
     const names = authors.split(", ");
