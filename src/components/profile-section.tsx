@@ -35,7 +35,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
         </div>
       )}
       <div className="w-2/3 md:w-full">
-        <h1 className="font-serif text-2xl font-light tracking-wide mb-3">
+        <h1 className="font-noto-serif text-2xl font-normal tracking-wide mb-3">
           {aboutMe.name}
         </h1>
         {aboutMe.altName && (
