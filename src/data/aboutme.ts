@@ -122,7 +122,7 @@ export const aboutMe: AboutMe = {
   twitterUsername: "byeongju903",
   blogUrl: "https://innate-ship-06e.notion.site/Byeongju-Woo-2eb36f71c91e803982c5d5b7329b53b0?pvs=74",
   // cvUrl: "https://byeonghyunpak.github.io/CV_byeonghyunpak.pdf",
-  cvUrl: "/CV_2026_02_01.pdf",
+  cvUrl: "/CV_26_02_01.pdf",
   // rsUrl: "/CV_byeonghyunpak.pdf",
   institutionUrl: "https://www.add.re.kr/eps",
   // altName: "",
