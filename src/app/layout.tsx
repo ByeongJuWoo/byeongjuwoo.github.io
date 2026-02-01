@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   title: customMetadata.title || aboutMe.name,
   description: customMetadata.description || aboutMe.description,
   icons: {
-    icon: [{ url: "/male-technologist.png", sizes: "any" }],
+    icon: [{ url: "/images/umich.png", sizes: "any" }],
   },
   openGraph: {
     type: "website",

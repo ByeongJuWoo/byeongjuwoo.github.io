@@ -7,7 +7,7 @@ export const customMetadata: CustomMetadata = {
   // If you want a custom title or description you can add it here.
   // title: "My Custom Title",
   // description: "My Custom Description",
-  title: "About Byeongju",
+  title: "Byeongju Woo",
   // description: "\
   // I am a Research Officer at the Agency for Defense Development, Korea's national defense R&D agency (akin to DARPA)\
   // and a First Lieutenant in the Republic of Korea Army.\
