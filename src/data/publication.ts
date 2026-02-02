@@ -25,6 +25,18 @@ export const publicationData: Publication[] = [
   //   // imageUrl: "/images/tortoise_hare.gif",
   // },
   {
+    year: "",
+    conference: "In submission",
+    title: "Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding",
+    authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
+    paperUrl: "https://arxiv.org/pdf/2407.09033v1",
+    codeUrl: "https://github.com/ByeongHyunPak/tqdm",
+    pageUrl: "https://byeonghyunpak.github.io/tqdm/",
+    //bibtex: "https://arxiv.org/abs/2409.15476.bib",
+    // tldr: "Textual object queries enable domain-invariant semantic pixel grouping, allowing models to generalize to entirely unseen domains.",
+    imageUrl: "/images/CAFT.png"
+  },
+  {
     year: "2024",
     conference: "ECCV",
     title: "Textual Query-Driven Mask Transformer for Domain Generalized Segmentation",
