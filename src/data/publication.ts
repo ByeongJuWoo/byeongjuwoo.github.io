@@ -29,9 +29,9 @@ export const publicationData: Publication[] = [
     conference: "In submission",
     title: "Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding",
     authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
-    paperUrl: "https://arxiv.org/pdf/2407.09033v1",
-    codeUrl: "https://github.com/ByeongHyunPak/tqdm",
-    pageUrl: "https://byeonghyunpak.github.io/tqdm/",
+    paperUrl: "https://arxiv.org/pdf/2602.02977",
+    codeUrl: "https://github.com/ByeongJuWoo/CAFT",
+    pageUrl: "https://byeongju.me/CAFT/",
     //bibtex: "https://arxiv.org/abs/2409.15476.bib",
     // tldr: "Textual object queries enable domain-invariant semantic pixel grouping, allowing models to generalize to entirely unseen domains.",
     imageUrl: "/images/CAFT.png"
