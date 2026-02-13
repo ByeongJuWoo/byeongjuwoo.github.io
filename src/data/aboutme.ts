@@ -19,6 +19,7 @@ export interface AboutMe {
   institutionUrl?: string;
   addressOffice?: string;
   addressURL?: string;
+  lastUpdated?: string;
 }
 
 // export const aboutMe: AboutMe = {
@@ -129,4 +130,5 @@ export const aboutMe: AboutMe = {
   // secretDescription: "I like dogs.",
   addressOffice:"Daejeon, Republic of Korea",
   addressURL:"https://maps.app.goo.gl/UDcczVBM8Kp2APpm8",
+  lastUpdated: "February 13, 2026",
 };

@@ -183,6 +183,11 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             </>
           )} */}
         </div>
+        {aboutMe.lastUpdated && (
+          <p className="mt-6 text-xs text-zinc-500 tracking-wide">
+            Last updated: {aboutMe.lastUpdated}
+          </p>
+        )}
       </div>
     </div>
   );
