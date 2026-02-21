@@ -174,7 +174,7 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
@@ -188,8 +188,31 @@
       </h2>
     </div>
   </div>
-</section>
+</section> -->
 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- TLDR -->
+      <h2 class="subtitle has-text-left">
+        <strong>TL;DR:</strong>
+        TBD
+      </h2>
+      <!-- Teaser Image -->
+      <!-- <img src="./static/images/teaser.png"
+           alt="Teaser Image"
+           style="width:100%; margin: 20px 0; border-radius:12px;"> -->
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+
+      <p class="has-text-centered" style="font-size:0.95rem; color:#555;">
+        TBD
+      </p>
+    </div>
+  </div>
+</section>
 
 <!-- <section class="hero is-light is-small">
   <div class="hero-body">
@@ -246,7 +269,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <section class="section">
@@ -256,37 +279,32 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Large vision-language models such as CLIP struggle with long captions because they align images
+            and texts as undifferentiated wholes. Fine-grained
+            vision-language understanding requires hierarchical semantics capturing both global context and
+            localized details across visual and textual domains.
+            Yet linguistic hierarchies from syntax or semantics rarely match visual organization, and purely
+            visual hierarchies tend to fragment scenes into
+            appearance-driven parts without semantic focus
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
+            We propose CAFT (Cross-domain Alignment of Forests and Trees), a hierarchical image-text representation learning framework that aligns global
+            and local semantics across images and long captions without pixel-level supervision. Coupling
+            a fine-to-coarse visual encoder with a hierarchical text transformer, it uses a hierarchical alignment loss that matches whole images with whole
+            captions while biasing region-sentence correspondences, so that coarse semantics are built from
+            fine-grained evidence rather than from aggregation untethered to part-level grounding.
           </p>
           <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Trained on 30M image-text pairs, CAFT achieves
+            state-of-the-art performance on six long-text retrieval benchmarks and exhibits strong scaling behavior. Experiments show that hierarchical crossdomain alignment enables fine-grained, visually
+            grounded image-text representations to emerge
+            without explicit region-level supervision.
           </p>
         </div>
       </div>
     </div>
 
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
@@ -294,11 +312,11 @@
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
-
+<!--
 <section class="section">
   <div class="container is-max-desktop">
 
