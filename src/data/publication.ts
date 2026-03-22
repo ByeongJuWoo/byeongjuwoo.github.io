@@ -25,6 +25,18 @@ export const publicationData: Publication[] = [
   //   // imageUrl: "/images/tortoise_hare.gif",
   // },
   {
+    year: "2026",
+    conference: "CVPR Workshops",
+    title: " Pixel-level Scene Understanding in One Token: Visual States Need What-is-Where Composition",
+    authors: "Seokmin Lee, Yunghee Lee, Byeonghyun Pak, Byeongju Woo",
+    paperUrl: "https://arxiv.org/pdf/2603.13904",
+    codeUrl: "https://github.com/SeokminLee-Chris/CroBo",
+    pageUrl: "https://seokminlee-chris.github.io/CroBo-ProjectPage/",
+    //bibtex: "https://arxiv.org/abs/2409.15476.bib",
+    // tldr: "Textual object queries enable domain-invariant semantic pixel grouping, allowing models to generalize to entirely unseen domains.",
+    imageUrl: "/images/CroBo.png"
+  },
+  {
     year: "",
     conference: "In submission",
     title: "Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding",
