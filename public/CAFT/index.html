@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="CAFT: a hierarchical image-text representation learning framework that aligns global and local semantics across images and long captions without pixel-level supervision.">
+        content="CAFT: a vision-language model that jointly learns local text-region alignment at intermediate representations and global image-text alignment at the final representation.">
   <meta name="keywords" content="CAFT, vision-language, long captions, hierarchical alignment, image-text retrieval">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CAFT: Aligning Forest and Trees in Images and Long Captions</title>
@@ -22,12 +22,7 @@
   <style>
     html { scroll-behavior: smooth; }
 
-    .hero.is-white { background: #ffffff; }
-
-    .publication-title {
-      font-family: 'Google Sans', sans-serif;
-      line-height: 1.3;
-    }
+    .publication-title { font-family: 'Google Sans', sans-serif; line-height: 1.3; }
     .publication-authors { font-family: 'Google Sans', sans-serif; }
     .publication-authors a { color: #4f46e5 !important; }
     .publication-authors a:hover { text-decoration: underline; }
@@ -46,20 +41,13 @@
       color: #111827;
     }
 
-    .paper-figure {
-      margin: 1.5rem 0;
-      text-align: center;
-    }
-    .paper-figure img {
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
+    .paper-figure { margin: 1.5rem 0; text-align: center; }
+    .paper-figure img { max-width: 100%; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
     .paper-figure figcaption {
       margin-top: 0.85rem;
       font-size: 0.88rem;
       color: #6b7280;
-      line-height: 1.6;
+      line-height: 1.65;
       text-align: left;
     }
     .paper-figure figcaption strong { color: #374151; }
@@ -169,32 +157,19 @@
   </div>
 </section>
 
-<!-- ========== MOTIVATION ========== -->
-<section class="paper-section" style="background: #fafafa;">
+<!-- ========== FIG 2 — before abstract, no section header ========== -->
+<section class="paper-section" style="background: #fafafa; padding-top: 2rem; padding-bottom: 2rem;">
   <div class="container is-max-desktop">
-
-    <div class="tldr-box">
-      <strong>TL;DR</strong>&nbsp; We propose <strong>CAFT</strong>
-      (<strong>C</strong>ross-domain <strong>A</strong>lignment of <strong>F</strong>orests and
-      <strong>T</strong>rees), a hierarchical image–text representation learning framework
-      that aligns global scenes (<em>forests</em>) with local image regions (<em>trees</em>),
-      enabling fine-grained visually grounded understanding from long captions —
-      without any pixel-level supervision.
-    </div>
-
     <figure class="paper-figure">
-      <img src="static/images/fig1_problem.png"
-           alt="Long-text retrieval failure of baseline vs. CAFT.">
+      <img src="static/images/fig2_highlevel_idea.png"
+           alt="Hierarchical vision-language learning diagram.">
       <figcaption>
-        <strong>Figure 1. The long-text retrieval problem.</strong>
-        Given a detailed multi-sentence query about a red double-decker bus (route 38),
-        a standard vision-language model (top) retrieves semantically unrelated images
-        — a red hatchback, a crowd, a stone building — because it treats the entire caption
-        as a single undifferentiated embedding. CAFT (bottom) correctly identifies the target
-        by aligning individual sentence semantics to the corresponding image regions.
+        <strong>Figure 2:</strong> Hierarchical vision-language learning.
+        A correct understanding of the whole is established by understanding its constituent parts.
+        We place part-level alignment (<em>trees</em>) beneath whole-level alignment (<em>forest</em>),
+        so that whole semantics are built from localized part semantics.
       </figcaption>
     </figure>
-
   </div>
 </section>
 
@@ -204,143 +179,120 @@
     <h2 class="section-title has-text-centered">Abstract</h2>
     <div class="abstract-text">
       <p>
-        Large vision-language models such as CLIP struggle with long captions because they align images
-        and texts as undifferentiated wholes. Fine-grained vision-language understanding requires
-        hierarchical semantics capturing both global context and localized details across visual and
-        textual domains. Yet linguistic hierarchies from syntax or semantics rarely match visual
-        organization, and purely visual hierarchies tend to fragment scenes into appearance-driven
-        parts without semantic focus.
+        Vision-language models such as CLIP often struggle to faithfully understand long,
+        detail-rich captions, relying on dominant scene cues while overlooking fine-grained
+        visual evidence. We propose a hierarchical vision-language learning principle for
+        understanding scenes as part-to-whole compositions: before forming a whole-scene
+        representation, a model should uncover what semantic parts appear where in the image.
       </p>
       <p>
-        We propose <strong>CAFT</strong> (<strong>C</strong>ross-domain <strong>A</strong>lignment of
-        <strong>F</strong>orests and <strong>T</strong>rees), a hierarchical image-text representation
-        learning framework that aligns global and local semantics across images and long captions
-        without pixel-level supervision. Coupling a fine-to-coarse visual encoder with a hierarchical
-        text transformer, it uses a hierarchical alignment loss that matches whole images with whole
-        captions while biasing region-sentence correspondences, so that coarse semantics are built
-        from fine-grained evidence rather than from aggregation untethered to part-level grounding.
+        To this end, we propose <strong>CAFT</strong> (Cross-domain Alignment of Forests and
+        Trees), a vision-language model that jointly learns local text-region alignment at
+        intermediate representations and global image-text alignment at the final representation.
+        Exploiting the organization of long captions, where local descriptions often correspond
+        to scene parts, CAFT employs a fine-to-coarse image encoder and a part-whole text
+        encoder to discover localized part semantics and progressively compose them into a
+        global image-text representation.
       </p>
       <p>
-        Trained on 30M image-text pairs, CAFT achieves state-of-the-art performance on six long-text
-        retrieval benchmarks and exhibits strong scaling behavior. Experiments show that hierarchical
-        cross-domain alignment enables fine-grained, visually grounded image-text representations
-        to emerge without explicit region-level supervision.
+        Trained on 30M image-text pairs, CAFT achieves state-of-the-art performance on six
+        long-text retrieval benchmarks and exhibits strong scaling behavior. Experiments show
+        that CAFT learns fine-grained representations that localize textual semantics in image
+        regions without explicit region-level supervision.
       </p>
     </div>
   </div>
 </section>
 
-<!-- ========== HIGH-LEVEL IDEA ========== -->
+<!-- ========== MOTIVATION (Fig 1) ========== -->
 <section class="paper-section" style="background: #fafafa;">
   <div class="container is-max-desktop">
-    <h2 class="section-title has-text-centered">Key Idea</h2>
-
-    <p style="font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
-      Long captions have a natural two-level structure: individual sentences describe specific image
-      regions (<em>trees</em>), while the full caption summarizes the global scene (<em>forest</em>).
-      CAFT exploits this structure by learning representations at both granularities simultaneously
-      — aligning parts to parts and wholes to wholes — so that global semantics are forced to emerge
-      from, and remain grounded in, local evidence.
-    </p>
 
     <figure class="paper-figure">
-      <img src="static/images/fig2_highlevel_idea.png"
-           alt="High-level idea: whole-level and part-level alignment.">
+      <img src="static/images/fig1_problem.png"
+           alt="Fine-grained image-text retrieval challenge.">
       <figcaption>
-        <strong>Figure 2. High-level idea.</strong>
-        CAFT performs cross-domain alignment at two levels simultaneously.
-        At the <em>whole level</em>, the complete image embedding is aligned with the full caption embedding
-        (double-headed arrow, top). At the <em>part level</em>, visual region features are aligned with
-        individual sentence embeddings (colored arrows, bottom). Both the visual and language encoders
-        are structured so that whole representations compose from their constituent parts — mirroring
-        the hierarchical structure of the data.
+        <strong>Figure 1:</strong> Fine-grained image-text retrieval requires composing local
+        evidence into global understanding. (a) Among visually similar bus images, only the
+        correct image contains all entities described in the long caption, including the hatchback
+        car and the stone building. Correct retrieval therefore requires identifying what appears
+        where in the image and using this localized evidence to infer the full scene composition.
+        (b) Under this setting, our model retrieves the correct image while the baseline fails.
       </figcaption>
     </figure>
 
   </div>
 </section>
 
-<!-- ========== METHOD ========== -->
+<!-- ========== METHOD (Fig 3) ========== -->
 <section class="paper-section">
   <div class="container is-max-desktop">
     <h2 class="section-title has-text-centered">Method</h2>
 
-    <p style="font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
-      CAFT consists of two paired branches trained end-to-end with a hierarchical contrastive objective.
-      The <strong>Vision Branch</strong> builds a fine-to-coarse hierarchy of visual representations,
-      from superpixel-level tokens up to a global scene embedding.
-      The <strong>Language Branch</strong> encodes long captions at two levels:
-      a Part-text Transformer embeds each sentence independently, and
-      a Whole-text Transformer produces a unified caption embedding.
-      A hierarchical alignment loss jointly optimizes whole-level
-      (image ↔ caption) and part-level (region ↔ sentence) correspondences.
-    </p>
+    <div class="abstract-text" style="margin-bottom: 1.5rem;">
+      <p>
+        CAFT jointly learns local text-region alignment at intermediate representations
+        and global image-text alignment at the final representation.
+        The vision branch performs fine-to-coarse scene parsing starting from superpixel tokens,
+        while the language branch encodes long captions hierarchically via a Part-text Transformer
+        and a Whole-text Transformer. A hierarchical cross-domain alignment objective ties the two
+        branches together at matched granularities.
+      </p>
+    </div>
 
     <figure class="paper-figure">
       <img src="static/images/fig3_framework.png"
-           alt="CAFT framework: Vision Branch and Language Branch.">
+           alt="Overview of the CAFT framework.">
       <figcaption>
-        <strong>Figure 3. CAFT framework.</strong>
-        <em>Vision Branch (left):</em> ViT blocks process the image at four granularities
-        (superpixel → fine → mid → coarse segment), with attention pooling between levels.
-        A visual grounding module is attached to the fine-level features.
-        <em>Language Branch (right):</em> The Part-text Transformer encodes each sentence of the
-        long caption independently; the Whole-text Transformer aggregates them into a global
-        caption representation. The hierarchical loss
-        <em>L</em>(<em>W</em>,<em>B</em>) aligns whole-image to whole-caption, while
-        <em>L</em>(<em>R</em>,<em>B</em>) aligns visual regions to part sentences.
+        <strong>Figure 3:</strong> Overview of CAFT. The model constructs hierarchical
+        representations for both vision and language, aligning them at matched granularities.
+        <em>Vision Branch:</em> Starting from superpixel tokens, the model performs fine-to-coarse
+        scene parsing via progressive token grouping interleaved with ViT blocks.
+        <em>Language Branch:</em> A Part-text Transformer encodes each part-text independently,
+        followed by a Whole-text Transformer that aggregates them into a holistic embedding.
+        Intermediate visual features align with part-text embeddings (<em>aligning trees</em>),
+        while final visual features align with whole-text embeddings to capture global scene
+        semantics (<em>aligning forest</em>).
       </figcaption>
     </figure>
 
   </div>
 </section>
 
-<!-- ========== RESULTS ========== -->
+<!-- ========== RESULTS (Fig 5) ========== -->
 <section class="paper-section" style="background: #fafafa;">
   <div class="container is-max-desktop">
     <h2 class="section-title has-text-centered">Results</h2>
 
-    <!-- Retrieval -->
     <h3 style="font-family: 'Google Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: #1f2937; margin-bottom: 0.75rem;">
       Long-Text Image–Text Retrieval
     </h3>
     <p style="font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1rem;">
-      CAFT achieves <strong>state-of-the-art performance on six long-text retrieval benchmarks</strong>,
-      where models must match images to detailed multi-sentence descriptions (and vice versa).
-      These benchmarks specifically stress-test fine-grained visual grounding — the ability to locate
-      specific image regions described in the text.
+      CAFT achieves state-of-the-art performance on six long-text retrieval benchmarks,
+      improving R@1 by up to 5.4% over prior methods, and exhibits strong scaling behavior.
     </p>
-    <div style="margin-bottom: 2rem;">
-      <span class="result-tag">OVEN</span>
-      <span class="result-tag">ShareGPT4V</span>
-      <span class="result-tag">Urban-1k</span>
-      <span class="result-tag">DOCCI</span>
-      <span class="result-tag">IIW</span>
+    <div style="margin-bottom: 2.5rem;">
       <span class="result-tag">DCI</span>
+      <span class="result-tag">DOCCI</span>
+      <span class="result-tag">ShareGPT4V-1k</span>
+      <span class="result-tag">ShareGPT4V-10k</span>
+      <span class="result-tag">Urban-1k</span>
+      <span class="result-tag">IIW</span>
     </div>
 
-    <!-- Grounding -->
     <h3 style="font-family: 'Google Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: #1f2937; margin-bottom: 0.75rem;">
-      Emergent Visual Grounding
+      Spatially Precise Grounding
     </h3>
-    <p style="font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
-      Despite never seeing bounding box or segmentation annotations, CAFT learns to spatially ground
-      individual text phrases in images. Attention heatmaps reveal that the model associates each
-      phrase — "luxurious red car," "prominent BigBen," "two road workers," "a cream colored
-      labrador puppy" — with the correct image region. This fine-grained grounding emerges
-      spontaneously as a consequence of the part-level alignment objective.
-    </p>
 
     <figure class="paper-figure">
       <img src="static/images/fig5_grounding.png"
-           alt="Emergent visual grounding: attention heatmaps for text phrases.">
+           alt="CAFT spatially precise grounding attention maps.">
       <figcaption>
-        <strong>Figure 5. Emergent visual grounding without region-level supervision.</strong>
-        For each image, the model produces attention heatmaps (blue → yellow = low → high attention)
-        corresponding to phrases from the long caption. CAFT correctly localizes diverse objects
-        and scene elements — from "prominent BigBen" and "sky" to "brown leash" and "parking lot
-        vehicles of various colors" — despite being trained only on image-text pairs without any
-        spatial annotations.
+        <strong>Figure 5:</strong> CAFT provides spatially precise grounding.
+        We show head-averaged attention maps from the AttnPool module for each sub-caption.
+        CAFT precisely localizes relevant regions across different scales and positions,
+        with sharp, object-aware boundaries. The maps also exhibit inactivation for irrelevant
+        captions, demonstrating robustness to mismatched semantic cues (last example).
       </figcaption>
     </figure>
 
