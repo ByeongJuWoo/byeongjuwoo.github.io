@@ -1,356 +1,376 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <base href="/CAFT/">
   <meta name="description"
         content="CAFT: a hierarchical image-text representation learning framework that aligns global and local semantics across images and long captions without pixel-level supervision.">
   <meta name="keywords" content="CAFT, vision-language, long captions, hierarchical alignment, image-text retrieval">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CAFT: Aligning Forest and Trees in Images and Long Captions</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/tree_favicon.svg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="icon" href="static/images/tree_favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/index.js"></script>
 
   <style>
-    .method-box {
-      background: #f8f9fa;
-      border-left: 4px solid #4a5568;
-      border-radius: 6px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .method-box-title {
+    html { scroll-behavior: smooth; }
+
+    .hero.is-white { background: #ffffff; }
+
+    .publication-title {
       font-family: 'Google Sans', sans-serif;
+      line-height: 1.3;
+    }
+    .publication-authors { font-family: 'Google Sans', sans-serif; }
+    .publication-authors a { color: #4f46e5 !important; }
+    .publication-authors a:hover { text-decoration: underline; }
+    .author-block { display: inline-block; }
+
+    .btn-links { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
+
+    section.paper-section { padding: 3rem 1.5rem; }
+    section.paper-section + section.paper-section { border-top: 1px solid #e5e7eb; }
+
+    .section-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1.75rem;
       font-weight: 700;
-      font-size: 1rem;
-      color: #2d3748;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      color: #111827;
     }
-    .method-box p {
-      font-size: 0.95rem;
-      color: #4a5568;
-      line-height: 1.65;
+
+    .paper-figure {
+      margin: 1.5rem 0;
+      text-align: center;
     }
-    .result-badge {
-      display: inline-block;
-      background: #ebf4ff;
-      color: #2b6cb0;
-      border-radius: 4px;
-      padding: 0.15rem 0.6rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-right: 0.4rem;
-      margin-bottom: 0.4rem;
+    .paper-figure img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
-    .section-divider {
-      border: none;
-      border-top: 1px solid #e2e8f0;
-      margin: 0;
-    }
-    .teaser-caption {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 1.25rem;
+    .paper-figure figcaption {
+      margin-top: 0.85rem;
+      font-size: 0.88rem;
+      color: #6b7280;
       line-height: 1.6;
+      text-align: left;
     }
-    .highlight {
-      font-weight: 700;
-      color: #2d3748;
+    .paper-figure figcaption strong { color: #374151; }
+
+    .tldr-box {
+      background: #f5f3ff;
+      border-left: 4px solid #7c3aed;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #1f2937;
     }
+
+    .abstract-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 1rem;
+    }
+
+    .result-tag {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 0.2rem 0.65rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin: 0.2rem;
+    }
+
+    .bibtex-block {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    footer.site-footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #9ca3af;
+    }
+    footer.site-footer a { color: #6b7280; text-decoration: underline; }
+    footer.site-footer .footer-icons { margin-bottom: 0.5rem; }
+    footer.site-footer .footer-icons a {
+      font-size: 1.2rem;
+      color: #6b7280;
+      margin: 0 0.4rem;
+      text-decoration: none;
+    }
+    footer.site-footer .footer-icons a:hover { color: #374151; }
   </style>
 </head>
 <body>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">
-            Aligning Forest and Trees in Images and Long Captions
-            for Visually Grounded Understanding
-          </h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://byeongju.me">Byeongju Woo</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://wayne2wang.github.io/">Zilin Wang</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://byeonghyunpak.github.io/">Byeonghyun Pak</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://sites.google.com/view/sangwoomo">Sangwoo Mo</a><sup>3</sup>,</span>
-            <span class="author-block">
-              <a href="https://web.eecs.umich.edu/~stellayu/">Stella X. Yu</a><sup>2</sup></span>
-          </div>
+<!-- ========== HERO ========== -->
+<section class="hero is-white">
+  <div class="hero-body" style="padding-bottom: 2rem;">
+    <div class="container is-max-desktop has-text-centered">
 
-          <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
-            <span class="author-block"><sup>1</sup>Agency for Defense Development &nbsp;</span>
-            <span class="author-block"><sup>2</sup>University of Michigan &nbsp;</span>
-            <span class="author-block"><sup>3</sup>POSTECH</span>
-          </div>
+      <h1 class="title is-2 publication-title" style="margin-bottom: 1rem;">
+        Aligning Forest and Trees in Images and Long Captions<br>
+        for Visually Grounded Understanding
+      </h1>
 
-          <div class="column has-text-centered" style="margin-top: 0.75rem;">
-            <div class="publication-links">
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/2602.02977"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2602.02977"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://github.com/ByeongJuWoo/CAFT"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
+      <div class="is-size-5 publication-authors" style="margin-bottom: 0.4rem;">
+        <span class="author-block"><a href="https://byeongju.me">Byeongju Woo</a><sup>1</sup>,&nbsp;</span>
+        <span class="author-block"><a href="https://wayne2wang.github.io/">Zilin Wang</a><sup>2</sup>,&nbsp;</span>
+        <span class="author-block"><a href="https://byeonghyunpak.github.io/">Byeonghyun Pak</a><sup>1</sup>,&nbsp;</span>
+        <span class="author-block"><a href="https://sites.google.com/view/sangwoomo">Sangwoo Mo</a><sup>3</sup>,&nbsp;</span>
+        <span class="author-block"><a href="https://web.eecs.umich.edu/~stellayu/">Stella X. Yu</a><sup>2</sup></span>
       </div>
-    </div>
-  </div>
-</section>
 
-<hr class="section-divider">
-
-<!-- Teaser / Motivating Figure -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <h2 class="subtitle" style="margin-bottom: 1.25rem;">
-        <span class="highlight">TL;DR:</span>
-        We propose <strong>CAFT</strong> (<strong>C</strong>ross-domain <strong>A</strong>lignment of <strong>F</strong>orests and <strong>T</strong>rees), a hierarchical image–text representation learning framework that jointly aligns global scenes (<em>forests</em>) with local image regions (<em>trees</em>), enabling fine-grained visually grounded understanding from long captions without any pixel-level supervision.
-      </h2>
-
-      <figure>
-        <img src="./static/images/teaser_v5-1.png"
-             alt="CAFT teaser: colored arrows link image regions to corresponding phrases in a long caption."
-             style="width: 100%; border-radius: 10px;">
-        <figcaption class="teaser-caption has-text-centered">
-          <strong>Figure 1.</strong> Long captions describe individual image regions in sentences ("trees") that together form a coherent scene description ("forest"). Existing VLMs align images and texts as undifferentiated wholes, losing this structure. CAFT recovers it — learning to associate each visual region with the sentence that describes it, while also matching the full image to the full caption.
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- Abstract -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Large vision-language models such as CLIP struggle with long captions because they align images
-            and texts as undifferentiated wholes. Fine-grained vision-language understanding requires
-            hierarchical semantics capturing both global context and localized details across visual and
-            textual domains. Yet linguistic hierarchies from syntax or semantics rarely match visual
-            organization, and purely visual hierarchies tend to fragment scenes into appearance-driven
-            parts without semantic focus.
-          </p>
-          <p>
-            We propose <strong>CAFT</strong> (<strong>C</strong>ross-domain <strong>A</strong>lignment of
-            <strong>F</strong>orests and <strong>T</strong>rees), a hierarchical image-text representation
-            learning framework that aligns global and local semantics across images and long captions
-            without pixel-level supervision. Coupling a fine-to-coarse visual encoder with a hierarchical
-            text transformer, it uses a hierarchical alignment loss that matches whole images with whole
-            captions while biasing region-sentence correspondences, so that coarse semantics are built
-            from fine-grained evidence rather than from aggregation untethered to part-level grounding.
-          </p>
-          <p>
-            Trained on 30M image-text pairs, CAFT achieves state-of-the-art performance on six long-text
-            retrieval benchmarks and exhibits strong scaling behavior. Experiments show that hierarchical
-            cross-domain alignment enables fine-grained, visually grounded image-text representations
-            to emerge without explicit region-level supervision.
-          </p>
-        </div>
+      <div class="is-size-6" style="color: #6b7280; margin-bottom: 1.25rem;">
+        <sup>1</sup>Agency for Defense Development &nbsp;&nbsp;
+        <sup>2</sup>University of Michigan &nbsp;&nbsp;
+        <sup>3</sup>POSTECH
       </div>
+
+      <div class="btn-links">
+        <a href="https://arxiv.org/pdf/2602.02977" class="button is-dark is-rounded is-normal">
+          <span class="icon"><i class="fas fa-file-pdf"></i></span>
+          <span>Paper</span>
+        </a>
+        <a href="https://arxiv.org/abs/2602.02977" class="button is-dark is-rounded is-normal">
+          <span class="icon"><i class="ai ai-arxiv"></i></span>
+          <span>arXiv</span>
+        </a>
+        <a href="https://github.com/ByeongJuWoo/CAFT" class="button is-dark is-rounded is-normal">
+          <span class="icon"><i class="fab fa-github"></i></span>
+          <span>Code</span>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- Method -->
-<section class="section">
+<!-- ========== MOTIVATION ========== -->
+<section class="paper-section" style="background: #fafafa;">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Method</h2>
 
-    <div class="content has-text-justified" style="margin-bottom: 2rem;">
+    <div class="tldr-box">
+      <strong>TL;DR</strong>&nbsp; We propose <strong>CAFT</strong>
+      (<strong>C</strong>ross-domain <strong>A</strong>lignment of <strong>F</strong>orests and
+      <strong>T</strong>rees), a hierarchical image–text representation learning framework
+      that aligns global scenes (<em>forests</em>) with local image regions (<em>trees</em>),
+      enabling fine-grained visually grounded understanding from long captions —
+      without any pixel-level supervision.
+    </div>
+
+    <figure class="paper-figure">
+      <img src="static/images/fig1_problem.png"
+           alt="Long-text retrieval failure of baseline vs. CAFT.">
+      <figcaption>
+        <strong>Figure 1. The long-text retrieval problem.</strong>
+        Given a detailed multi-sentence query about a red double-decker bus (route 38),
+        a standard vision-language model (top) retrieves semantically unrelated images
+        — a red hatchback, a crowd, a stone building — because it treats the entire caption
+        as a single undifferentiated embedding. CAFT (bottom) correctly identifies the target
+        by aligning individual sentence semantics to the corresponding image regions.
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ========== ABSTRACT ========== -->
+<section class="paper-section">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">Abstract</h2>
+    <div class="abstract-text">
       <p>
-        CAFT is built on the observation that long captions have a natural two-level hierarchy:
-        individual sentences describe local image regions (<em>trees</em>), while the full caption
-        summarizes the global scene (<em>forest</em>). Standard contrastive models like CLIP collapse
-        this hierarchy, producing a single image embedding and a single text embedding aligned at only
-        one granularity. CAFT preserves and exploits it via two architectural components and a
-        hierarchical alignment objective.
+        Large vision-language models such as CLIP struggle with long captions because they align images
+        and texts as undifferentiated wholes. Fine-grained vision-language understanding requires
+        hierarchical semantics capturing both global context and localized details across visual and
+        textual domains. Yet linguistic hierarchies from syntax or semantics rarely match visual
+        organization, and purely visual hierarchies tend to fragment scenes into appearance-driven
+        parts without semantic focus.
       </p>
-    </div>
-
-    <div class="columns is-multiline">
-      <div class="column is-half">
-        <div class="method-box">
-          <div class="method-box-title">Fine-to-Coarse Visual Encoder</div>
-          <p>
-            The visual backbone processes an image from local patch tokens up to regional and
-            scene-level representations. Intermediate feature maps capture fine-grained spatial
-            semantics, while the final [CLS] token aggregates global scene context. This gives
-            the model access to representations at multiple visual granularities simultaneously.
-          </p>
-        </div>
-      </div>
-      <div class="column is-half">
-        <div class="method-box">
-          <div class="method-box-title">Hierarchical Text Transformer</div>
-          <p>
-            Long captions are encoded at two levels: each sentence is embedded independently
-            (capturing local, region-level semantics), and the full caption is encoded as a whole
-            (capturing global, scene-level context). The part-whole structure of the text encoder
-            mirrors the fine-to-coarse structure of the visual encoder.
-          </p>
-        </div>
-      </div>
-      <div class="column is-full">
-        <div class="method-box" style="border-left-color: #553c9a;">
-          <div class="method-box-title" style="color: #553c9a;">Hierarchical Alignment Loss</div>
-          <p>
-            CAFT is trained with a two-level contrastive objective. At the <strong>global level</strong>,
-            the full image embedding is aligned with the full caption embedding — matching forest to
-            forest. At the <strong>local level</strong>, regional visual features are aligned with
-            individual sentence embeddings — matching tree to tree. The joint loss ensures that
-            global representations emerge from, and remain consistent with, fine-grained regional
-            evidence. Neither level can be learned independently of the other, preventing the model
-            from ignoring local detail or global coherence.
-          </p>
-        </div>
-      </div>
+      <p>
+        We propose <strong>CAFT</strong> (<strong>C</strong>ross-domain <strong>A</strong>lignment of
+        <strong>F</strong>orests and <strong>T</strong>rees), a hierarchical image-text representation
+        learning framework that aligns global and local semantics across images and long captions
+        without pixel-level supervision. Coupling a fine-to-coarse visual encoder with a hierarchical
+        text transformer, it uses a hierarchical alignment loss that matches whole images with whole
+        captions while biasing region-sentence correspondences, so that coarse semantics are built
+        from fine-grained evidence rather than from aggregation untethered to part-level grounding.
+      </p>
+      <p>
+        Trained on 30M image-text pairs, CAFT achieves state-of-the-art performance on six long-text
+        retrieval benchmarks and exhibits strong scaling behavior. Experiments show that hierarchical
+        cross-domain alignment enables fine-grained, visually grounded image-text representations
+        to emerge without explicit region-level supervision.
+      </p>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- Results -->
-<section class="section">
+<!-- ========== HIGH-LEVEL IDEA ========== -->
+<section class="paper-section" style="background: #fafafa;">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Results</h2>
+    <h2 class="section-title has-text-centered">Key Idea</h2>
 
-    <div class="content">
-      <h3 class="title is-4">Long-Text Image–Text Retrieval</h3>
-      <p class="has-text-justified">
-        CAFT is evaluated on six long-text retrieval benchmarks, where models must match images
-        to detailed, multi-sentence captions (and vice versa). These benchmarks specifically stress-test
-        fine-grained visual grounding — the ability to locate specific image regions described in the text.
-        CAFT achieves <strong>state-of-the-art performance</strong> across all six benchmarks, outperforming
-        prior vision-language models trained on comparable data.
-      </p>
-      <div style="margin: 1rem 0;">
-        <span class="result-badge">OVEN</span>
-        <span class="result-badge">ShareGPT4V</span>
-        <span class="result-badge">Urban-1k</span>
-        <span class="result-badge">DOCCI</span>
-        <span class="result-badge">IIW</span>
-        <span class="result-badge">DCI</span>
-      </div>
-    </div>
+    <p style="font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
+      Long captions have a natural two-level structure: individual sentences describe specific image
+      regions (<em>trees</em>), while the full caption summarizes the global scene (<em>forest</em>).
+      CAFT exploits this structure by learning representations at both granularities simultaneously
+      — aligning parts to parts and wholes to wholes — so that global semantics are forced to emerge
+      from, and remain grounded in, local evidence.
+    </p>
 
-    <div class="content" style="margin-top: 2rem;">
-      <h3 class="title is-4">Scaling Behavior</h3>
-      <p class="has-text-justified">
-        Training on 30M image-text pairs, CAFT demonstrates <strong>robust scaling behavior</strong>:
-        performance consistently improves as model size and data scale increase. This scalability
-        is a direct consequence of the hierarchical alignment objective — more data provides more
-        diverse region-sentence pairings, enabling the model to learn richer correspondences at
-        both granularities.
-      </p>
-    </div>
+    <figure class="paper-figure">
+      <img src="static/images/fig2_highlevel_idea.png"
+           alt="High-level idea: whole-level and part-level alignment.">
+      <figcaption>
+        <strong>Figure 2. High-level idea.</strong>
+        CAFT performs cross-domain alignment at two levels simultaneously.
+        At the <em>whole level</em>, the complete image embedding is aligned with the full caption embedding
+        (double-headed arrow, top). At the <em>part level</em>, visual region features are aligned with
+        individual sentence embeddings (colored arrows, bottom). Both the visual and language encoders
+        are structured so that whole representations compose from their constituent parts — mirroring
+        the hierarchical structure of the data.
+      </figcaption>
+    </figure>
 
-    <div class="content" style="margin-top: 2rem;">
-      <h3 class="title is-4">Emergent Grounding Without Supervision</h3>
-      <p class="has-text-justified">
-        Despite never seeing explicit region annotations (bounding boxes or segmentation masks),
-        CAFT learns to spatially ground textual phrases in images. Visual attention maps show
-        that the model spontaneously associates sentences describing specific objects or regions
-        with the corresponding image locations — an emergent property of the hierarchical
-        alignment objective applied at scale.
-      </p>
-    </div>
   </div>
 </section>
 
-<hr class="section-divider">
+<!-- ========== METHOD ========== -->
+<section class="paper-section">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">Method</h2>
 
-<!-- BibTeX -->
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{woo2026aligning,
-  title={Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding},
-  author={Woo, Byeongju and Wang, Zilin and Pak, Byeonghyun and Mo, Sangwoo and Yu, Stella X},
-  journal={arXiv preprint arXiv:2602.02977},
-  year={2026}
-}</code></pre>
+    <p style="font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
+      CAFT consists of two paired branches trained end-to-end with a hierarchical contrastive objective.
+      The <strong>Vision Branch</strong> builds a fine-to-coarse hierarchy of visual representations,
+      from superpixel-level tokens up to a global scene embedding.
+      The <strong>Language Branch</strong> encodes long captions at two levels:
+      a Part-text Transformer embeds each sentence independently, and
+      a Whole-text Transformer produces a unified caption embedding.
+      A hierarchical alignment loss jointly optimizes whole-level
+      (image ↔ caption) and part-level (region ↔ sentence) correspondences.
+    </p>
+
+    <figure class="paper-figure">
+      <img src="static/images/fig3_framework.png"
+           alt="CAFT framework: Vision Branch and Language Branch.">
+      <figcaption>
+        <strong>Figure 3. CAFT framework.</strong>
+        <em>Vision Branch (left):</em> ViT blocks process the image at four granularities
+        (superpixel → fine → mid → coarse segment), with attention pooling between levels.
+        A visual grounding module is attached to the fine-level features.
+        <em>Language Branch (right):</em> The Part-text Transformer encodes each sentence of the
+        long caption independently; the Whole-text Transformer aggregates them into a global
+        caption representation. The hierarchical loss
+        <em>L</em>(<em>W</em>,<em>B</em>) aligns whole-image to whole-caption, while
+        <em>L</em>(<em>R</em>,<em>B</em>) aligns visual regions to part sentences.
+      </figcaption>
+    </figure>
+
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="https://arxiv.org/pdf/2602.02977">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      &nbsp;
-      <a class="icon-link" href="https://github.com/ByeongJuWoo/CAFT">
-        <i class="fab fa-github"></i>
-      </a>
+<!-- ========== RESULTS ========== -->
+<section class="paper-section" style="background: #fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">Results</h2>
+
+    <!-- Retrieval -->
+    <h3 style="font-family: 'Google Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: #1f2937; margin-bottom: 0.75rem;">
+      Long-Text Image–Text Retrieval
+    </h3>
+    <p style="font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1rem;">
+      CAFT achieves <strong>state-of-the-art performance on six long-text retrieval benchmarks</strong>,
+      where models must match images to detailed multi-sentence descriptions (and vice versa).
+      These benchmarks specifically stress-test fine-grained visual grounding — the ability to locate
+      specific image regions described in the text.
+    </p>
+    <div style="margin-bottom: 2rem;">
+      <span class="result-tag">OVEN</span>
+      <span class="result-tag">ShareGPT4V</span>
+      <span class="result-tag">Urban-1k</span>
+      <span class="result-tag">DOCCI</span>
+      <span class="result-tag">IIW</span>
+      <span class="result-tag">DCI</span>
     </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content has-text-centered">
-          <p style="font-size: 0.85rem; color: #888;">
-            Website template adapted from
-            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
-            licensed under
-            <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
-          </p>
-        </div>
-      </div>
-    </div>
+
+    <!-- Grounding -->
+    <h3 style="font-family: 'Google Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: #1f2937; margin-bottom: 0.75rem;">
+      Emergent Visual Grounding
+    </h3>
+    <p style="font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
+      Despite never seeing bounding box or segmentation annotations, CAFT learns to spatially ground
+      individual text phrases in images. Attention heatmaps reveal that the model associates each
+      phrase — "luxurious red car," "prominent BigBen," "two road workers," "a cream colored
+      labrador puppy" — with the correct image region. This fine-grained grounding emerges
+      spontaneously as a consequence of the part-level alignment objective.
+    </p>
+
+    <figure class="paper-figure">
+      <img src="static/images/fig5_grounding.png"
+           alt="Emergent visual grounding: attention heatmaps for text phrases.">
+      <figcaption>
+        <strong>Figure 5. Emergent visual grounding without region-level supervision.</strong>
+        For each image, the model produces attention heatmaps (blue → yellow = low → high attention)
+        corresponding to phrases from the long caption. CAFT correctly localizes diverse objects
+        and scene elements — from "prominent BigBen" and "sky" to "brown leash" and "parking lot
+        vehicles of various colors" — despite being trained only on image-text pairs without any
+        spatial annotations.
+      </figcaption>
+    </figure>
+
   </div>
+</section>
+
+<!-- ========== BIBTEX ========== -->
+<section class="paper-section">
+  <div class="container is-max-desktop">
+    <h2 class="section-title has-text-centered">BibTeX</h2>
+    <div class="bibtex-block">@article{woo2026aligning,
+  title   = {Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding},
+  author  = {Woo, Byeongju and Wang, Zilin and Pak, Byeonghyun and Mo, Sangwoo and Yu, Stella X},
+  journal = {arXiv preprint arXiv:2602.02977},
+  year    = {2026}
+}</div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="footer-icons">
+    <a href="https://arxiv.org/pdf/2602.02977" title="Paper"><i class="fas fa-file-pdf"></i></a>
+    <a href="https://github.com/ByeongJuWoo/CAFT" title="Code"><i class="fab fa-github"></i></a>
+  </div>
+  <p>
+    Website template adapted from
+    <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+    (CC BY-SA 4.0).
+  </p>
 </footer>
 
 </body>
