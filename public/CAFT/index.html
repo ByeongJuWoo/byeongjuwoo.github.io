@@ -4,24 +4,10 @@
   <meta charset="utf-8">
   <base href="/CAFT/">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="CAST, CAFT">
+        content="CAFT: a hierarchical image-text representation learning framework that aligns global and local semantics across images and long captions without pixel-level supervision.">
+  <meta name="keywords" content="CAFT, vision-language, long captions, hierarchical alignment, image-text retrieval">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script> -->
+  <title>CAFT: Aligning Forest and Trees in Images and Long Captions</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -40,89 +26,92 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    .method-box {
+      background: #f8f9fa;
+      border-left: 4px solid #4a5568;
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .method-box-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+    .method-box p {
+      font-size: 0.95rem;
+      color: #4a5568;
+      line-height: 1.65;
+    }
+    .result-badge {
+      display: inline-block;
+      background: #ebf4ff;
+      color: #2b6cb0;
+      border-radius: 4px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 0;
+    }
+    .teaser-caption {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 1.25rem;
+      line-height: 1.6;
+    }
+    .highlight {
+      font-weight: 700;
+      color: #2d3748;
+    }
+  </style>
 </head>
 <body>
-
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav> -->
-
 
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">
-            🌲 Aligning Forest and Trees <br>
-            in Images and Long Captions <br>
-            for Visually Grounded Understanding</h1>
+          <h1 class="title is-2 publication-title">
+            Aligning Forest and Trees in Images and Long Captions
+            for Visually Grounded Understanding
+          </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://byeongju.me">Byeongju Woo</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://wayne2wang.github.io/">Zilin Wang</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="https://byeonghyunpak.github.io/">Byeonghyun Pak</a><sup>1</sup>,
-            </span>
+              <a href="https://byeonghyunpak.github.io/">Byeonghyun Pak</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://sites.google.com/view/sangwoomo">Sangwoo Mo</a><sup>3</sup>,
-            </span>
+              <a href="https://sites.google.com/view/sangwoomo">Sangwoo Mo</a><sup>3</sup>,</span>
             <span class="author-block">
-              <a href="https://web.eecs.umich.edu/~stellayu/">Stella X. Yu</a><sup>2</sup>,
-            </span>
+              <a href="https://web.eecs.umich.edu/~stellayu/">Stella X. Yu</a><sup>2</sup></span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Agency for Defense Development,</span>
-            <span class="author-block"><sup>2</sup>University of Michigan,</span>
+          <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+            <span class="author-block"><sup>1</sup>Agency for Defense Development &nbsp;</span>
+            <span class="author-block"><sup>2</sup>University of Michigan &nbsp;</span>
             <span class="author-block"><sup>3</sup>POSTECH</span>
           </div>
 
-          <div class="column has-text-centered">
+          <div class="column has-text-centered" style="margin-top: 0.75rem;">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
                 <a href="https://arxiv.org/pdf/2602.02977"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                    <i class="fas fa-file-pdf"></i>
                   </span>
                   <span>Paper</span>
                 </a>
@@ -131,42 +120,21 @@
                 <a href="https://arxiv.org/abs/2602.02977"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="ai ai-arxiv"></i>
+                    <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
-              <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/ByeongJuWoo/CAFT"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fab fa-github"></i>
+                    <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
-                  </a>
+                </a>
               </span>
-              <!-- Dataset Link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a> -->
             </div>
-
           </div>
         </div>
       </div>
@@ -174,105 +142,32 @@
   </div>
 </section>
 
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section> -->
+<hr class="section-divider">
 
+<!-- Teaser / Motivating Figure -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TLDR -->
-      <h2 class="subtitle has-text-left">
-        <strong>TL;DR:</strong>
-        We introduce CAFT (Cross-domain Alignment of Forests and Trees), hierarchical image-text representation learning framework 
-        that aligns global and local semantics across images and long captions without pixel-level supervision.
+      <h2 class="subtitle" style="margin-bottom: 1.25rem;">
+        <span class="highlight">TL;DR:</span>
+        We propose <strong>CAFT</strong> (<strong>C</strong>ross-domain <strong>A</strong>lignment of <strong>F</strong>orests and <strong>T</strong>rees), a hierarchical image–text representation learning framework that jointly aligns global scenes (<em>forests</em>) with local image regions (<em>trees</em>), enabling fine-grained visually grounded understanding from long captions without any pixel-level supervision.
       </h2>
-      <!-- Teaser Image -->
-      <!-- <img src="./static/images/teaser.png"
-           alt="Teaser Image"
-           style="width:100%; margin: 20px 0; border-radius:12px;"> -->
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
 
-      <p class="has-text-centered" style="font-size:0.95rem; color:#555;">
-        TBA
-      </p>
+      <figure>
+        <img src="./static/images/teaser_v5-1.png"
+             alt="CAFT teaser: colored arrows link image regions to corresponding phrases in a long caption."
+             style="width: 100%; border-radius: 10px;">
+        <figcaption class="teaser-caption has-text-centered">
+          <strong>Figure 1.</strong> Long captions describe individual image regions in sentences ("trees") that together form a coherent scene description ("forest"). Existing VLMs align images and texts as undifferentiated wholes, losing this structure. CAFT recovers it — learning to associate each visual region with the sentence that describes it, while also matching the full image to the full caption.
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
+<hr class="section-divider">
 
-
+<!-- Abstract -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -281,170 +176,145 @@
         <div class="content has-text-justified">
           <p>
             Large vision-language models such as CLIP struggle with long captions because they align images
-            and texts as undifferentiated wholes. Fine-grained
-            vision-language understanding requires hierarchical semantics capturing both global context and
-            localized details across visual and textual domains.
-            Yet linguistic hierarchies from syntax or semantics rarely match visual organization, and purely
-            visual hierarchies tend to fragment scenes into
-            appearance-driven parts without semantic focus.
+            and texts as undifferentiated wholes. Fine-grained vision-language understanding requires
+            hierarchical semantics capturing both global context and localized details across visual and
+            textual domains. Yet linguistic hierarchies from syntax or semantics rarely match visual
+            organization, and purely visual hierarchies tend to fragment scenes into appearance-driven
+            parts without semantic focus.
           </p>
           <p>
-            We propose CAFT (Cross-domain Alignment of Forests and Trees), a hierarchical image-text representation learning framework that aligns global
-            and local semantics across images and long captions without pixel-level supervision. Coupling
-            a fine-to-coarse visual encoder with a hierarchical text transformer, it uses a hierarchical alignment loss that matches whole images with whole
-            captions while biasing region-sentence correspondences, so that coarse semantics are built from
-            fine-grained evidence rather than from aggregation untethered to part-level grounding.
+            We propose <strong>CAFT</strong> (<strong>C</strong>ross-domain <strong>A</strong>lignment of
+            <strong>F</strong>orests and <strong>T</strong>rees), a hierarchical image-text representation
+            learning framework that aligns global and local semantics across images and long captions
+            without pixel-level supervision. Coupling a fine-to-coarse visual encoder with a hierarchical
+            text transformer, it uses a hierarchical alignment loss that matches whole images with whole
+            captions while biasing region-sentence correspondences, so that coarse semantics are built
+            from fine-grained evidence rather than from aggregation untethered to part-level grounding.
           </p>
           <p>
-            Trained on 30M image-text pairs, CAFT achieves
-            state-of-the-art performance on six long-text retrieval benchmarks and exhibits strong scaling behavior. Experiments show that hierarchical crossdomain alignment enables fine-grained, visually
-            grounded image-text representations to emerge
-            without explicit region-level supervision.
+            Trained on 30M image-text pairs, CAFT achieves state-of-the-art performance on six long-text
+            retrieval benchmarks and exhibits strong scaling behavior. Experiments show that hierarchical
+            cross-domain alignment enables fine-grained, visually grounded image-text representations
+            to emerge without explicit region-level supervision.
           </p>
         </div>
       </div>
     </div>
-
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
   </div>
 </section>
 
-<!--
+<hr class="section-divider">
+
+<!-- Method -->
 <section class="section">
   <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
 
-    <div class="columns is-centered">
-
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
+    <div class="content has-text-justified" style="margin-bottom: 2rem;">
+      <p>
+        CAFT is built on the observation that long captions have a natural two-level hierarchy:
+        individual sentences describe local image regions (<em>trees</em>), while the full caption
+        summarizes the global scene (<em>forest</em>). Standard contrastive models like CLIP collapse
+        this hierarchy, producing a single image embedding and a single text embedding aligned at only
+        one granularity. CAFT preserves and exploits it via two architectural components and a
+        hierarchical alignment objective.
+      </p>
     </div>
 
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
+    <div class="columns is-multiline">
+      <div class="column is-half">
+        <div class="method-box">
+          <div class="method-box-title">Fine-to-Coarse Visual Encoder</div>
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            The visual backbone processes an image from local patch tokens up to regional and
+            scene-level representations. Intermediate feature maps capture fine-grained spatial
+            semantics, while the final [CLS] token aggregates global scene context. This gives
+            the model access to representations at multiple visual granularities simultaneously.
           </p>
         </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        
-
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
       </div>
-    </div>
-
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
+      <div class="column is-half">
+        <div class="method-box">
+          <div class="method-box-title">Hierarchical Text Transformer</div>
           <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
+            Long captions are encoded at two levels: each sentence is embedded independently
+            (capturing local, region-level semantics), and the full caption is encoded as a whole
+            (capturing global, scene-level context). The part-whole structure of the text encoder
+            mirrors the fine-to-coarse structure of the visual encoder.
           </p>
+        </div>
+      </div>
+      <div class="column is-full">
+        <div class="method-box" style="border-left-color: #553c9a;">
+          <div class="method-box-title" style="color: #553c9a;">Hierarchical Alignment Loss</div>
           <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+            CAFT is trained with a two-level contrastive objective. At the <strong>global level</strong>,
+            the full image embedding is aligned with the full caption embedding — matching forest to
+            forest. At the <strong>local level</strong>, regional visual features are aligned with
+            individual sentence embeddings — matching tree to tree. The joint loss ensures that
+            global representations emerge from, and remain consistent with, fine-grained regional
+            evidence. Neither level can be learned independently of the other, preventing the model
+            from ignoring local detail or global coherence.
           </p>
         </div>
       </div>
     </div>
-
   </div>
-</section> -->
+</section>
 
+<hr class="section-divider">
 
+<!-- Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+
+    <div class="content">
+      <h3 class="title is-4">Long-Text Image–Text Retrieval</h3>
+      <p class="has-text-justified">
+        CAFT is evaluated on six long-text retrieval benchmarks, where models must match images
+        to detailed, multi-sentence captions (and vice versa). These benchmarks specifically stress-test
+        fine-grained visual grounding — the ability to locate specific image regions described in the text.
+        CAFT achieves <strong>state-of-the-art performance</strong> across all six benchmarks, outperforming
+        prior vision-language models trained on comparable data.
+      </p>
+      <div style="margin: 1rem 0;">
+        <span class="result-badge">OVEN</span>
+        <span class="result-badge">ShareGPT4V</span>
+        <span class="result-badge">Urban-1k</span>
+        <span class="result-badge">DOCCI</span>
+        <span class="result-badge">IIW</span>
+        <span class="result-badge">DCI</span>
+      </div>
+    </div>
+
+    <div class="content" style="margin-top: 2rem;">
+      <h3 class="title is-4">Scaling Behavior</h3>
+      <p class="has-text-justified">
+        Training on 30M image-text pairs, CAFT demonstrates <strong>robust scaling behavior</strong>:
+        performance consistently improves as model size and data scale increase. This scalability
+        is a direct consequence of the hierarchical alignment objective — more data provides more
+        diverse region-sentence pairings, enabling the model to learn richer correspondences at
+        both granularities.
+      </p>
+    </div>
+
+    <div class="content" style="margin-top: 2rem;">
+      <h3 class="title is-4">Emergent Grounding Without Supervision</h3>
+      <p class="has-text-justified">
+        Despite never seeing explicit region annotations (bounding boxes or segmentation masks),
+        CAFT learns to spatially ground textual phrases in images. Visual attention maps show
+        that the model spontaneously associates sentences describing specific objects or regions
+        with the corresponding image locations — an emergent property of the hierarchical
+        alignment objective applied at scale.
+      </p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- BibTeX -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
@@ -457,32 +327,25 @@
   </div>
 </section>
 
-
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
+      <a class="icon-link" href="https://arxiv.org/pdf/2602.02977">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      &nbsp;
+      <a class="icon-link" href="https://github.com/ByeongJuWoo/CAFT">
         <i class="fab fa-github"></i>
       </a>
     </div>
     <div class="columns is-centered">
       <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+        <div class="content has-text-centered">
+          <p style="font-size: 0.85rem; color: #888;">
+            Website template adapted from
+            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+            licensed under
+            <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
           </p>
         </div>
       </div>
