@@ -388,19 +388,21 @@
       <button class="btn btn-submit" id="btn-submit">Submit</button>
     </div>
     <p class="modal-note">
-      Clicking Submit will open your email app with a pre-filled message to the host.
+      Submit을 누르면 호스트에게 예약 신청이 전달됩니다.
     </p>
   </div>
 </div>
 
 <script>
-  const modal   = document.getElementById('modal');
-  const modalDate = document.getElementById('modal-date');
-  const nameInput = document.getElementById('name-input');
-  let   currentDate = '';
-  let   currentEvent = '';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzQp8wmp_TjsKQoPX0fg7v9_wUoZTqnlfEghzpvzCyz5f9baqTMOzmYCHllyzy_NASl/exec';
 
-  // Attach click listeners to all open/cocktail cells
+  const modal      = document.getElementById('modal');
+  const modalDate  = document.getElementById('modal-date');
+  const nameInput  = document.getElementById('name-input');
+  const btnSubmit  = document.getElementById('btn-submit');
+  let currentDate  = '';
+  let currentEvent = '';
+
   document.querySelectorAll('td.open').forEach(td => {
     td.addEventListener('click', () => {
       currentDate  = td.dataset.date;
@@ -410,6 +412,9 @@
         : `${currentDate} (18:30 —)`;
       modalDate.textContent = label;
       nameInput.value = '';
+      nameInput.style.borderColor = '';
+      btnSubmit.textContent = 'Submit';
+      btnSubmit.disabled = false;
       modal.classList.add('active');
       setTimeout(() => nameInput.focus(), 50);
     });
@@ -421,18 +426,24 @@
 
   function closeModal() { modal.classList.remove('active'); }
 
-  document.getElementById('btn-submit').addEventListener('click', () => {
+  btnSubmit.addEventListener('click', async () => {
     const name = nameInput.value.trim();
     if (!name) { nameInput.focus(); nameInput.style.borderColor = '#f87171'; return; }
     nameInput.style.borderColor = '';
 
-    const eventNote = currentEvent ? ` (${currentEvent})` : '';
-    const subject   = encodeURIComponent(`Cocktail Reservation — ${currentDate}${eventNote}`);
-    const body      = encodeURIComponent(
-      `Name: ${name}\nDate: ${currentDate}${eventNote}\nTime: 18:30 —`
-    );
-    window.location.href = `mailto:byeongju@umich.edu?subject=${subject}&body=${body}`;
-    closeModal();
+    btnSubmit.textContent = '전송 중…';
+    btnSubmit.disabled = true;
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify({ name, date: currentDate + (currentEvent ? ` (${currentEvent})` : '') })
+      });
+    } catch (_) {}
+
+    btnSubmit.textContent = '✓ 완료!';
+    setTimeout(closeModal, 1200);
   });
 </script>
 </body>
