@@ -84,7 +84,9 @@
       font-size: 0.65rem; font-weight: 600; padding: 0.1rem 0.45rem;
       border-radius: 20px; white-space: nowrap;
     }
-    .cat-tropical { background: rgba(45,212,191,0.12); color: #2dd4bf; }
+    .cat-fruity   { background: rgba(45,212,191,0.12);  color: #2dd4bf; }
+    .cat-sour     { background: rgba(163,230,53,0.12);  color: #a3e635; }
+    .cat-classic  { background: rgba(212,168,83,0.15);  color: #d4a853; }
     .cat-shot     { background: rgba(251,146,60,0.12);  color: #fb923c; }
 
     .abv-legend {
@@ -167,7 +169,7 @@
     td.cocktail-day {
       background: var(--cocktail-bg);
       border-color: var(--cocktail-border);
-      cursor: pointer;
+      cursor: not-allowed;
     }
     td.cocktail-day:hover { background: #241340; }
     td.cocktail-day .day-num { color: var(--cocktail-text); }
@@ -260,23 +262,23 @@
   <div class="menu-grid">
     <!-- Column 1 -->
     <div class="menu-col">
-      <div class="menu-row"><span class="menu-name">옥보단</span>        <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">4%</span></span></div>
-      <div class="menu-row"><span class="menu-name">섹스온더비치</span>  <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">13%</span></span></div>
-      <div class="menu-row"><span class="menu-name">미도리 사워</span>   <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">7%</span></span></div>
-      <div class="menu-row"><span class="menu-name">데킬라 선라이즈</span><span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">7%</span></span></div>
-      <div class="menu-row"><span class="menu-name">스크루드라이버</span><span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">11%</span></span></div>
-      <div class="menu-row"><span class="menu-name">퍼지 네이블</span>   <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">6%</span></span></div>
-      <div class="menu-row"><span class="menu-name">카시스 오렌지</span> <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">7%</span></span></div>
-      <div class="menu-row"><span class="menu-name">카시스 토닉</span>   <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">7%</span></span></div>
-      <div class="menu-row"><span class="menu-name">진 토닉</span>       <span class="abv-badge abv-low">8%</span></div>
+      <div class="menu-row"><span class="menu-name">옥보단</span>        <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">4%</span></span></div>
+      <div class="menu-row"><span class="menu-name">섹스온더비치</span>  <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">13%</span></span></div>
+      <div class="menu-row"><span class="menu-name">미도리 사워</span>   <span class="menu-badges"><span class="cat-tag cat-sour">Sour</span><span class="abv-badge abv-low">7%</span></span></div>
+      <div class="menu-row"><span class="menu-name">데킬라 선라이즈</span><span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">7%</span></span></div>
+      <div class="menu-row"><span class="menu-name">스크루드라이버</span><span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">11%</span></span></div>
+      <div class="menu-row"><span class="menu-name">퍼지 네이블</span>   <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">6%</span></span></div>
+      <div class="menu-row"><span class="menu-name">카시스 오렌지</span> <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">7%</span></span></div>
+      <div class="menu-row"><span class="menu-name">카시스 토닉</span>   <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">7%</span></span></div>
+      <div class="menu-row"><span class="menu-name">진 토닉</span>       <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="abv-badge abv-low">8%</span></span></div>
     </div>
     <!-- Column 2 -->
     <div class="menu-col">
-      <div class="menu-row"><span class="menu-name">잭로즈</span>        <span class="abv-badge abv-mid">20%</span></div>
-      <div class="menu-row"><span class="menu-name">마가리타</span>      <span class="abv-badge abv-mid">25%</span></div>
-      <div class="menu-row"><span class="menu-name">김렛</span>          <span class="abv-badge abv-high">26%</span></div>
-      <div class="menu-row"><span class="menu-name">다이키리</span>      <span class="abv-badge abv-mid">25%</span></div>
-      <div class="menu-row"><span class="menu-name">바카디</span>        <span class="abv-badge abv-mid">20%</span></div>
+      <div class="menu-row"><span class="menu-name">잭로즈</span>        <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="abv-badge abv-mid">20%</span></span></div>
+      <div class="menu-row"><span class="menu-name">마가리타</span>      <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="abv-badge abv-mid">25%</span></span></div>
+      <div class="menu-row"><span class="menu-name">김렛</span>          <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="abv-badge abv-high">26%</span></span></div>
+      <div class="menu-row"><span class="menu-name">다이키리</span>      <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="abv-badge abv-mid">25%</span></span></div>
+      <div class="menu-row"><span class="menu-name">바카디</span>        <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="abv-badge abv-mid">20%</span></span></div>
       <div class="menu-row"><span class="menu-name">원덱스 마티니</span> <span class="abv-badge abv-high">29%</span></div>
       <div class="menu-row"><span class="menu-name">파우스트</span>      <span class="abv-badge abv-high">48%</span></div>
       <div class="menu-row"><span class="menu-name">블랙러시안</span>    <span class="abv-badge abv-high">32%</span></div>
@@ -343,7 +345,7 @@
         </tr>
         <!-- Week 3: May 25–31 -->
         <tr>
-          <td class="open"        data-date="May 25" data-event=""><span class="day-num">5/25</span></td>
+          <td class="cocktail-day"data-date="May 25" data-event="6th cocktail"><span class="day-num">5/25</span><span class="event-label">6th cocktail</span></td>
           <td class="open"        data-date="May 26" data-event=""><span class="day-num">5/26</span></td>
           <td class="open"        data-date="May 27" data-event=""><span class="day-num">5/27</span></td>
           <td class="busy"><span class="day-num">5/28</span><span class="busy-label">busy</span></td>
@@ -356,7 +358,7 @@
           <td class="open"        data-date="Jun 1" data-event=""><span class="day-num">6/1</span></td>
           <td class="open"        data-date="Jun 2" data-event=""><span class="day-num">6/2</span></td>
           <td class="open"        data-date="Jun 3" data-event=""><span class="day-num">6/3</span></td>
-          <td class="cocktail-day" data-date="Jun 4" data-event="6th cocktail"><span class="day-num">6/4</span><span class="event-label">6th cocktail</span></td>
+          <td class="cocktail-day" data-date="Jun 4" data-event="7th cocktail"><span class="day-num">6/4</span><span class="event-label">7th cocktail</span></td>
           <td class="open"        data-date="Jun 5" data-event=""><span class="day-num">6/5</span></td>
           <td class="empty"></td>
           <td class="empty"></td>
@@ -366,7 +368,7 @@
   </div>
 
   <div class="cal-legend">
-    <span><span class="swatch swatch-cocktail"></span> Cocktail night</span>
+    <span><span class="swatch swatch-cocktail"></span> Reserved</span>
     <span><span class="swatch swatch-busy"></span> Busy</span>
     <span><span class="swatch swatch-open"></span> Open (click to reserve)</span>
   </div>
@@ -399,7 +401,7 @@
   let   currentEvent = '';
 
   // Attach click listeners to all open/cocktail cells
-  document.querySelectorAll('td.open, td.cocktail-day').forEach(td => {
+  document.querySelectorAll('td.open').forEach(td => {
     td.addEventListener('click', () => {
       currentDate  = td.dataset.date;
       currentEvent = td.dataset.event;
