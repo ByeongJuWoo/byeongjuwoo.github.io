@@ -79,6 +79,14 @@
     .abv-low  { background: rgba(74,222,128,0.12); color: var(--low-abv); }
     .abv-mid  { background: rgba(250,204,21,0.12);  color: var(--mid-abv); }
     .abv-high { background: rgba(248,113,113,0.12); color: var(--high-abv); }
+    .menu-badges { display: flex; gap: 0.35rem; align-items: center; flex-shrink: 0; }
+    .cat-tag {
+      font-size: 0.65rem; font-weight: 600; padding: 0.1rem 0.45rem;
+      border-radius: 20px; white-space: nowrap;
+    }
+    .cat-tropical { background: rgba(45,212,191,0.12); color: #2dd4bf; }
+    .cat-shot     { background: rgba(251,146,60,0.12);  color: #fb923c; }
+
     .abv-legend {
       display: flex; gap: 1.25rem; margin-bottom: 1.25rem;
       font-size: 0.75rem; color: var(--muted); flex-wrap: wrap;
@@ -252,14 +260,14 @@
   <div class="menu-grid">
     <!-- Column 1 -->
     <div class="menu-col">
-      <div class="menu-row"><span class="menu-name">옥보단</span>        <span class="abv-badge abv-low">4%</span></div>
-      <div class="menu-row"><span class="menu-name">섹스온더비치</span>  <span class="abv-badge abv-mid">13%</span></div>
-      <div class="menu-row"><span class="menu-name">미도리 사워</span>   <span class="abv-badge abv-low">7%</span></div>
-      <div class="menu-row"><span class="menu-name">데킬라 선라이즈</span><span class="abv-badge abv-low">7%</span></div>
-      <div class="menu-row"><span class="menu-name">스크루 드라이버</span><span class="abv-badge abv-mid">11%</span></div>
-      <div class="menu-row"><span class="menu-name">퍼지 네이블</span>   <span class="abv-badge abv-low">6%</span></div>
-      <div class="menu-row"><span class="menu-name">카시스 오렌지</span> <span class="abv-badge abv-low">7%</span></div>
-      <div class="menu-row"><span class="menu-name">카시스 토닉</span>   <span class="abv-badge abv-low">7%</span></div>
+      <div class="menu-row"><span class="menu-name">옥보단</span>        <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">4%</span></span></div>
+      <div class="menu-row"><span class="menu-name">섹스온더비치</span>  <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">13%</span></span></div>
+      <div class="menu-row"><span class="menu-name">미도리 사워</span>   <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">7%</span></span></div>
+      <div class="menu-row"><span class="menu-name">데킬라 선라이즈</span><span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">7%</span></span></div>
+      <div class="menu-row"><span class="menu-name">스크루드라이버</span><span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">11%</span></span></div>
+      <div class="menu-row"><span class="menu-name">퍼지 네이블</span>   <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">6%</span></span></div>
+      <div class="menu-row"><span class="menu-name">카시스 오렌지</span> <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">7%</span></span></div>
+      <div class="menu-row"><span class="menu-name">카시스 토닉</span>   <span class="menu-badges"><span class="cat-tag cat-tropical">Tropical</span><span class="abv-badge abv-low">7%</span></span></div>
       <div class="menu-row"><span class="menu-name">진 토닉</span>       <span class="abv-badge abv-low">8%</span></div>
     </div>
     <!-- Column 2 -->
@@ -276,13 +284,13 @@
     </div>
     <!-- Column 3 -->
     <div class="menu-col">
-      <div class="menu-row"><span class="menu-name">B-52</span>          <span class="abv-badge abv-high">26%</span></div>
-      <div class="menu-row"><span class="menu-name">퀵픽</span>          <span class="abv-badge abv-mid">19%</span></div>
-      <div class="menu-row"><span class="menu-name">몽키브레인</span>    <span class="abv-badge abv-mid">19%</span></div>
-      <div class="menu-row"><span class="menu-name">블루스카이</span>    <span class="abv-badge abv-high">31%</span></div>
-      <div class="menu-row"><span class="menu-name">BJ</span>            <span class="abv-badge abv-mid">16%</span></div>
-      <div class="menu-row"><span class="menu-name">레몬드롭</span>      <span class="abv-badge abv-mid">24%</span></div>
-      <div class="menu-row"><span class="menu-name">데킬라 샷</span>     <span class="abv-badge abv-high">40%</span></div>
+      <div class="menu-row"><span class="menu-name">B-52</span>          <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-high">26%</span></span></div>
+      <div class="menu-row"><span class="menu-name">퀵퍽</span>          <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-mid">19%</span></span></div>
+      <div class="menu-row"><span class="menu-name">몽키브레인</span>    <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-mid">19%</span></span></div>
+      <div class="menu-row"><span class="menu-name">블루스카이</span>    <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-high">31%</span></span></div>
+      <div class="menu-row"><span class="menu-name">BJ</span>            <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-mid">16%</span></span></div>
+      <div class="menu-row"><span class="menu-name">레몬드롭</span>      <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-mid">24%</span></span></div>
+      <div class="menu-row"><span class="menu-name">데킬라 샷</span>     <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-high">40%</span></span></div>
       <div class="menu-row" style="visibility:hidden"><span class="menu-name">-</span><span class="abv-badge">-</span></div>
       <div class="menu-row" style="visibility:hidden"><span class="menu-name">-</span><span class="abv-badge">-</span></div>
     </div>
