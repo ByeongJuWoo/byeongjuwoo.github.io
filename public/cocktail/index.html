@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cocktail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --text: #f0f0f0;
+      --muted: #888;
+      --accent: #d4a853;
+      --accent-dim: #3a2e14;
+      --cocktail-bg: #1e1030;
+      --cocktail-border: #7c3aed;
+      --cocktail-text: #c4b5fd;
+      --busy-bg: #1a1a1a;
+      --busy-text: #555;
+      --low-abv: #4ade80;
+      --mid-abv: #facc15;
+      --high-abv: #f87171;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+    header p {
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.25rem;
+    }
+    nav a {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── Sections ── */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    section + section { border-top: 1px solid var(--border); }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    /* ── Menu ── */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    @media (max-width: 600px) {
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-col:not(:last-child) { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+    .menu-col {
+      border-right: 1px solid var(--border);
+    }
+    .menu-col:last-child { border-right: none; }
+    .menu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      gap: 0.5rem;
+    }
+    .menu-row:last-child { border-bottom: none; }
+    .menu-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      word-break: keep-all;
+    }
+    .abv-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .abv-low  { background: rgba(74,222,128,0.12); color: var(--low-abv); }
+    .abv-mid  { background: rgba(250,204,21,0.12); color: var(--mid-abv); }
+    .abv-high { background: rgba(248,113,113,0.12); color: var(--high-abv); }
+
+    .abv-legend {
+      display: flex;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .abv-legend span { display: flex; align-items: center; gap: 0.4rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .dot-low  { background: var(--low-abv); }
+    .dot-mid  { background: var(--mid-abv); }
+    .dot-high { background: var(--high-abv); }
+
+    /* ── Calendar ── */
+    .cal-wrap { overflow-x: auto; }
+    table.calendar {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      min-width: 560px;
+    }
+    .calendar th {
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.65rem 0.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .calendar th.sun { color: #f87171; }
+    .calendar th.sat { color: #60a5fa; }
+
+    .calendar td {
+      padding: 0.4rem 0.3rem;
+      text-align: center;
+      vertical-align: top;
+      border: 1px solid var(--border);
+      height: 64px;
+      width: calc(100% / 7);
+      position: relative;
+    }
+    .day-num {
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    td.sun .day-num { color: #f87171; }
+    td.sat .day-num { color: #60a5fa; }
+    td.empty { background: transparent; border-color: transparent; }
+
+    td.normal { background: var(--bg); }
+    td.busy {
+      background: #111;
+      opacity: 0.5;
+    }
+    td.busy .day-num { color: #444; }
+    td.busy .day-label {
+      font-size: 0.65rem;
+      color: #444;
+      font-style: italic;
+    }
+
+    td.cocktail-day {
+      background: var(--cocktail-bg);
+      border-color: var(--cocktail-border);
+    }
+    td.cocktail-day .day-num { color: var(--cocktail-text); }
+    .event-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--cocktail-text);
+      background: rgba(124,58,237,0.25);
+      border: 1px solid rgba(124,58,237,0.5);
+      border-radius: 4px;
+      padding: 0.1rem 0.35rem;
+      line-height: 1.3;
+      word-break: keep-all;
+    }
+
+    .cal-legend {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .cal-legend span { display: flex; align-items: center; gap: 0.4rem; }
+    .swatch {
+      width: 12px; height: 12px; border-radius: 3px; display: inline-block; flex-shrink: 0;
+    }
+    .swatch-cocktail { background: var(--cocktail-bg); border: 1px solid var(--cocktail-border); }
+    .swatch-busy     { background: #111; border: 1px solid #333; }
+    .swatch-open     { background: var(--bg); border: 1px solid var(--border); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.75rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🍹 Cocktail</h1>
+  <p>Homemade cocktail menu &amp; schedule</p>
+  <nav>
+    <a href="#menu">Menu</a>
+    <a href="#calendar">Schedule</a>
+  </nav>
+</header>
+
+<!-- ══════════ MENU ══════════ -->
+<section id="menu">
+  <div class="section-title">Menu</div>
+
+  <div class="abv-legend">
+    <span><span class="dot dot-low"></span> Low · &lt;15%</span>
+    <span><span class="dot dot-mid"></span> Medium · 15–25%</span>
+    <span><span class="dot dot-high"></span> High · &gt;25%</span>
+  </div>
+
+  <div class="menu-grid">
+    <!-- Column 1 -->
+    <div class="menu-col">
+      <div class="menu-row"><span class="menu-name">옥보단</span>      <span class="abv-badge abv-low">4%</span></div>
+      <div class="menu-row"><span class="menu-name">섹스온더비치</span><span class="abv-badge abv-mid">13%</span></div>
+      <div class="menu-row"><span class="menu-name">미도리 사워</span> <span class="abv-badge abv-low">7%</span></div>
+      <div class="menu-row"><span class="menu-name">데킬라 선라이즈</span><span class="abv-badge abv-low">7%</span></div>
+      <div class="menu-row"><span class="menu-name">스크루 드라이버</span><span class="abv-badge abv-mid">11%</span></div>
+      <div class="menu-row"><span class="menu-name">퍼지 네이블</span> <span class="abv-badge abv-low">6%</span></div>
+      <div class="menu-row"><span class="menu-name">카시스 오렌지</span><span class="abv-badge abv-low">7%</span></div>
+      <div class="menu-row"><span class="menu-name">카시스 토닉</span> <span class="abv-badge abv-low">7%</span></div>
+      <div class="menu-row"><span class="menu-name">진 토닉</span>     <span class="abv-badge abv-low">8%</span></div>
+    </div>
+    <!-- Column 2 -->
+    <div class="menu-col">
+      <div class="menu-row"><span class="menu-name">잭로즈</span>      <span class="abv-badge abv-mid">20%</span></div>
+      <div class="menu-row"><span class="menu-name">마가리타</span>    <span class="abv-badge abv-mid">25%</span></div>
+      <div class="menu-row"><span class="menu-name">김렛</span>        <span class="abv-badge abv-high">26%</span></div>
+      <div class="menu-row"><span class="menu-name">다이키리</span>    <span class="abv-badge abv-mid">25%</span></div>
+      <div class="menu-row"><span class="menu-name">바카디</span>      <span class="abv-badge abv-mid">20%</span></div>
+      <div class="menu-row"><span class="menu-name">원덱스 마티니</span><span class="abv-badge abv-high">29%</span></div>
+      <div class="menu-row"><span class="menu-name">파우스트</span>    <span class="abv-badge abv-high">48%</span></div>
+      <div class="menu-row"><span class="menu-name">블랙러시안</span>  <span class="abv-badge abv-high">32%</span></div>
+      <div class="menu-row"><span class="menu-name">화이트러시안</span><span class="abv-badge abv-mid">22%</span></div>
+    </div>
+    <!-- Column 3 -->
+    <div class="menu-col">
+      <div class="menu-row"><span class="menu-name">B-52</span>        <span class="abv-badge abv-high">26%</span></div>
+      <div class="menu-row"><span class="menu-name">퀵픽</span>        <span class="abv-badge abv-mid">19%</span></div>
+      <div class="menu-row"><span class="menu-name">몽키브레인</span>  <span class="abv-badge abv-mid">19%</span></div>
+      <div class="menu-row"><span class="menu-name">블루스카이</span>  <span class="abv-badge abv-high">31%</span></div>
+      <div class="menu-row"><span class="menu-name">BJ</span>          <span class="abv-badge abv-mid">16%</span></div>
+      <div class="menu-row"><span class="menu-name">레몬드롭</span>    <span class="abv-badge abv-mid">24%</span></div>
+      <div class="menu-row"><span class="menu-name">데킬라 샷</span>   <span class="abv-badge abv-high">40%</span></div>
+      <!-- spacer rows to align height -->
+      <div class="menu-row" style="visibility:hidden"><span class="menu-name">-</span><span class="abv-badge">-</span></div>
+      <div class="menu-row" style="visibility:hidden"><span class="menu-name">-</span><span class="abv-badge">-</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CALENDAR ══════════ -->
+<section id="calendar">
+  <div class="section-title">Schedule</div>
+  <p style="font-size:0.82rem; color:var(--muted); margin-bottom:1.5rem; line-height:1.6;">
+    May 11 – June 5, 2026 &nbsp;·&nbsp; Calendar is updated by the host.
+  </p>
+
+  <div class="cal-wrap">
+    <table class="calendar">
+      <thead>
+        <tr>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th class="sat">Sat</th>
+          <th class="sun">Sun</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Week 1: May 11–17 -->
+        <tr>
+          <td class="normal"><span class="day-num">5/11</span></td>
+          <td class="normal"><span class="day-num">5/12</span></td>
+          <td class="cocktail-day"><span class="day-num">5/13</span><span class="event-label">4th cocktail</span></td>
+          <td class="normal"><span class="day-num">5/14</span></td>
+          <td class="normal"><span class="day-num">5/15</span></td>
+          <td class="sat normal"><span class="day-num">5/16</span></td>
+          <td class="sun busy"><span class="day-num">5/17</span><span class="day-label">busy</span></td>
+        </tr>
+        <!-- Week 2: May 18–24 -->
+        <tr>
+          <td class="cocktail-day"><span class="day-num">5/18</span><span class="event-label">5th cocktail</span></td>
+          <td class="busy"><span class="day-num">5/19</span><span class="day-label">busy</span></td>
+          <td class="busy"><span class="day-num">5/20</span><span class="day-label">busy</span></td>
+          <td class="normal"><span class="day-num">5/21</span></td>
+          <td class="busy"><span class="day-num">5/22</span><span class="day-label">busy</span></td>
+          <td class="sat busy"><span class="day-num">5/23</span><span class="day-label">busy</span></td>
+          <td class="sun normal"><span class="day-num">5/24</span></td>
+        </tr>
+        <!-- Week 3: May 25–31 -->
+        <tr>
+          <td class="normal"><span class="day-num">5/25</span></td>
+          <td class="normal"><span class="day-num">5/26</span></td>
+          <td class="normal"><span class="day-num">5/27</span></td>
+          <td class="busy"><span class="day-num">5/28</span><span class="day-label">busy</span></td>
+          <td class="normal"><span class="day-num">5/29</span></td>
+          <td class="sat normal"><span class="day-num">5/30</span></td>
+          <td class="sun normal"><span class="day-num">5/31</span></td>
+        </tr>
+        <!-- Week 4: Jun 1–5 (partial) -->
+        <tr>
+          <td class="normal"><span class="day-num">6/1</span></td>
+          <td class="normal"><span class="day-num">6/2</span></td>
+          <td class="normal"><span class="day-num">6/3</span></td>
+          <td class="normal"><span class="day-num">6/4</span></td>
+          <td class="normal"><span class="day-num">6/5</span></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cal-legend">
+    <span><span class="swatch swatch-cocktail"></span> Cocktail night</span>
+    <span><span class="swatch swatch-busy"></span> Busy</span>
+    <span><span class="swatch swatch-open"></span> Open</span>
+  </div>
+</section>
+
+<footer>
+  © 2026 Byeongju Woo
+</footer>
+
+</body>
+</html>
