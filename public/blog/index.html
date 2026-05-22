@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog · Byeongju Woo</title>
+  <meta name="description" content="Notes on computer vision, deep learning, and research by Byeongju Woo.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #4f46e5;
+      --accent-light: #ede9fe;
+      --surface: #f9fafb;
+      --tag-bg: #f3f4f6;
+      --tag-text: #374151;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 0 1.5rem;
+    }
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .site-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .site-name span {
+      color: var(--muted);
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    nav a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    nav a:hover { color: var(--text); }
+    nav a.active { color: var(--accent); font-weight: 500; }
+
+    /* ── Bio strip ── */
+    .bio {
+      padding: 2.5rem 0 0;
+    }
+    .bio h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+    .bio p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ── Category filter ── */
+    .categories {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .cat-btn {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .cat-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .cat-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* ── Post list ── */
+    .post-list {
+      padding: 0;
+    }
+
+    .post-item {
+      display: flex;
+      gap: 2rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .post-item:last-child { border-bottom: none; }
+
+    .post-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 0.2rem;
+      min-width: 80px;
+    }
+
+    .post-body { flex: 1; }
+
+    .post-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.45rem;
+    }
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--accent-light);
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .post-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+      transition: color 0.15s;
+    }
+    .post-item a:hover .post-title { color: var(--accent); }
+
+    .post-excerpt {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Empty state ── */
+    .empty-state {
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .empty-state .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .empty-state h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .empty-state p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0;
+      margin-top: 3rem;
+    }
+    .footer-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-inner span { font-size: 0.78rem; color: var(--muted); }
+    .footer-inner a { font-size: 0.78rem; color: var(--muted); transition: color 0.15s; }
+    .footer-inner a:hover { color: var(--accent); }
+
+    @media (max-width: 540px) {
+      .post-item { flex-direction: column; gap: 0.3rem; }
+      .post-date { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="site-name">Byeongju Woo <span>/ Blog</span></div>
+    <nav>
+      <a href="https://byeongju.me">Home</a>
+      <a href="#" class="active">Posts</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="bio">
+    <h1>Notes & Writings</h1>
+    <p>
+      Informal notes on computer vision, deep learning, and research.
+      Mostly things I wish someone had explained to me more clearly.
+    </p>
+  </div>
+
+  <div class="categories">
+    <button class="cat-btn active" onclick="filterPosts('all')">All</button>
+    <button class="cat-btn" onclick="filterPosts('computer-vision')">Computer Vision</button>
+    <button class="cat-btn" onclick="filterPosts('deep-learning')">Deep Learning</button>
+    <button class="cat-btn" onclick="filterPosts('research-notes')">Research Notes</button>
+    <button class="cat-btn" onclick="filterPosts('paper-reading')">Paper Reading</button>
+  </div>
+
+  <div class="post-list" id="post-list">
+
+    <!-- Posts will go here. Example structure (uncomment when adding real posts):
+
+    <a href="/blog/post-slug/" style="display:block; text-decoration:none; color:inherit;">
+      <div class="post-item" data-tags="computer-vision deep-learning">
+        <div class="post-date">May 2026</div>
+        <div class="post-body">
+          <div class="post-tags">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Deep Learning</span>
+          </div>
+          <div class="post-title">Post title goes here</div>
+          <div class="post-excerpt">
+            A one- or two-sentence summary of the post.
+          </div>
+        </div>
+      </div>
+    </a>
+
+    -->
+
+    <div class="empty-state">
+      <div class="icon">✏️</div>
+      <h2>Coming soon</h2>
+      <p>First post is on the way. Check back later.</p>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Byeongju Woo</span>
+    <a href="https://byeongju.me">← Back to main site</a>
+  </div>
+</footer>
+
+<script>
+  function filterPosts(cat) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const items = document.querySelectorAll('.post-item[data-tags]');
+    items.forEach(item => {
+      const tags = item.dataset.tags || '';
+      item.style.display = (cat === 'all' || tags.includes(cat)) ? '' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
