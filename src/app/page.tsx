@@ -153,7 +153,7 @@ export default function Home() {
 
             {/* Bio + Research Interests */}
             {aboutMe.description && (
-              <div className="border-t border-stone-200 pt-8">
+              <div className="pt-5">
                 <p
                   className="font-serif text-[0.97rem] leading-relaxed text-stone-700 [&_a]:underline [&_a]:text-stone-800 [&_a:hover]:text-stone-500 mb-5"
                   dangerouslySetInnerHTML={{ __html: aboutMe.description }}
@@ -185,7 +185,7 @@ export default function Home() {
         {newsData.length > 0 && (
           <section id="news" className="bg-[#FAFAFA] py-14">
             <div className="max-w-[980px] mx-auto px-6">
-              <h2 className="font-sans text-[1.65rem] font-semibold text-[#2E2E2F] mb-8">
+              <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
                 News
               </h2>
               <div className="space-y-5">
@@ -194,11 +194,11 @@ export default function Home() {
                     key={i}
                     className="flex flex-col sm:flex-row gap-1 sm:gap-8"
                   >
-                    <span className="text-sm text-stone-500 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
+                    <span className="text-[0.97rem] text-stone-500 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
                       {news.date}
                     </span>
                     <div>
-                      <p className="text-sm text-stone-700 font-medium">
+                      <p className="text-[0.97rem] text-stone-700 font-medium">
                         {news.title}
                         {news.link && (
                           <a
@@ -212,7 +212,7 @@ export default function Home() {
                         )}
                       </p>
                       {news.description && (
-                        <p className="text-sm text-stone-500 mt-0.5">
+                        <p className="text-[0.97rem] text-stone-500 mt-0.5">
                           {news.description}
                         </p>
                       )}
@@ -230,7 +230,7 @@ export default function Home() {
         {publicationData.length > 0 && (
           <section id="publications" className="bg-[#FFFFFF] py-14">
             <div className="max-w-[980px] mx-auto px-6">
-              <h2 className="font-sans text-[1.65rem] font-semibold text-[#2E2E2F] mb-8">
+              <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
                 Publications
               </h2>
               <div className="space-y-0">
@@ -253,7 +253,7 @@ export default function Home() {
         {experienceData.length > 0 && (
           <section className="bg-[#FAFAFA] py-14">
             <div className="max-w-[980px] mx-auto px-6">
-              <h2 className="font-sans text-[1.65rem] font-semibold text-[#2E2E2F] mb-8">
+              <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
                 Work Experience
               </h2>
               <div className="space-y-6">
