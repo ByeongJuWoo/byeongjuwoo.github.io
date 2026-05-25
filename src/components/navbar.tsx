@@ -51,8 +51,6 @@ export function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                target={item.type === "external" ? "_blank" : undefined}
-                rel={item.type === "external" ? "noopener noreferrer" : undefined}
                 className={`text-sm font-bold transition-colors ${
                   isActive
                     ? "text-stone-900"
@@ -82,8 +80,6 @@ export function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              target={item.type === "external" ? "_blank" : undefined}
-              rel={item.type === "external" ? "noopener noreferrer" : undefined}
               className="text-base font-semibold text-stone-600 hover:text-stone-900 py-2 border-b border-stone-100 last:border-0 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
