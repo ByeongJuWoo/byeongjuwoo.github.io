@@ -3,14 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFFFFF;
+  --foreground: #1c1917;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-inter), Georgia, serif;
+}
+
+/* offset anchors so they don't hide behind the fixed navbar */
+[id] {
+  scroll-margin-top: 4.5rem;
 }
 
 /* Elements marked with serif class or font-serif will use Source Serif */
@@ -29,4 +38,8 @@ body {
 .font-noto-serif,
 .sans {
   font-family: var(--font-noto-serif), system-ui, sans-serif;
+}
+
+.font-eb-garamond {
+  font-family: var(--font-eb-garamond), Georgia, serif;
 }
