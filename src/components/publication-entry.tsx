@@ -44,7 +44,7 @@ export function PublicationEntry({
   return (
     <div className="flex flex-col sm:flex-row gap-6">
       {publication.imageUrl && (
-        <div className="w-full sm:w-1/4 min-w-[200px] relative">
+        <div className="w-full sm:w-[200px] flex-shrink-0 relative">
           <Image
             src={publication.imageUrl}
             alt={publication.title}
@@ -55,8 +55,10 @@ export function PublicationEntry({
         </div>
       )}
       <div className="flex flex-col flex-1">
-        <div className="flex flex-row gap-4 items-center mb-2">
-          <p className="text-sm text-zinc-500">
+        <h3 className="font-sans text-[1.15rem] font-bold text-[#2E2E2F] mb-2">{publication.title}</h3>
+        <p className="text-sm text-stone-600 mb-1.5">{renderAuthors(publication.authors)}</p>
+        <div className="flex flex-row gap-4 items-center mb-3">
+          <p className="text-sm text-stone-600">
             {publication.conference} {publication.year}
           </p>
           {publication.award && (
@@ -68,13 +70,11 @@ export function PublicationEntry({
             </div>
           )}
         </div>
-        <h3 className="font-serif text-md mb-3">{publication.title}</h3>
-        <p className="text-sm text-zinc-600 mb-4">{renderAuthors(publication.authors)}</p>
         <div className="flex flex-row gap-6">
           {publication.paperUrl && (
             <a
               href={publication.paperUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-xs text-stone-600 hover:text-stone-900 transition-colors duration-300"
             >
               <ArrowUpRight
                 size={12}
@@ -86,7 +86,7 @@ export function PublicationEntry({
           {publication.pageUrl && (
             <a
               href={publication.pageUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-xs text-stone-600 hover:text-stone-900 transition-colors duration-300"
             >
               <ArrowUpRight
                 size={12}
@@ -98,7 +98,7 @@ export function PublicationEntry({
           {publication.codeUrl && (
             <a
               href={publication.codeUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-xs text-stone-600 hover:text-stone-900 transition-colors duration-300"
             >
               <ArrowUpRight
                 size={12}
@@ -109,7 +109,7 @@ export function PublicationEntry({
           )}
         </div>
         {publication.tldr && (
-          <p className="text-sm italic text-zinc-600 mt-4">
+          <p className="text-sm italic text-stone-600 mt-4">
             {publication.tldr}
           </p>
         )}

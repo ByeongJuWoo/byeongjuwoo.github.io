@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Serif, PT_Serif, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Serif, PT_Serif, Inter, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { aboutMe } from "@/data/aboutme";
 import { customMetadata } from "@/data/title-description";
@@ -29,6 +29,13 @@ const ptSerif = PT_Serif({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const ebGaramond = EB_Garamond({
+  variable: "--font-eb-garamond",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 // app/layout.tsx
@@ -72,27 +79,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${notoSerif.variable} ${ptSerif.variable} ${inter.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${notoSerif.variable} ${ptSerif.variable} ${inter.variable} ${ebGaramond.variable} antialiased`}
       >
-        <main className="">{children}</main>
-
-        <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-[#FFFFFF]">
-          <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">
-            <span>
-              © {new Date().getFullYear()} {aboutMe.name}.
-            </span>
-
-            <span className="whitespace-nowrap">
-              Built with{" "}
-              <a
-                href="https://github.com/tovacinni/research-website-template"
-                className="underline hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors"
-              >
-                research-website-template
-              </a>
-            </span>
-          </div>
-        </footer>
+        {children}
 
       </body>
     </html>
