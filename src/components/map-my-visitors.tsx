@@ -4,44 +4,46 @@ import createGlobe from "cobe";
 import { useEffect, useRef, useState } from "react";
 
 const THETA = 0.3;
-const GLOBE_CSS = 280; // CSS pixels
-const LABEL_HALF = 9;  // half of 18px label circle
+const GLOBE_CSS = 280;
+const LABEL_SIZE = 18;
 
 const MARKERS = [
   { location: [42.28, -83.74] as [number, number], size: 0.07, title: "Ann Arbor, MI" },
   { location: [37.57, 126.98] as [number, number], size: 0.07, title: "Seoul, Korea" },
 ];
 
-function project(
+// Exact port of cobe's internal U() function: lat/lng → unit sphere [x, y, z]
+function toCartesian(lat: number, lng: number): [number, number, number] {
+  const latR = (lat * Math.PI) / 180;
+  const lngR = (lng * Math.PI) / 180;
+  const cosLat = Math.cos(latR);
+  return [cosLat * Math.cos(lngR), Math.sin(latR), -cosLat * Math.sin(lngR)];
+}
+
+// Exact port of cobe's W() → O() projection (square canvas, scale=1, offset=[0,0])
+// Elevation 0.85 = sphere radius 0.8 + default markerElevation 0.05
+function projectMarker(
   lat: number,
   lng: number,
   phi: number,
   theta: number,
-  size: number
+  cssSize: number
 ): { x: number; y: number; visible: boolean } {
-  const λ = (lng * Math.PI) / 180;
-  const φ = (lat * Math.PI) / 180;
+  const [x0, y0, z0] = toCartesian(lat, lng);
+  const r = 0.85;
+  const x = x0 * r, y = y0 * r, z = z0 * r;
 
-  // 3D unit-sphere coordinates
-  const x0 = Math.cos(φ) * Math.sin(λ);
-  const y0 = Math.sin(φ);
-  const z0 = Math.cos(φ) * Math.cos(λ);
+  const cosPhi = Math.cos(phi), sinPhi = Math.sin(phi);
+  const cosTheta = Math.cos(theta), sinTheta = Math.sin(theta);
 
-  // Rotate around Y-axis by phi
-  const x1 = x0 * Math.cos(phi) + z0 * Math.sin(phi);
-  const z1 = -x0 * Math.sin(phi) + z0 * Math.cos(phi);
-  const y1 = y0;
+  const c = cosPhi * x + sinPhi * z;
+  const s = sinPhi * sinTheta * x + cosTheta * y - cosPhi * sinTheta * z;
+  const depth = -sinPhi * cosTheta * x + sinTheta * y + cosPhi * cosTheta * z;
 
-  // Rotate around X-axis by theta
-  const y2 = y1 * Math.cos(theta) - z1 * Math.sin(theta);
-  const z2 = y1 * Math.sin(theta) + z1 * Math.cos(theta);
-  const x2 = x1;
-
-  const r = size / 2 - 4;
   return {
-    x: size / 2 + x2 * r,
-    y: size / 2 - y2 * r,
-    visible: z2 > 0,
+    x: ((c + 1) / 2) * cssSize,
+    y: ((-s + 1) / 2) * cssSize,
+    visible: depth >= 0,
   };
 }
 
@@ -78,15 +80,15 @@ export function MapMyVisitors() {
       MARKERS.forEach((marker, i) => {
         const el = labelRefs.current[i];
         if (!el) return;
-        const pos = project(
+        const pos = projectMarker(
           marker.location[0],
           marker.location[1],
           phiRef.current,
           THETA,
           GLOBE_CSS
         );
-        el.style.left = `${pos.x - LABEL_HALF}px`;
-        el.style.top = `${pos.y - LABEL_HALF}px`;
+        el.style.left = `${pos.x - LABEL_SIZE / 2}px`;
+        el.style.top = `${pos.y - LABEL_SIZE / 2}px`;
         el.style.opacity = pos.visible ? "1" : "0";
       });
 
@@ -123,8 +125,8 @@ export function MapMyVisitors() {
                     position: "absolute",
                     left: 0,
                     top: 0,
-                    width: 18,
-                    height: 18,
+                    width: LABEL_SIZE,
+                    height: LABEL_SIZE,
                     borderRadius: "50%",
                     background: "rgba(255,255,255,0.88)",
                     border: "1.5px solid #2a6bf0",
