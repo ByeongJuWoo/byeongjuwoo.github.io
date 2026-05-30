@@ -43,7 +43,7 @@ function projectMarker(
   return {
     x: ((c + 1) / 2) * cssSize,
     y: ((-s + 1) / 2) * cssSize,
-    visible: depth >= 0,
+    visible: depth > 0.15,
   };
 }
 
@@ -70,7 +70,7 @@ export function MapMyVisitors() {
       baseColor: [0.96, 0.94, 0.92],
       markerColor: [0.18, 0.44, 0.92],
       glowColor: [0.88, 0.85, 0.82],
-      markers: MARKERS.map((m) => ({ location: m.location, size: m.size })),
+      markers: [],
     });
 
     const animate = () => {
