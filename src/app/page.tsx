@@ -58,6 +58,9 @@ export default function Home() {
                     <p className="text-stone-500 text-sm mb-2">{aboutMe.altName}</p>
                   )}
                   <p className="text-stone-600 text-sm">{aboutMe.title}</p>
+                  {aboutMe.department && (
+                    <p className="text-stone-600 text-sm">{aboutMe.department}</p>
+                  )}
                   <p className="text-stone-600 text-sm">
                     {aboutMe.institutionUrl ? (
                       <a
@@ -193,7 +196,7 @@ export default function Home() {
             NEWS
         ════════════════════════════════════════ */}
         {newsData.length > 0 && (
-          <section id="news" className="bg-[#FAFAFA] py-14">
+          <section id="news" className="bg-[#FAFAFA] py-9">
             <div className="max-w-[980px] mx-auto px-6">
               <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
                 News
@@ -266,7 +269,7 @@ export default function Home() {
             PUBLICATIONS
         ════════════════════════════════════════ */}
         {publicationData.length > 0 && (
-          <section id="publications" className="bg-[#FFFFFF] py-14">
+          <section id="publications" className="bg-[#FFFFFF] py-9">
             <div className="max-w-[980px] mx-auto px-6">
               <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
                 Publications
@@ -289,7 +292,7 @@ export default function Home() {
             WORK EXPERIENCE
         ════════════════════════════════════════ */}
         {experienceData.length > 0 && (
-          <section className="bg-[#FAFAFA] py-14">
+          <section className="bg-[#FAFAFA] py-9">
             <div className="max-w-[980px] mx-auto px-6">
               <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
                 Work Experience

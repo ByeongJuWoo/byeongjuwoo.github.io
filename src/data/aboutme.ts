@@ -1,6 +1,7 @@
 export interface AboutMe {
   name: string;
   title: string;
+  department?: string;
   institution: string;
   description: string;
   researchInterests: string;
@@ -45,8 +46,9 @@ export interface AboutMe {
 
 export const aboutMe: AboutMe = {
   name: "Byeongju Woo",
-  title: "Research Officer",
-  institution: "Agency for Defense Development",
+  title: "Incoming PhD Student",
+  department: "Computer Science & Engineering",
+  institution: "University of Michigan",
   // Note that links work in the description
   description:
     // "I'm a final-year <a href='https://www.stanford.edu'>PhD candidate</a> working at the intersection of causal inference and machine learning. My research focuses on developing robust, interpretable systems that can reason about cause and effect in complex environments.",
@@ -123,7 +125,7 @@ export const aboutMe: AboutMe = {
   // cvUrl: "https://byeonghyunpak.github.io/CV_byeonghyunpak.pdf",
   cvUrl: "/CV_26_05_15.pdf",
   // rsUrl: "/CV_byeonghyunpak.pdf",
-  institutionUrl: "https://www.add.re.kr/eps",
+  institutionUrl: "https://umich.edu",
   // altName: "",
   // secretDescription: "I like dogs.",
   addressOffice:"Daejeon, Republic of Korea",
