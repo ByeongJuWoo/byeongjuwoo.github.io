@@ -20,6 +20,8 @@ export function NewsEntry({ news }: { news: News }) {
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
             </a>
+          ) : news.titleHtml ? (
+            <span dangerouslySetInnerHTML={{ __html: news.titleHtml }} />
           ) : (
             news.title
           )}

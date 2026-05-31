@@ -3,6 +3,7 @@ import {
   Mail,
   Github,
   Twitter,
+  Instagram,
   GraduationCap,
   Download,
   MapPin,
@@ -121,7 +122,7 @@ export default function Home() {
                         className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 transition-colors"
                       >
                         <GraduationCap size={14} />
-                        Google Scholar
+                        Scholar
                       </a>
                     )}
                     {aboutMe.githubUsername && (
@@ -146,6 +147,15 @@ export default function Home() {
                         Twitter
                       </a>
                     )}
+                    <a
+                      href="https://www.instagram.com/byeongju.me"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 transition-colors"
+                    >
+                      <Instagram size={14} />
+                      Instagram
+                    </a>
                   </div>
                 </div>
               </div>
