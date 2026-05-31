@@ -60,9 +60,7 @@ export const aboutMe: AboutMe = {
     // ",
     // from 26.01.17
     "I am an incoming Ph.D. student in Computer Science and Engineering at the University of Michigan, \
-    advised by Prof. <a href='https://web.eecs.umich.edu/~stellayu/'>Stella Yu</a>, starting Fall 2026.<br /><br /> \
-    I am currently serving as a First Lieutenant in the Republic of Korea Air Force \
-    and working as a research officer at the Agency for Defense Development, the Korean counterpart to the U.S. DARPA. \
+    advised by Prof. <a href='https://web.eecs.umich.edu/~stellayu/'>Stella Yu</a>, starting Fall 2026. \
     Previously, I completed my bachelor's degree (<em>Summa Cum Laude</em>) \
     in Computer Science and Engineering at POSTECH. \
     ",

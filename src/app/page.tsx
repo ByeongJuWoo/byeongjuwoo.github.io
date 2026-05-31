@@ -198,37 +198,65 @@ export default function Home() {
               <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
                 News
               </h2>
-              <div className="space-y-5">
-                {newsData.map((news, i) => (
-                  <div
-                    key={i}
-                    className="flex flex-col sm:flex-row gap-1 sm:gap-8"
-                  >
+              <div className="space-y-3">
+                {newsData.slice(0, 3).map((news, i) => (
+                  <div key={i} className="flex flex-col sm:flex-row gap-1 sm:gap-8">
                     <span className="text-[0.97rem] text-stone-500 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
                       {news.date}
                     </span>
                     <div>
                       <p className="text-[0.97rem] text-stone-700 font-medium">
-                        {news.title}
-                        {news.link && (
-                          <a
-                            href={news.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="ml-2 text-stone-400 hover:text-stone-700 transition-colors"
-                          >
-                            ↗
-                          </a>
+                        {news.titleHtml ? (
+                          <span dangerouslySetInnerHTML={{ __html: news.titleHtml }} />
+                        ) : (
+                          <>
+                            {news.title}
+                            {news.link && (
+                              <a href={news.link} target="_blank" rel="noopener noreferrer" className="ml-2 text-stone-400 hover:text-stone-700 transition-colors">↗</a>
+                            )}
+                          </>
                         )}
                       </p>
                       {news.description && (
-                        <p className="text-[0.97rem] text-stone-500 mt-0.5">
-                          {news.description}
-                        </p>
+                        <p className="text-[0.97rem] text-stone-500 mt-0.5">{news.description}</p>
                       )}
                     </div>
                   </div>
                 ))}
+                {newsData.length > 3 && (
+                  <details className="group">
+                    <summary className="[&::-webkit-details-marker]:hidden list-none cursor-pointer select-none text-[0.97rem] font-bold text-stone-500 hover:text-stone-700 transition-colors">
+                      <span className="group-open:hidden">▸ More news</span>
+                      <span className="hidden group-open:inline">▾ More news</span>
+                    </summary>
+                    <div className="space-y-3 mt-3">
+                      {newsData.slice(3).map((news, i) => (
+                        <div key={i} className="flex flex-col sm:flex-row gap-1 sm:gap-8">
+                          <span className="text-[0.97rem] text-stone-500 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
+                            {news.date}
+                          </span>
+                          <div>
+                            <p className="text-[0.97rem] text-stone-700 font-medium">
+                              {news.titleHtml ? (
+                                <span dangerouslySetInnerHTML={{ __html: news.titleHtml }} />
+                              ) : (
+                                <>
+                                  {news.title}
+                                  {news.link && (
+                                    <a href={news.link} target="_blank" rel="noopener noreferrer" className="ml-2 text-stone-400 hover:text-stone-700 transition-colors">↗</a>
+                                  )}
+                                </>
+                              )}
+                            </p>
+                            {news.description && (
+                              <p className="text-[0.97rem] text-stone-500 mt-0.5">{news.description}</p>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </details>
+                )}
               </div>
             </div>
           </section>

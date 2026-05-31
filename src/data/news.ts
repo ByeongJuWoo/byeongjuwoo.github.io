@@ -18,6 +18,11 @@ export const newsData: News[] = [
     description: "See you in Seoul!",
   },
   {
+    date: "May 2026",
+    title: "Google Scholar citations reached 100 for the first time",
+    description: "",
+  },
+  {
     date: "March 2026",
     title: "CroBo accepted to CVPR 2026 Workshop on Pixel-level Video Understanding in the Wild",
     titleHtml: "<a href='https://seokminlee-chris.github.io/CroBo-ProjectPage/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: inherit;'>CroBo</a> accepted to CVPR 2026 Workshop on Pixel-level Video Understanding in the Wild",
