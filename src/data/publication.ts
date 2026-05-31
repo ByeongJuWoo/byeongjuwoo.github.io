@@ -37,8 +37,8 @@ export const publicationData: Publication[] = [
     imageUrl: "/images/CAFT.png"
   },
   {
-    year: "2026",
-    conference: "CVPR Workshops",
+    year: "",
+    conference: "CVPR 2026 Workshops, Pixel-level Video Understanding in the Wild",
     title: " Pixel-level Scene Understanding in One Token: Visual States Need What-is-Where Composition",
     authors: "Seokmin Lee, Yunghee Lee, Byeonghyun Pak, Byeongju Woo",
     paperUrl: "https://arxiv.org/pdf/2603.13904",

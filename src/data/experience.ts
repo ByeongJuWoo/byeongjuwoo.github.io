@@ -6,47 +6,28 @@ export interface Experience {
   advisor?: string;
   manager?: string;
   companyUrl?: string;
-  points?: string[];  // 주요 성과를 불릿 형태로 추가
+  points?: string[];
 }
 
 export const experienceData: Experience[] = [
   {
-    date: "Mar 2023 – Present",
-    title: "First Lieutenant",
-    company: "Republic of Korea Army (ROKA)",
-    companyUrl: "https://www.army.mil.kr/english/index..do",
-    points: [
-      "Selected as one of 20 research officers nationwide dedicated to science-and-technology R&D for national defense",
-    ]
-  },
-  {
-    date: "Mar 2023 – Present",
-    title: "Research Officer for National Defense",
+    date: "June 2023 - May 2026",
+    title: "Research Officer for National Defense (ROND)",
     company: "Agency for Defense Development (ADD)",
-    manager: "Dr. Eunjin Koh",
-    advisor: "Dr. Hoseong Kim",
     companyUrl: "https://www.add.re.kr/eps",
     points: [
-      // "Selected as one of 20 research officers nationwide dedicated to science-and-technology R&D for national defense.",
-      // "Published a first-author paper at ECCV'24, proposing a novel framework for Domain Generalized Semantic Segmentation that achieved state-of-the-art results on public benchmarks.",
-      // "Developed deep learning models for robustly detecting data-scarce military assets (e.g., fighter jets) in real-world infrared (IR) imagery.",
-      "Investigated and improved domain generalization for reliable infrared imagery object detection in data-scarce settings (1 publication in ECCV 2024).",
-    ]
+      "Served as a First Lieutenant in the Republic of Korea Air Force (ROKAF) and worked as a research officer.",
+      "Researched Domain Generalized Object Detection for UAV detection.",
+      "Served on the execution team of AI Transformation Task Force (Feb 2026 – Mar 2026).",
+    ],
   },
-  // {
-  //   date: "Dec 2021 – Feb 2023",
-  //   title: "Undergraduate Research Intern",
-  //   company: "Image Processing Laboratory @ DGIST",
-  //   advisor: "Prof. Kyong Hwan Jin",
-  //   companyUrl: "https://ipa.korea.ac.kr/index.html",
-  //   points: [
-  //     "Researched implicit neural representations (INRs) for solving inverse problems and proposed a B-Spline INR super-resolution algorithm (1 publication in CVPR 2023).",
-  //     // "Researched implicit neural representations (INRs) for image processing tasks, such as super-resolution and image warping.",
-  //     // "Published a first-author paper to CVPR'23, proposing a novel super-resolution algorithm for screen-content images using Implicit Neural Representations (INRs).",
-  //     // "Led the entire research cycle from problem formulation and model design to implementation and experimental validation, achieving state-of-the-art results on benchmark datasets.",
-  //     // "Developed a novel super-resolution algorithm for screen-content images using Implicit Neural Representations (INRs).",
-  //     // "Conducted extensive experiments to validate the model's effectiveness in preserving sharp edges and text clarity.",
-  //     // "Implemented image warping modules and evaluated reconstruction fidelity"
-  //   ]
-  // },
+  {
+    date: "June 2021 - July 2021",
+    title: "Computer Vision Research Intern",
+    company: "SK Hynix",
+    points: [
+      "Developed an automated algorithm to pre-check for rejects in 3D NAND manufacturing with DL models.",
+      "Received an Industry-Academia Scholarship with guaranteed employment upon graduation.",
+    ],
+  },
 ];

@@ -33,7 +33,7 @@ export default function Home() {
           <div className="max-w-[980px] mx-auto px-6">
 
             {/* Profile row: photo + info */}
-            <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 mb-10">
+            <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 mb-4">
               {aboutMe.imageUrl && (
                 <div className="flex-shrink-0">
                   <div className="relative w-36 h-[168px] sm:w-44 sm:h-52">
@@ -166,7 +166,7 @@ export default function Home() {
 
             {/* Bio + Research Interests */}
             {aboutMe.description && (
-              <div className="pt-5">
+              <div className="pt-2">
                 <p
                   className="font-serif text-[0.97rem] leading-relaxed text-stone-700 [&_a]:underline [&_a]:text-stone-800 [&_a:hover]:text-stone-500 mb-5"
                   dangerouslySetInnerHTML={{ __html: aboutMe.description }}

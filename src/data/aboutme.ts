@@ -46,7 +46,7 @@ export interface AboutMe {
 
 export const aboutMe: AboutMe = {
   name: "Byeongju Woo",
-  title: "Incoming PhD Student",
+  title: "Incoming Ph.D. Student",
   department: "Computer Science & Engineering",
   institution: "University of Michigan",
   // Note that links work in the description
