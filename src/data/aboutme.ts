@@ -116,7 +116,7 @@ export const aboutMe: AboutMe = {
         ,
     
   email: "byeongju@umich.edu",
-  imageUrl: "/images/profile_3.jpg",
+  imageUrl: "/images/profile_5_cropped.jpg",
   googleScholarUrl: "https://scholar.google.co.kr/citations?user=GuMKuJwAAAAJ&hl=en",
   githubUsername: "ByeongJuWoo",
   linkedinUsername: "byeongju-woo",
