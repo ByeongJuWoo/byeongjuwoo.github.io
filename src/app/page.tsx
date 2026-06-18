@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 import { Navbar } from "@/components/navbar";
+import { KSTTime } from "@/components/kst-time";
 import { MapMyVisitors } from "@/components/map-my-visitors";
 import { PublicationEntry } from "@/components/publication-entry";
 import { ExperienceEntry } from "@/components/experience-entry";
@@ -168,9 +169,16 @@ export default function Home() {
             {aboutMe.description && (
               <div className="pt-2">
                 <p
-                  className="font-serif text-[0.97rem] leading-relaxed text-stone-700 [&_a]:underline [&_a]:text-stone-800 [&_a:hover]:text-stone-500 mb-5"
+                  className="font-serif text-[0.97rem] leading-relaxed text-stone-700 [&_a]:underline [&_a]:text-stone-800 [&_a:hover]:text-stone-500 mb-3"
                   dangerouslySetInnerHTML={{ __html: aboutMe.description }}
                 />
+                <p className="font-serif text-[0.97rem] leading-relaxed text-stone-700 mb-5">
+                  Please feel free to reach out to me at{' '}
+                  <a href={`mailto:${aboutMe.email}`} className="underline text-stone-800 hover:text-stone-500">
+                    {aboutMe.email}
+                  </a>
+                  {' '}— it&apos;s <KSTTime /> for me right now.
+                </p>
                 {aboutMe.researchInterests && (
                   <details className="mb-4">
                     <summary className="cursor-pointer select-none font-serif text-sm text-stone-600 mb-1 tracking-wide font-bold">
@@ -201,8 +209,8 @@ export default function Home() {
               <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
                 News
               </h2>
-              <div className="space-y-3">
-                {newsData.slice(0, 3).map((news, i) => (
+              <div className="space-y-2">
+                {newsData.slice(0, 4).map((news, i) => (
                   <div key={i} className="flex flex-col sm:flex-row gap-1 sm:gap-8">
                     <span className="text-[0.97rem] text-stone-500 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
                       {news.date}
@@ -226,14 +234,14 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
-                {newsData.length > 3 && (
+                {newsData.length > 4 && (
                   <details className="group">
                     <summary className="[&::-webkit-details-marker]:hidden list-none cursor-pointer select-none text-[0.97rem] font-bold text-stone-500 hover:text-stone-700 transition-colors">
-                      <span className="group-open:hidden">▸ More news</span>
-                      <span className="hidden group-open:inline">▾ More news</span>
+                      <span className="group-open:hidden">More news ▸</span>
+                      <span className="hidden group-open:inline">More news ▾</span>
                     </summary>
-                    <div className="space-y-3 mt-3">
-                      {newsData.slice(3).map((news, i) => (
+                    <div className="space-y-2 mt-2">
+                      {newsData.slice(4).map((news, i) => (
                         <div key={i} className="flex flex-col sm:flex-row gap-1 sm:gap-8">
                           <span className="text-[0.97rem] text-stone-500 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
                             {news.date}

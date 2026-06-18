@@ -61,8 +61,9 @@ export const aboutMe: AboutMe = {
     // in Computer Science and Engineering at <a href='https://www.postech.ac.kr/eng/'>POSTECH</a>.\
     // ",
     // from 26.01.17
-    "I am an incoming Ph.D. student in Computer Science and Engineering at the University of Michigan, \
-    advised by Prof. <a href='https://web.eecs.umich.edu/~stellayu/'>Stella Yu</a>, starting Fall 2026. \
+    "Hi there!<br />\
+    I am an incoming Ph.D. student in Computer Science and Engineering at the University of Michigan, \
+    advised by Prof. <a href='https://web.eecs.umich.edu/~stellayu/'>Stella Yu</a>. \
     Previously, I completed my bachelor's degree (<em>Summa Cum Laude</em>) \
     in Computer Science and Engineering at POSTECH. \
     ",
@@ -130,5 +131,5 @@ export const aboutMe: AboutMe = {
   // secretDescription: "I like dogs.",
   addressOffice:"Daejeon, Republic of Korea",
   addressURL:"https://maps.app.goo.gl/UDcczVBM8Kp2APpm8",
-  lastUpdated: "May 25, 2026",
+  lastUpdated: "June 18, 2026",
 };
