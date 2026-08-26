@@ -46,7 +46,7 @@ export interface AboutMe {
 
 export const aboutMe: AboutMe = {
   name: "Byeongju Woo",
-  title: "Incoming Ph.D. Student",
+  title: "1st year Ph.D. Student",
   department: "Computer Science & Engineering",
   institution: "University of Michigan",
   // Note that links work in the description
@@ -61,9 +61,8 @@ export const aboutMe: AboutMe = {
     // in Computer Science and Engineering at <a href='https://www.postech.ac.kr/eng/'>POSTECH</a>.\
     // ",
     // from 26.01.17
-    "Hi there!<br />\
-    I am an incoming Ph.D. student in Computer Science and Engineering at the University of Michigan, \
-    advised by Prof. <a href='https://web.eecs.umich.edu/~stellayu/'>Stella Yu</a>. \
+    "Hi! I am Ph.D. student in Computer Science and Engineering at the University of Michigan, \
+    advised by Prof. <a href='https://web.eecs.umich.edu/~stellayu/'>Stella Yu</a>.<br />\
     Previously, I completed my bachelor's degree (<em>Summa Cum Laude</em>) \
     in Computer Science and Engineering at POSTECH. \
     ",

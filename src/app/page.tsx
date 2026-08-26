@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import { Navbar } from "@/components/navbar";
-import { KSTTime } from "@/components/kst-time";
+import { ETTime } from "@/components/et-time";
 import { MapMyVisitors } from "@/components/map-my-visitors";
 import { PublicationEntry } from "@/components/publication-entry";
 import { ExperienceEntry } from "@/components/experience-entry";
@@ -177,7 +177,7 @@ export default function Home() {
                   <a href={`mailto:${aboutMe.email}`} className="underline text-stone-800 hover:text-stone-500">
                     {aboutMe.email}
                   </a>
-                  {' '}— it&apos;s <KSTTime /> for me right now.
+                  {' '}— it&apos;s <ETTime /> for me right now.
                 </p>
                 {aboutMe.researchInterests && (
                   <details className="mb-4">
