@@ -319,9 +319,17 @@ export default function Home() {
         ════════════════════════════════════════ */}
         <footer className="bg-[#FFFFFF] border-t border-stone-200 py-8">
           <div className="max-w-[980px] mx-auto px-6 flex items-start justify-between flex-wrap gap-4">
-            <p className="text-xs text-stone-400">
-              © {new Date().getFullYear()} {aboutMe.name}
-            </p>
+            <div className="flex items-center gap-4 flex-wrap">
+              <p className="text-xs text-stone-400">
+                © {new Date().getFullYear()} {aboutMe.name}
+              </p>
+              <a
+                href="/cocktail/"
+                className="text-xs text-stone-400 hover:text-stone-600 transition-colors"
+              >
+                🍹 Cocktail
+              </a>
+            </div>
             <MapMyVisitors />
           </div>
         </footer>
