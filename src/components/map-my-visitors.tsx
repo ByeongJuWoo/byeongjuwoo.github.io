@@ -10,6 +10,9 @@ export function MapMyVisitors() {
 
   return (
     <div>
+      {/* Hidden tracking pixel: always mounted so every page load is counted, regardless of the toggle below. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={MAP_IMG_URL} alt="" aria-hidden="true" style={{ display: "none" }} />
       <button
         onClick={() => setOpen((o) => !o)}
         className="inline-flex items-center gap-1.5 text-xs text-stone-400 hover:text-stone-600 transition-colors"

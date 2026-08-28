@@ -9,7 +9,7 @@ export interface News {
 export const newsData: News[] = [
   {
     date: "August 2026",
-    title: "Starting Ph.D. at University of Michigan, advised by Prof. Stella Yu",
+    title: "Started Ph.D. at University of Michigan, advised by Prof. Stella Yu",
     description: "",
   },
   {

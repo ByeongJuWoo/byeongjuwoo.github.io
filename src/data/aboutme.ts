@@ -130,5 +130,5 @@ export const aboutMe: AboutMe = {
   // secretDescription: "I like dogs.",
   addressOffice:"Daejeon, Republic of Korea",
   addressURL:"https://maps.app.goo.gl/UDcczVBM8Kp2APpm8",
-  lastUpdated: "June 18, 2026",
+  lastUpdated: "August 27, 2026",
 };
