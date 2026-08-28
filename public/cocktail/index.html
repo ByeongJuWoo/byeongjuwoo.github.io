@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cocktail</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -15,17 +15,18 @@
       --text: #f0f0f0;
       --muted: #888;
       --accent: #d4a853;
-      --cocktail-bg: #1e1030;
-      --cocktail-border: #7c3aed;
-      --cocktail-text: #c4b5fd;
-      --low-abv: #4ade80;
-      --mid-abv: #facc15;
-      --high-abv: #f87171;
+      --cat-base: #d4a853;
+      --cat-liqueur: #a693c9;
+      --cat-juice: #5fa8a0;
+      --cat-mixer: #7ba3c9;
+      --abv-low: #4ade80;
+      --abv-mid: #facc15;
+      --abv-high: #f87171;
     }
 
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -51,186 +52,87 @@
     section { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
     section + section { border-top: 1px solid var(--border); }
     .section-title {
-      font-size: 1.1rem; font-weight: 600; letter-spacing: 0.12em;
+      font-size: 1.4rem; font-weight: 600; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--accent); margin-bottom: 2rem;
     }
 
-    /* ── Menu ── */
-    .menu-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    /* ── Stock ── */
+    .stock-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
     }
     @media (max-width: 600px) {
-      .menu-grid { grid-template-columns: 1fr; }
-      .menu-col:not(:last-child) { border-right: none; border-bottom: 1px solid var(--border); }
+      .stock-grid { grid-template-columns: 1fr; }
     }
-    .menu-col { border-right: 1px solid var(--border); }
-    .menu-col:last-child { border-right: none; }
+    .stock-card {
+      border: 1px solid var(--border); border-left: 3px solid var(--cat-color, var(--border));
+      border-radius: 10px; background: var(--surface); padding: 1.25rem 1.4rem;
+    }
+    .stock-category {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--cat-color, var(--muted)); margin-bottom: 0.8rem;
+    }
+    .stock-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .stock-item {
+      font-size: 0.85rem; font-weight: 500; color: var(--text);
+      background: color-mix(in srgb, var(--cat-color, var(--accent)) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--cat-color, var(--accent)) 35%, transparent);
+      border-radius: 20px; padding: 0.3rem 0.85rem;
+    }
+    .stock-card.base    { --cat-color: var(--cat-base); }
+    .stock-card.liqueur { --cat-color: var(--cat-liqueur); }
+    .stock-card.juice   { --cat-color: var(--cat-juice); }
+    .stock-card.mixer   { --cat-color: var(--cat-mixer); }
+
+    /* ── Menu ── */
+    .menu-list {
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    }
     .menu-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); gap: 0.5rem;
+      padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border);
     }
     .menu-row:last-child { border-bottom: none; }
-    .menu-name { font-size: 0.9rem; font-weight: 500; color: var(--text); word-break: keep-all; }
-    .abv-badge {
-      font-size: 0.78rem; font-weight: 700; padding: 0.15rem 0.5rem;
-      border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+    .menu-group-label {
+      padding: 0.6rem 1.25rem; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border);
     }
-    .abv-low  { background: rgba(74,222,128,0.12); color: var(--low-abv); }
-    .abv-mid  { background: rgba(250,204,21,0.12);  color: var(--mid-abv); }
-    .abv-high { background: rgba(248,113,113,0.12); color: var(--high-abv); }
-    .menu-badges { display: flex; gap: 0.35rem; align-items: center; flex-shrink: 0; }
-    .cat-tag {
-      font-size: 0.65rem; font-weight: 600; padding: 0.1rem 0.45rem;
+    .menu-top {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .menu-name { font-size: 0.95rem; font-weight: 500; color: var(--text); }
+    .menu-abv {
+      font-size: 0.78rem; font-weight: 700; padding: 0.15rem 0.55rem;
       border-radius: 20px; white-space: nowrap;
     }
-    .cat-fruity   { background: rgba(45,212,191,0.12);  color: #2dd4bf; }
-    .cat-sour     { background: rgba(163,230,53,0.12);  color: #a3e635; }
-    .cat-classic  { background: rgba(212,168,83,0.15);  color: #d4a853; }
-    .cat-shot     { background: rgba(251,146,60,0.12);  color: #fb923c; }
-
+    .menu-abv.low  { background: rgba(74,222,128,0.12); color: var(--abv-low); }
+    .menu-abv.mid  { background: rgba(250,204,21,0.12); color: var(--abv-mid); }
+    .menu-abv.high { background: rgba(248,113,113,0.12); color: var(--abv-high); }
     .abv-legend {
-      display: flex; gap: 1.25rem; margin-bottom: 1.25rem;
+      display: flex; gap: 1.25rem; margin-bottom: 1.5rem;
       font-size: 0.75rem; color: var(--muted); flex-wrap: wrap;
     }
     .abv-legend span { display: flex; align-items: center; gap: 0.4rem; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-    .dot-low  { background: var(--low-abv); }
-    .dot-mid  { background: var(--mid-abv); }
-    .dot-high { background: var(--high-abv); }
-
-    /* ── Calendar ── */
-    .cal-header {
-      display: flex; align-items: baseline; gap: 1rem;
-      margin-bottom: 0.75rem; flex-wrap: wrap;
+    .abv-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .abv-dot.low  { background: var(--abv-low); }
+    .abv-dot.mid  { background: var(--abv-mid); }
+    .abv-dot.high { background: var(--abv-high); }
+    .menu-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.55rem; }
+    .technique-tag {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--muted); background: transparent; border: 1px solid var(--border);
+      border-radius: 4px; padding: 0.15rem 0.5rem;
     }
-    .cal-time {
-      font-size: 1rem; font-weight: 700; color: var(--accent);
-      letter-spacing: 0.06em;
+    .tag-divider { width: 1px; height: 0.85rem; background: var(--border); }
+    .menu-tag {
+      font-size: 0.68rem; font-weight: 500; color: var(--text);
+      background: color-mix(in srgb, var(--cat-color, var(--accent)) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--cat-color, var(--accent)) 35%, transparent);
+      border-radius: 20px; padding: 0.15rem 0.6rem;
     }
-    .cal-range { font-size: 0.82rem; color: var(--text); }
-
-    .cal-wrap { overflow-x: auto; }
-    table.calendar {
-      width: 100%; border-collapse: collapse;
-      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-      min-width: 560px;
-    }
-    .calendar th {
-      background: var(--surface); color: var(--muted);
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.65rem 0.5rem; text-align: center; border-bottom: 1px solid var(--border);
-    }
-    .calendar th.sat { color: #60a5fa; }
-    .calendar th.sun { color: #f87171; }
-
-    .calendar td {
-      padding: 0.4rem 0.3rem; text-align: center; vertical-align: top;
-      border: 1px solid var(--border); height: 70px; width: calc(100% / 7);
-      position: relative; transition: background 0.15s;
-    }
-    .day-num { font-size: 0.72rem; color: var(--muted); display: block; margin-bottom: 0.3rem; }
-    td.sat .day-num { color: #60a5fa; }
-    td.sun .day-num { color: #f87171; }
-    td.empty { background: transparent; border-color: transparent; }
-
-    /* Open / clickable days */
-    td.open {
-      cursor: pointer;
-      background: var(--bg);
-    }
-    td.open:hover { background: #1c1c1c; }
-    td.open:hover .day-num { color: var(--accent); }
-
-    /* Busy — clearly marked */
-    td.busy {
-      background: repeating-linear-gradient(
-        135deg,
-        #161010 0px, #161010 5px,
-        #1e1414 5px, #1e1414 10px
-      );
-      cursor: not-allowed;
-    }
-    td.busy .day-num { color: #5a3a3a; }
-    .busy-label {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: #c0392b;
-      background: rgba(192,57,43,0.15);
-      border: 1px solid rgba(192,57,43,0.35);
-      border-radius: 4px;
-      padding: 0.1rem 0.35rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    /* Cocktail event days */
-    td.cocktail-day {
-      background: var(--cocktail-bg);
-      border-color: var(--cocktail-border);
-      cursor: not-allowed;
-    }
-    td.cocktail-day:hover { background: #241340; }
-    td.cocktail-day .day-num { color: var(--cocktail-text); }
-    .event-label {
-      display: inline-block;
-      font-size: 0.65rem; font-weight: 600;
-      color: var(--cocktail-text);
-      background: rgba(124,58,237,0.25);
-      border: 1px solid rgba(124,58,237,0.5);
-      border-radius: 4px;
-      padding: 0.1rem 0.35rem; line-height: 1.3;
-    }
-
-    .cal-legend {
-      display: flex; gap: 1.5rem; margin-top: 1rem;
-      font-size: 0.75rem; color: var(--muted); flex-wrap: wrap;
-    }
-    .cal-legend span { display: flex; align-items: center; gap: 0.4rem; }
-    .swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; flex-shrink: 0; }
-    .swatch-cocktail { background: var(--cocktail-bg); border: 1px solid var(--cocktail-border); }
-    .swatch-busy {
-      background: repeating-linear-gradient(135deg, #161010 0px, #161010 3px, #1e1414 3px, #1e1414 6px);
-      border: 1px solid #3a1a1a;
-    }
-    .swatch-open { background: var(--bg); border: 1px solid var(--border); }
-
-    /* ── Modal ── */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.75); z-index: 100;
-      align-items: center; justify-content: center;
-      backdrop-filter: blur(4px);
-    }
-    .modal-overlay.active { display: flex; }
-    .modal {
-      background: #1a1a1a; border: 1px solid #333; border-radius: 12px;
-      padding: 2rem; width: 100%; max-width: 360px; margin: 1rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    }
-    .modal h3 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
-    .modal .modal-date {
-      font-size: 0.8rem; color: var(--accent); margin-bottom: 1.25rem; font-weight: 500;
-    }
-    .modal label { font-size: 0.82rem; color: var(--muted); display: block; margin-bottom: 0.5rem; }
-    .modal input[type="text"] {
-      width: 100%; background: #0d0d0d; border: 1px solid #444; border-radius: 6px;
-      color: var(--text); font-size: 0.95rem; padding: 0.65rem 0.75rem;
-      outline: none; transition: border-color 0.2s;
-    }
-    .modal input[type="text"]:focus { border-color: var(--accent); }
-    .modal-actions { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
-    .btn {
-      flex: 1; padding: 0.65rem; border: none; border-radius: 6px;
-      font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: opacity 0.15s;
-    }
-    .btn:hover { opacity: 0.85; }
-    .btn-submit { background: var(--accent); color: #000; }
-    .btn-cancel { background: #2a2a2a; color: var(--muted); }
-    .modal-note {
-      margin-top: 0.9rem; font-size: 0.72rem; color: #555; line-height: 1.5;
-    }
+    .menu-tag.base    { --cat-color: var(--cat-base); }
+    .menu-tag.liqueur { --cat-color: var(--cat-liqueur); }
+    .menu-tag.juice   { --cat-color: var(--cat-juice); }
+    .menu-tag.mixer   { --cat-color: var(--cat-mixer); }
 
     /* ── Footer ── */
     footer {
@@ -244,210 +146,157 @@
 
 <header>
   <h1>🍹 Cocktail</h1>
-  <p>Homemade cocktail menu &amp; schedule</p>
+  <p>Homemade cocktail bar</p>
   <nav>
-    <a href="#calendar">Schedule</a>
+    <a href="#location">Location</a>
+    <a href="#stock">Stock</a>
     <a href="#menu">Menu</a>
   </nav>
 </header>
 
-<!-- ══════════ CALENDAR ══════════ -->
-<section id="calendar">
-  <div class="section-title">Schedule</div>
+<!-- ══════════ LOCATION ══════════ -->
+<section id="location">
+  <div class="section-title">🗺️ Location</div>
+  <p style="font-size:0.95rem;">
+    <a href="https://www.google.com/maps/search/?api=1&query=3570+Green+Brier+Blvd+Apt+410C" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">📍 3570 Green Brier Blvd Apt 410C</a>
+  </p>
+</section>
 
-  <div class="cal-header">
-    <span class="cal-time">🕕 Time</span><span class="cal-range">18:30 —</span>
-  </div>
-  <div class="cal-header">
-    <span class="cal-time">📍 Location</span><a class="cal-range" href="https://www.google.com/maps/search/?api=1&query=대전광역시+유성구+자운로97번길+359" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">대전 유성구 자운대아파트 114-303</a>
-  </div>
-  <div class="cal-header">
-    <span class="cal-time">👥 People</span><span class="cal-range">Host: 병주, Guest: 2명</span>
-  </div>
-  <div class="cal-header" style="margin-bottom:1.25rem;">
-    <span class="cal-time">📋 Book</span><span class="cal-range">2명 모아서 캘린더에서 신청주세요</span>
-  </div>
-  <p style="font-size:0.78rem; color:var(--muted); margin-bottom:1rem;">May 11 – June 5, 2026 &nbsp;·&nbsp; Click an open day to reserve</p>
-
-  <div class="cal-wrap">
-    <table class="calendar">
-      <thead>
-        <tr>
-          <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th>
-          <th class="sat">Sat</th><th class="sun">Sun</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Week 1: May 11–17 -->
-        <tr>
-          <td class="open"        data-date="May 11" data-event=""><span class="day-num">5/11</span></td>
-          <td class="open"        data-date="May 12" data-event=""><span class="day-num">5/12</span></td>
-          <td class="cocktail-day"data-date="May 13" data-event="4th cocktail"><span class="day-num">5/13</span><span class="event-label">4th cocktail</span></td>
-          <td class="open"        data-date="May 14" data-event=""><span class="day-num">5/14</span></td>
-          <td class="open"        data-date="May 15" data-event=""><span class="day-num">5/15</span></td>
-          <td class="sat open"    data-date="May 16" data-event=""><span class="day-num">5/16</span></td>
-          <td class="sun busy"><span class="day-num">5/17</span><span class="busy-label">busy</span></td>
-        </tr>
-        <!-- Week 2: May 18–24 -->
-        <tr>
-          <td class="cocktail-day"data-date="May 18" data-event="5th cocktail"><span class="day-num">5/18</span><span class="event-label">5th cocktail</span></td>
-          <td class="busy"><span class="day-num">5/19</span><span class="busy-label">busy</span></td>
-          <td class="busy"><span class="day-num">5/20</span><span class="busy-label">busy</span></td>
-          <td class="open"        data-date="May 21" data-event=""><span class="day-num">5/21</span></td>
-          <td class="busy"><span class="day-num">5/22</span><span class="busy-label">busy</span></td>
-          <td class="sat busy"><span class="day-num">5/23</span><span class="busy-label">busy</span></td>
-          <td class="sun cocktail-day" data-date="May 24" data-event="6th cocktail"><span class="day-num">5/24</span><span class="event-label">6th cocktail</span></td>
-        </tr>
-        <!-- Week 3: May 25–31 -->
-        <tr>
-          <td class="open"        data-date="May 25" data-event=""><span class="day-num">5/25</span></td>
-          <td class="busy"><span class="day-num">5/26</span><span class="busy-label">busy</span></td>
-          <td class="busy"><span class="day-num">5/27</span><span class="busy-label">busy</span></td>
-          <td class="busy"><span class="day-num">5/28</span><span class="busy-label">busy</span></td>
-          <td class="busy"><span class="day-num">5/29</span><span class="busy-label">busy</span></td>
-          <td class="sat cocktail-day" data-date="May 30" data-event="7th cocktail"><span class="day-num">5/30</span><span class="event-label">7th cocktail</span></td>
-          <td class="sun open"    data-date="May 31" data-event=""><span class="day-num">5/31</span></td>
-        </tr>
-        <!-- Week 4: Jun 1–5 (partial) -->
-        <tr>
-          <td class="cocktail-day" data-date="Jun 1" data-event="8th cocktail"><span class="day-num">6/1</span><span class="event-label">8th cocktail</span></td>
-          <td class="open"        data-date="Jun 2" data-event=""><span class="day-num">6/2</span></td>
-          <td class="open"        data-date="Jun 3" data-event=""><span class="day-num">6/3</span></td>
-          <td class="cocktail-day" data-date="Jun 4" data-event="9th cocktail"><span class="day-num">6/4</span><span class="event-label">9th cocktail</span></td>
-          <td class="open"        data-date="Jun 5" data-event=""><span class="day-num">6/5</span></td>
-          <td class="empty"></td>
-          <td class="empty"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="cal-legend">
-    <span><span class="swatch swatch-cocktail"></span> Reserved</span>
-    <span><span class="swatch swatch-busy"></span> Busy</span>
-    <span><span class="swatch swatch-open"></span> Open (click to reserve)</span>
+<!-- ══════════ STOCK ══════════ -->
+<section id="stock">
+  <div class="section-title">🧊 Stock</div>
+  <div class="stock-grid">
+    <div class="stock-card base">
+      <div class="stock-category">Base Spirits</div>
+      <div class="stock-items">
+        <span class="stock-item">Vodka</span>
+        <span class="stock-item">Bourbon</span>
+      </div>
+    </div>
+    <div class="stock-card liqueur">
+      <div class="stock-category">Liqueurs</div>
+      <div class="stock-items">
+        <span class="stock-item">Triple Sec</span>
+      </div>
+    </div>
+    <div class="stock-card juice">
+      <div class="stock-category">Juices</div>
+      <div class="stock-items">
+        <span class="stock-item">Cranberry Juice</span>
+        <span class="stock-item">Orange Juice</span>
+      </div>
+    </div>
+    <div class="stock-card mixer">
+      <div class="stock-category">Mixers</div>
+      <div class="stock-items">
+        <span class="stock-item">Sweet &amp; Sour Mix</span>
+        <span class="stock-item">Tonic Water</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ══════════ MENU ══════════ -->
 <section id="menu">
-  <div class="section-title">Menu</div>
+  <div class="section-title">📋 Menu</div>
   <div class="abv-legend">
-    <span><span class="dot dot-low"></span> Low · &lt;15%</span>
-    <span><span class="dot dot-mid"></span> Medium · 15–25%</span>
-    <span><span class="dot dot-high"></span> High · &gt;25%</span>
+    <span><span class="abv-dot low"></span> Low · &lt;12%</span>
+    <span><span class="abv-dot mid"></span> Medium · 12–25%</span>
+    <span><span class="abv-dot high"></span> High · &gt;25%</span>
   </div>
-  <div class="menu-grid">
-    <!-- Column 1 -->
-    <div class="menu-col">
-      <div class="menu-row"><span class="menu-name">옥보단</span>        <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">4%</span></span></div>
-      <div class="menu-row"><span class="menu-name">섹스온더비치</span>  <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">13%</span></span></div>
-      <div class="menu-row"><span class="menu-name">미도리 사워</span>   <span class="menu-badges"><span class="cat-tag cat-sour">Sour</span><span class="abv-badge abv-low">7%</span></span></div>
-      <div class="menu-row"><span class="menu-name">데킬라 선라이즈</span><span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">7%</span></span></div>
-      <div class="menu-row"><span class="menu-name">스크루드라이버</span><span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">11%</span></span></div>
-      <div class="menu-row"><span class="menu-name">퍼지 네이블</span>   <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">6%</span></span></div>
-      <div class="menu-row"><span class="menu-name">카시스 오렌지</span> <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">7%</span></span></div>
-      <div class="menu-row"><span class="menu-name">카시스 토닉</span>   <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">7%</span></span></div>
-      <div class="menu-row"><span class="menu-name">진 토닉</span>       <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="abv-badge abv-low">8%</span></span></div>
+  <div class="menu-list">
+    <div class="menu-group-label">Vodka</div>
+    <div class="menu-row">
+      <div class="menu-top"><span class="menu-name">Screwdriver</span><span class="menu-abv low">10%</span></div>
+      <div class="menu-tags">
+        <span class="technique-tag">Build</span>
+        <span class="tag-divider"></span>
+        <span class="menu-tag base">Vodka</span>
+        <span class="menu-tag juice">Orange Juice</span>
+      </div>
     </div>
-    <!-- Column 2 -->
-    <div class="menu-col">
-      <div class="menu-row"><span class="menu-name">잭로즈</span>        <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="abv-badge abv-mid">20%</span></span></div>
-      <div class="menu-row"><span class="menu-name">마가리타</span>      <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="cat-tag cat-sour">Sour</span><span class="abv-badge abv-mid">25%</span></span></div>
-      <div class="menu-row"><span class="menu-name">김렛</span>          <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="cat-tag cat-sour">Sour</span><span class="abv-badge abv-high">26%</span></span></div>
-      <div class="menu-row"><span class="menu-name">다이키리</span>      <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="cat-tag cat-sour">Sour</span><span class="abv-badge abv-mid">25%</span></span></div>
-      <div class="menu-row"><span class="menu-name">바카디</span>        <span class="menu-badges"><span class="cat-tag cat-classic">Classic</span><span class="cat-tag cat-sour">Sour</span><span class="abv-badge abv-mid">20%</span></span></div>
-      <div class="menu-row"><span class="menu-name">락스 온더락</span>   <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-high">29%</span></span></div>
-      <div class="menu-row"><span class="menu-name">파우스트</span>      <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-high">48%</span></span></div>
-      <div class="menu-row"><span class="menu-name">블랙러시안</span>    <span class="abv-badge abv-high">32%</span></div>
-      <div class="menu-row"><span class="menu-name">화이트러시안</span>  <span class="abv-badge abv-mid">22%</span></div>
+    <div class="menu-row">
+      <div class="menu-top"><span class="menu-name">Cape Codder</span><span class="menu-abv low">10%</span></div>
+      <div class="menu-tags">
+        <span class="technique-tag">Build</span>
+        <span class="tag-divider"></span>
+        <span class="menu-tag base">Vodka</span>
+        <span class="menu-tag juice">Cranberry Juice</span>
+      </div>
     </div>
-    <!-- Column 3 -->
-    <div class="menu-col">
-      <div class="menu-row"><span class="menu-name">B-52</span>          <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-high">26%</span></span></div>
-      <div class="menu-row"><span class="menu-name">퀵퍽</span>          <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-mid">19%</span></span></div>
-      <div class="menu-row"><span class="menu-name">몽키브레인</span>    <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-mid">19%</span></span></div>
-      <div class="menu-row"><span class="menu-name">블루스카이</span>    <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-high">31%</span></span></div>
-      <div class="menu-row"><span class="menu-name">BJ</span>            <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-mid">16%</span></span></div>
-      <div class="menu-row"><span class="menu-name">레몬드롭</span>      <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="cat-tag cat-sour">Sour</span><span class="abv-badge abv-mid">24%</span></span></div>
-      <div class="menu-row"><span class="menu-name">데킬라 샷</span>     <span class="menu-badges"><span class="cat-tag cat-shot">Shot</span><span class="abv-badge abv-high">40%</span></span></div>
-      <div class="menu-row"><span class="menu-name">모스코 뮬</span>      <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">10%</span></span></div>
-      <div class="menu-row"><span class="menu-name">모히또</span>        <span class="menu-badges"><span class="cat-tag cat-fruity">Fruity</span><span class="abv-badge abv-low">12%</span></span></div>
+    <div class="menu-row">
+      <div class="menu-top"><span class="menu-name">Vodka Tonic</span><span class="menu-abv low">11%</span></div>
+      <div class="menu-tags">
+        <span class="technique-tag">Build</span>
+        <span class="tag-divider"></span>
+        <span class="menu-tag base">Vodka</span>
+        <span class="menu-tag mixer">Tonic Water</span>
+      </div>
+    </div>
+    <div class="menu-row">
+      <div class="menu-top"><span class="menu-name">Madras</span><span class="menu-abv mid">13%</span></div>
+      <div class="menu-tags">
+        <span class="technique-tag">Build</span>
+        <span class="tag-divider"></span>
+        <span class="menu-tag base">Vodka</span>
+        <span class="menu-tag juice">Cranberry Juice</span>
+        <span class="menu-tag juice">Orange Juice</span>
+      </div>
+    </div>
+    <div class="menu-row">
+      <div class="menu-top"><span class="menu-name">Kamikaze</span><span class="menu-abv mid">25%</span></div>
+      <div class="menu-tags">
+        <span class="technique-tag">Shake</span>
+        <span class="tag-divider"></span>
+        <span class="menu-tag base">Vodka</span>
+        <span class="menu-tag liqueur">Triple Sec</span>
+        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+      </div>
+    </div>
+    <div class="menu-row">
+      <div class="menu-top"><span class="menu-name">Cosmopolitan</span><span class="menu-abv high">27%</span></div>
+      <div class="menu-tags">
+        <span class="technique-tag">Shake</span>
+        <span class="tag-divider"></span>
+        <span class="menu-tag base">Vodka</span>
+        <span class="menu-tag liqueur">Triple Sec</span>
+        <span class="menu-tag juice">Cranberry Juice</span>
+        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+      </div>
+    </div>
+    <div class="menu-row">
+      <div class="menu-top"><span class="menu-name">Vodka Sour</span><span class="menu-abv high">32%</span></div>
+      <div class="menu-tags">
+        <span class="technique-tag">Shake</span>
+        <span class="tag-divider"></span>
+        <span class="menu-tag base">Vodka</span>
+        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+      </div>
+    </div>
+    <div class="menu-group-label">Bourbon</div>
+    <div class="menu-row">
+      <div class="menu-top"><span class="menu-name">Jim Beam Highball</span><span class="menu-abv low">11%</span></div>
+      <div class="menu-tags">
+        <span class="technique-tag">Build</span>
+        <span class="tag-divider"></span>
+        <span class="menu-tag base">Bourbon</span>
+        <span class="menu-tag mixer">Tonic Water</span>
+        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+      </div>
+    </div>
+    <div class="menu-row">
+      <div class="menu-top"><span class="menu-name">Whiskey Sour</span><span class="menu-abv high">32%</span></div>
+      <div class="menu-tags">
+        <span class="technique-tag">Shake</span>
+        <span class="tag-divider"></span>
+        <span class="menu-tag base">Bourbon</span>
+        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>© 2026 Byeongju Woo</footer>
 
-<!-- ══════════ RESERVATION MODAL ══════════ -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <h3>Reserve a seat</h3>
-    <div class="modal-date" id="modal-date"></div>
-    <label for="name-input">Leave your name:</label>
-    <input type="text" id="name-input" placeholder="Your name" autocomplete="off">
-    <div class="modal-actions">
-      <button class="btn btn-cancel" id="btn-cancel">Cancel</button>
-      <button class="btn btn-submit" id="btn-submit">Submit</button>
-    </div>
-    <p class="modal-note">
-      Submit을 누르면 호스트에게 예약 신청이 전달됩니다.
-    </p>
-  </div>
-</div>
-
-<script>
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzQp8wmp_TjsKQoPX0fg7v9_wUoZTqnlfEghzpvzCyz5f9baqTMOzmYCHllyzy_NASl/exec';
-
-  const modal      = document.getElementById('modal');
-  const modalDate  = document.getElementById('modal-date');
-  const nameInput  = document.getElementById('name-input');
-  const btnSubmit  = document.getElementById('btn-submit');
-  let currentDate  = '';
-  let currentEvent = '';
-
-  document.querySelectorAll('td.open').forEach(td => {
-    td.addEventListener('click', () => {
-      currentDate  = td.dataset.date;
-      currentEvent = td.dataset.event;
-      const label  = currentEvent
-        ? `${currentDate} — ${currentEvent} (18:30 —)`
-        : `${currentDate} (18:30 —)`;
-      modalDate.textContent = label;
-      nameInput.value = '';
-      nameInput.style.borderColor = '';
-      btnSubmit.textContent = 'Submit';
-      btnSubmit.disabled = false;
-      modal.classList.add('active');
-      setTimeout(() => nameInput.focus(), 50);
-    });
-  });
-
-  document.getElementById('btn-cancel').addEventListener('click', closeModal);
-  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-  function closeModal() { modal.classList.remove('active'); }
-
-  btnSubmit.addEventListener('click', async () => {
-    const name = nameInput.value.trim();
-    if (!name) { nameInput.focus(); nameInput.style.borderColor = '#f87171'; return; }
-    nameInput.style.borderColor = '';
-
-    btnSubmit.textContent = '전송 중…';
-    btnSubmit.disabled = true;
-
-    try {
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: JSON.stringify({ name, date: currentDate + (currentEvent ? ` (${currentEvent})` : '') })
-      });
-    } catch (_) {}
-
-    btnSubmit.textContent = '✓ 완료!';
-    setTimeout(closeModal, 1200);
-  });
-</script>
 </body>
 </html>
