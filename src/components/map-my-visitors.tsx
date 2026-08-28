@@ -6,13 +6,10 @@ const MAP_IMG_URL =
   "https://mapmyvisitors.com/map.png?d=XX51c4aOOh2OQm10KNfLEwc4iyOnS0YF5455gNsRRK4&cl=ffffff&w=a&t=n&cmn=3acc3a&cmo=20b220";
 
 export function MapMyVisitors() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <div>
-      {/* Hidden tracking pixel: always mounted so every page load is counted, regardless of the toggle below. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={MAP_IMG_URL} alt="" aria-hidden="true" style={{ display: "none" }} />
       <button
         onClick={() => setOpen((o) => !o)}
         className="inline-flex items-center gap-1.5 text-xs text-stone-400 hover:text-stone-600 transition-colors"
