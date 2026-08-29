@@ -20,6 +20,7 @@
       --cat-juice: #5fa8a0;
       --cat-mixer: #7ba3c9;
       --cat-syrup: #c98a8a;
+      --cat-fruit: #cf9868;
       --abv-low: #4ade80;
       --abv-mid: #facc15;
       --abv-high: #f87171;
@@ -40,10 +41,9 @@
       text-align: center;
     }
     header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.05em; color: var(--accent); }
-    header p { margin-top: 0.4rem; font-size: 0.85rem; color: var(--muted); letter-spacing: 0.08em; }
     nav { display: flex; justify-content: center; gap: 2rem; margin-top: 1.25rem; }
     nav a {
-      font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 0.85rem; letter-spacing: 0.03em; font-weight: 600;
       color: var(--muted); text-decoration: none; padding-bottom: 2px;
       border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s;
     }
@@ -53,8 +53,8 @@
     section { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
     section + section { border-top: 1px solid var(--border); }
     .section-title {
-      font-size: 1.4rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 2rem;
+      font-size: 1.4rem; font-weight: 700; letter-spacing: 0.03em;
+      color: var(--accent); margin-bottom: 2rem;
     }
 
     /* ── Stock ── */
@@ -84,8 +84,15 @@
     .stock-card.juice   { --cat-color: var(--cat-juice); }
     .stock-card.mixer   { --cat-color: var(--cat-mixer); }
     .stock-card.syrup   { --cat-color: var(--cat-syrup); }
+    .stock-card.fruit   { --cat-color: var(--cat-fruit); }
+    .stock-empty { font-size: 0.85rem; color: var(--muted); font-style: italic; }
 
     /* ── Menu ── */
+    .menu-categories { display: flex; flex-direction: column; gap: 2rem; }
+    .menu-category-title {
+      font-size: 1.05rem; font-weight: 700; letter-spacing: 0.02em;
+      color: var(--accent); margin-bottom: 0.9rem;
+    }
     .menu-list {
       border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
     }
@@ -93,15 +100,11 @@
       padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border);
     }
     .menu-row:last-child { border-bottom: none; }
-    .menu-group-label {
-      padding: 0.6rem 1.25rem; font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
-      background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border);
-    }
     .menu-top {
       display: flex; justify-content: space-between; align-items: center;
     }
     .menu-name { font-size: 0.95rem; font-weight: 500; color: var(--text); }
+    .menu-name.unstocked { color: var(--muted); }
     .menu-abv {
       font-size: 0.78rem; font-weight: 700; padding: 0.15rem 0.55rem;
       border-radius: 20px; white-space: nowrap;
@@ -136,6 +139,7 @@
     .menu-tag.juice   { --cat-color: var(--cat-juice); }
     .menu-tag.mixer   { --cat-color: var(--cat-mixer); }
     .menu-tag.syrup   { --cat-color: var(--cat-syrup); }
+    .menu-tag.fruit   { --cat-color: var(--cat-fruit); }
 
     /* ── Footer ── */
     footer {
@@ -148,26 +152,26 @@
 <body>
 
 <header>
-  <h1>🍹 Cocktail</h1>
-  <p>Homemade cocktail bar</p>
+  <h1>Byeongju's home bar</h1>
   <nav>
-    <a href="#location">Location</a>
+    <a href="#welcome">Welcome</a>
     <a href="#stock">Stock</a>
     <a href="#menu">Menu</a>
   </nav>
 </header>
 
-<!-- ══════════ LOCATION ══════════ -->
-<section id="location">
-  <div class="section-title">📍 Location</div>
-  <p style="font-size:0.95rem;">
-    <a href="https://www.google.com/maps/search/?api=1&query=3570+Green+Brier+Blvd+Apt+410C" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">3570 Green Brier Blvd Apt 410C</a>
+<!-- ══════════ WELCOME ══════════ -->
+<section id="welcome">
+  <div class="section-title">🏠 Welcome</div>
+  <p style="font-size:0.95rem;">Hi! Welcome to Byeongju's home bar.</p>
+  <p style="font-size:0.95rem; margin-top:0.75rem;">
+    📍 Location: <a href="https://www.google.com/maps/search/?api=1&query=3570+Green+Brier+Blvd+Apt+410C" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--muted);text-decoration-thickness:1px;text-underline-offset:3px;">3570 Green Brier Blvd Apt 410C</a>
   </p>
 </section>
 
 <!-- ══════════ STOCK ══════════ -->
 <section id="stock">
-  <div class="section-title">🧊 Stock</div>
+  <div class="section-title">🍹 Stock</div>
   <div class="stock-grid">
     <div class="stock-card base">
       <div class="stock-category">Base Spirits</div>
@@ -207,6 +211,12 @@
         <span class="stock-item">Grenadine</span>
       </div>
     </div>
+    <div class="stock-card fruit">
+      <div class="stock-category">Fruit</div>
+      <div class="stock-items">
+        <span class="stock-empty">None yet</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -218,193 +228,190 @@
     <span><span class="abv-dot mid"></span> Medium · 12–25%</span>
     <span><span class="abv-dot high"></span> High · &gt;25%</span>
   </div>
-  <div class="menu-list">
-    <div class="menu-group-label">Vodka</div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Screwdriver</span><span class="menu-abv low">10%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Build</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Vodka</span>
-        <span class="menu-tag juice">Orange Juice</span>
+  <div class="menu-categories">
+    <div>
+      <div class="menu-category-title">Tropical &amp; Fruity</div>
+      <div class="menu-list">
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Screwdriver</span><span class="menu-abv low">10%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag juice">Orange Juice</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Tequila Sunrise</span><span class="menu-abv low">10%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Tequila</span>
+            <span class="menu-tag juice">Orange Juice</span>
+            <span class="menu-tag syrup">Grenadine</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name unstocked">Midori Sour</span><span class="menu-abv low">7%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag liqueur">Midori</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag mixer">Sprite</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Melon Ball</span><span class="menu-abv mid">12%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag liqueur">Midori</span>
+            <span class="menu-tag juice">Orange Juice</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Woo Woo</span><span class="menu-abv mid">13%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag liqueur">Peach Schnapps</span>
+            <span class="menu-tag juice">Cranberry Juice</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Sex on the Beach</span><span class="menu-abv mid">14%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag liqueur">Peach Schnapps</span>
+            <span class="menu-tag juice">Cranberry Juice</span>
+            <span class="menu-tag juice">Orange Juice</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Cape Codder</span><span class="menu-abv low">10%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Build</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Vodka</span>
-        <span class="menu-tag juice">Cranberry Juice</span>
+    <div>
+      <div class="menu-category-title">Highballs</div>
+      <div class="menu-list">
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Gin &amp; Tonic</span><span class="menu-abv low">10%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Dry Gin</span>
+            <span class="menu-tag mixer">Tonic Water</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Jim Beam Highball</span><span class="menu-abv low">11%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Bourbon</span>
+            <span class="menu-tag mixer">Tonic Water</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Vodka Tonic</span><span class="menu-abv low">11%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Build</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Vodka</span>
-        <span class="menu-tag mixer">Tonic Water</span>
+    <div>
+      <div class="menu-category-title">Classics</div>
+      <div class="menu-list">
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Margarita</span><span class="menu-abv high">31%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Tequila</span>
+            <span class="menu-tag liqueur">Triple Sec</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Daiquiri</span><span class="menu-abv high">32%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">White Rum</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Cosmopolitan</span><span class="menu-abv high">27%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag liqueur">Triple Sec</span>
+            <span class="menu-tag juice">Cranberry Juice</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Whiskey Sour</span><span class="menu-abv high">32%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Bourbon</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">White Lady</span><span class="menu-abv high">29%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Dry Gin</span>
+            <span class="menu-tag liqueur">Triple Sec</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Gimlet</span><span class="menu-abv high">32%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Dry Gin</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Melon Ball</span><span class="menu-abv mid">12%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Build</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Vodka</span>
-        <span class="menu-tag liqueur">Midori</span>
-        <span class="menu-tag juice">Orange Juice</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Madras</span><span class="menu-abv mid">13%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Build</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Vodka</span>
-        <span class="menu-tag juice">Cranberry Juice</span>
-        <span class="menu-tag juice">Orange Juice</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Woo Woo</span><span class="menu-abv mid">13%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Build</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Vodka</span>
-        <span class="menu-tag liqueur">Peach Schnapps</span>
-        <span class="menu-tag juice">Cranberry Juice</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Sex on the Beach</span><span class="menu-abv mid">14%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Build</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Vodka</span>
-        <span class="menu-tag liqueur">Peach Schnapps</span>
-        <span class="menu-tag juice">Cranberry Juice</span>
-        <span class="menu-tag juice">Orange Juice</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Midori Sour</span><span class="menu-abv mid">18%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Shake</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag liqueur">Midori</span>
-        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Kamikaze</span><span class="menu-abv mid">25%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Shake</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Vodka</span>
-        <span class="menu-tag liqueur">Triple Sec</span>
-        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Cosmopolitan</span><span class="menu-abv high">27%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Shake</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Vodka</span>
-        <span class="menu-tag liqueur">Triple Sec</span>
-        <span class="menu-tag juice">Cranberry Juice</span>
-        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Vodka Sour</span><span class="menu-abv high">32%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Shake</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Vodka</span>
-        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-      </div>
-    </div>
-    <div class="menu-group-label">Gin</div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Gin &amp; Tonic</span><span class="menu-abv low">10%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Build</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Dry Gin</span>
-        <span class="menu-tag mixer">Tonic Water</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">White Lady</span><span class="menu-abv high">29%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Shake</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Dry Gin</span>
-        <span class="menu-tag liqueur">Triple Sec</span>
-        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Gimlet</span><span class="menu-abv high">32%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Shake</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Dry Gin</span>
-        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-      </div>
-    </div>
-    <div class="menu-group-label">White Rum</div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Daiquiri</span><span class="menu-abv high">32%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Shake</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">White Rum</span>
-        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-      </div>
-    </div>
-    <div class="menu-group-label">Tequila</div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Tequila Sunrise</span><span class="menu-abv low">10%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Build</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Tequila</span>
-        <span class="menu-tag juice">Orange Juice</span>
-        <span class="menu-tag syrup">Grenadine</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Margarita</span><span class="menu-abv high">31%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Shake</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Tequila</span>
-        <span class="menu-tag liqueur">Triple Sec</span>
-        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-      </div>
-    </div>
-    <div class="menu-group-label">Bourbon</div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Jim Beam Highball</span><span class="menu-abv low">11%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Build</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Bourbon</span>
-        <span class="menu-tag mixer">Tonic Water</span>
-        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="menu-top"><span class="menu-name">Whiskey Sour</span><span class="menu-abv high">32%</span></div>
-      <div class="menu-tags">
-        <span class="technique-tag">Shake</span>
-        <span class="tag-divider"></span>
-        <span class="menu-tag base">Bourbon</span>
-        <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+    <div>
+      <div class="menu-category-title">Shots</div>
+      <div class="menu-list">
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Kamikaze</span><span class="menu-abv mid">25%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag liqueur">Triple Sec</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name unstocked">Lemon Drop</span><span class="menu-abv mid">20%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag fruit">Lemon</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Tequila Shot</span><span class="menu-abv high">40%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Neat</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Tequila</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
