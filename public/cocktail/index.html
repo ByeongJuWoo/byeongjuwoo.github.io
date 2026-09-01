@@ -57,6 +57,17 @@
       color: var(--accent); margin-bottom: 2rem;
     }
 
+    /* ── Welcome ── */
+    .welcome-photos { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    .welcome-photos img {
+      width: 50%; height: 260px; object-fit: cover;
+      border-radius: 10px; border: 1px solid var(--border);
+    }
+    @media (max-width: 600px) {
+      .welcome-photos img.mobile-hide { display: none; }
+      .welcome-photos img { width: 100%; }
+    }
+
     /* ── Stock ── */
     .stock-grid {
       display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
@@ -167,6 +178,10 @@
   <p style="font-size:0.95rem; margin-top:0.75rem;">
     📍 Location: <a href="https://www.google.com/maps/search/?api=1&query=3570+Green+Brier+Blvd+Apt+410C" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--muted);text-decoration-thickness:1px;text-underline-offset:3px;">3570 Green Brier Blvd Apt 410C</a>
   </p>
+  <div class="welcome-photos">
+    <img src="../images/cocktail1.jpeg" alt="Home bar photo 1">
+    <img class="mobile-hide" src="../images/cocktail2.jpeg" alt="Home bar photo 2">
+  </div>
 </section>
 
 <!-- ══════════ STOCK ══════════ -->
