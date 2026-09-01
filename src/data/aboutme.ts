@@ -46,7 +46,7 @@ export interface AboutMe {
 
 export const aboutMe: AboutMe = {
   name: "Byeongju Woo",
-  title: "1st year Ph.D. Student",
+  title: "First year Ph.D. Student",
   department: "Computer Science & Engineering",
   institution: "University of Michigan",
   // Note that links work in the description
@@ -128,7 +128,7 @@ export const aboutMe: AboutMe = {
   institutionUrl: "https://umich.edu",
   // altName: "",
   // secretDescription: "I like dogs.",
-  addressOffice:"Daejeon, Republic of Korea",
-  addressURL:"https://maps.app.goo.gl/UDcczVBM8Kp2APpm8",
+  addressOffice:"Ann Arbor, Michigan",
+  addressURL:"https://www.google.com/maps/search/?api=1&query=Ann+Arbor%2C+Michigan",
   lastUpdated: "August 27, 2026",
 };

@@ -93,7 +93,7 @@ export default function Home() {
                         className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 transition-colors"
                       >
                         <MapPin size={14} />
-                        Daejeon, Korea
+                        {aboutMe.addressOffice}
                       </a>
                     </div>
                   )}
