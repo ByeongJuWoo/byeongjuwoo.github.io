@@ -36,22 +36,31 @@
 
     /* ── Header ── */
     header {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--bg);
       border-bottom: 1px solid var(--border);
-      padding: 2rem 1.5rem 1.5rem;
+      padding: 1.5rem 1.5rem 0;
       text-align: center;
     }
-    header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.05em; color: var(--accent); }
-    nav { display: flex; justify-content: center; gap: 2rem; margin-top: 1.25rem; }
-    nav a {
-      font-size: 0.85rem; letter-spacing: 0.03em; font-weight: 600;
-      color: var(--muted); text-decoration: none; padding-bottom: 2px;
-      border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s;
+    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 1.25rem; }
+    nav { display: flex; }
+    .tab-btn {
+      flex: 1;
+      font-family: inherit;
+      font-size: 1rem; letter-spacing: 0.02em; font-weight: 700;
+      color: var(--muted); background: transparent;
+      border: none; border-top: 1px solid var(--border);
+      border-bottom: 2px solid transparent;
+      padding: 0.9rem 0.5rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
     }
-    nav a:hover { color: var(--accent); border-color: var(--accent); }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 
     /* ── Sections ── */
     section { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
-    section + section { border-top: 1px solid var(--border); }
+    section[hidden] { display: none; }
     .section-title {
       font-size: 1.4rem; font-weight: 700; letter-spacing: 0.03em;
       color: var(--accent); margin-bottom: 2rem;
@@ -165,9 +174,9 @@
 <header>
   <h1>Byeongju's home bar</h1>
   <nav>
-    <a href="#welcome">Welcome</a>
-    <a href="#stock">Stock</a>
-    <a href="#menu">Menu</a>
+    <button class="tab-btn active" data-tab="welcome">Welcome</button>
+    <button class="tab-btn" data-tab="menu">Menu</button>
+    <button class="tab-btn" data-tab="stock">Stock</button>
   </nav>
 </header>
 
@@ -185,7 +194,7 @@
 </section>
 
 <!-- ══════════ STOCK ══════════ -->
-<section id="stock">
+<section id="stock" hidden>
   <div class="section-title">🍹 Stock</div>
   <div class="stock-grid">
     <div class="stock-card base">
@@ -196,6 +205,7 @@
         <span class="stock-item">White Rum</span>
         <span class="stock-item">Dry Gin</span>
         <span class="stock-item">Tequila</span>
+        <span class="stock-item">Overproof Rum</span>
       </div>
     </div>
     <div class="stock-card liqueur">
@@ -205,6 +215,7 @@
         <span class="stock-item">Midori</span>
         <span class="stock-item">Peach Schnapps</span>
         <span class="stock-item">Blue Curaçao</span>
+        <span class="stock-item">Malibu Coconut Rum</span>
       </div>
     </div>
     <div class="stock-card juice">
@@ -213,6 +224,7 @@
         <span class="stock-item">Cranberry Juice</span>
         <span class="stock-item">Orange Juice</span>
         <span class="stock-item">Pineapple Juice</span>
+        <span class="stock-item">Lime Juice</span>
       </div>
     </div>
     <div class="stock-card mixer">
@@ -220,6 +232,7 @@
       <div class="stock-items">
         <span class="stock-item">Sweet &amp; Sour Mix</span>
         <span class="stock-item">Tonic Water</span>
+        <span class="stock-item">Sprite</span>
       </div>
     </div>
     <div class="stock-card syrup">
@@ -229,16 +242,17 @@
       </div>
     </div>
     <div class="stock-card fruit">
-      <div class="stock-category">Fruit</div>
+      <div class="stock-category">Garnish</div>
       <div class="stock-items">
-        <span class="stock-empty">None yet</span>
+        <span class="stock-item">Sugar</span>
+        <span class="stock-item">Salt</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ MENU ══════════ -->
-<section id="menu">
+<section id="menu" hidden>
   <div class="section-title">📋 Menu</div>
   <div class="abv-legend">
     <span><span class="abv-dot low"></span> Low · &lt;12%</span>
@@ -246,6 +260,81 @@
     <span><span class="abv-dot high"></span> High · &gt;25%</span>
   </div>
   <div class="menu-categories">
+    <div>
+      <div class="menu-category-title">⭐ Recommended</div>
+      <div class="menu-list">
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Tequila Sunrise</span><span class="menu-abv low">10%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Tequila</span>
+            <span class="menu-tag juice">Orange Juice</span>
+            <span class="menu-tag syrup">Grenadine</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Okbodan (玉潽團)</span><span class="menu-abv low">6%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag liqueur">Peach Schnapps</span>
+            <span class="menu-tag liqueur">Malibu Coconut Rum</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag juice">Orange Juice</span>
+            <span class="menu-tag syrup">Grenadine</span>
+            <span class="menu-tag fruit">Sugar</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Adios Mother Fucker (AMF)</span><span class="menu-abv mid">15%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag base">White Rum</span>
+            <span class="menu-tag base">Dry Gin</span>
+            <span class="menu-tag base">Tequila</span>
+            <span class="menu-tag liqueur">Blue Curaçao</span>
+            <span class="menu-tag juice">Lime Juice</span>
+            <span class="menu-tag mixer">Sprite</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Gimlet</span><span class="menu-abv high">28%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Dry Gin</span>
+            <span class="menu-tag juice">Lime Juice</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name unstocked">Lemon Drop</span><span class="menu-abv mid">24%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="technique-tag">Float</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag base">Overproof Rum</span>
+            <span class="menu-tag juice">Lime Juice</span>
+            <span class="menu-tag fruit">Lemon</span>
+            <span class="menu-tag fruit">Sugar</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Blue Sky</span><span class="menu-abv high">30%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Float</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag liqueur">Peach Schnapps</span>
+            <span class="menu-tag liqueur">Blue Curaçao</span>
+            <span class="menu-tag fruit">Sugar</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <div>
       <div class="menu-category-title">Tropical &amp; Fruity</div>
       <div class="menu-list">
@@ -269,7 +358,7 @@
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name unstocked">Midori Sour</span><span class="menu-abv low">7%</span></div>
+          <div class="menu-top"><span class="menu-name">Midori Sour</span><span class="menu-abv low">7%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -351,71 +440,85 @@
       <div class="menu-category-title">Classics</div>
       <div class="menu-list">
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Margarita</span><span class="menu-abv high">31%</span></div>
+          <div class="menu-top"><span class="menu-name">Margarita</span><span class="menu-abv high">26%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Tequila</span>
             <span class="menu-tag liqueur">Triple Sec</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Blue Margarita</span><span class="menu-abv high">31%</span></div>
+          <div class="menu-top"><span class="menu-name">Blue Margarita</span><span class="menu-abv high">26%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Tequila</span>
             <span class="menu-tag liqueur">Blue Curaçao</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Daiquiri</span><span class="menu-abv high">32%</span></div>
+          <div class="menu-top"><span class="menu-name">Daiquiri</span><span class="menu-abv mid">24%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">White Rum</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Cosmopolitan</span><span class="menu-abv high">27%</span></div>
+          <div class="menu-top"><span class="menu-name">Cosmopolitan</span><span class="menu-abv mid">24%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Vodka</span>
             <span class="menu-tag liqueur">Triple Sec</span>
             <span class="menu-tag juice">Cranberry Juice</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Whiskey Sour</span><span class="menu-abv high">32%</span></div>
+          <div class="menu-top"><span class="menu-name">Whiskey Sour</span><span class="menu-abv mid">20%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Bourbon</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">White Lady</span><span class="menu-abv high">29%</span></div>
+          <div class="menu-top"><span class="menu-name">White Lady</span><span class="menu-abv mid">25%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Dry Gin</span>
             <span class="menu-tag liqueur">Triple Sec</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Gimlet</span><span class="menu-abv high">32%</span></div>
+          <div class="menu-top"><span class="menu-name">Gimlet</span><span class="menu-abv high">28%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Dry Gin</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag juice">Lime Juice</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Adios Mother Fucker (AMF)</span><span class="menu-abv mid">15%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag base">White Rum</span>
+            <span class="menu-tag base">Dry Gin</span>
+            <span class="menu-tag base">Tequila</span>
+            <span class="menu-tag liqueur">Blue Curaçao</span>
+            <span class="menu-tag juice">Lime Juice</span>
+            <span class="menu-tag mixer">Sprite</span>
           </div>
         </div>
       </div>
@@ -424,23 +527,26 @@
       <div class="menu-category-title">Shots</div>
       <div class="menu-list">
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Kamikaze</span><span class="menu-abv mid">25%</span></div>
+          <div class="menu-top"><span class="menu-name">Kamikaze</span><span class="menu-abv mid">20%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Vodka</span>
             <span class="menu-tag liqueur">Triple Sec</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name unstocked">Lemon Drop</span><span class="menu-abv mid">20%</span></div>
+          <div class="menu-top"><span class="menu-name unstocked">Lemon Drop</span><span class="menu-abv mid">24%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
+            <span class="technique-tag">Float</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Vodka</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag base">Overproof Rum</span>
+            <span class="menu-tag juice">Lime Juice</span>
             <span class="menu-tag fruit">Lemon</span>
+            <span class="menu-tag fruit">Sugar</span>
           </div>
         </div>
         <div class="menu-row">
@@ -451,6 +557,7 @@
             <span class="menu-tag base">Vodka</span>
             <span class="menu-tag liqueur">Peach Schnapps</span>
             <span class="menu-tag liqueur">Blue Curaçao</span>
+            <span class="menu-tag fruit">Sugar</span>
           </div>
         </div>
         <div class="menu-row">
@@ -467,6 +574,17 @@
 </section>
 
 <footer>© 2026 Byeongju Woo</footer>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      document.querySelectorAll('section[id]').forEach(function (s) { s.hidden = true; });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).hidden = false;
+    });
+  });
+</script>
 
 </body>
 </html>
