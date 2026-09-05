@@ -107,6 +107,21 @@
     .stock-card.fruit   { --cat-color: var(--cat-fruit); }
     .stock-empty { font-size: 0.85rem; color: var(--muted); font-style: italic; }
 
+    .to-buy {
+      margin-top: 1.75rem; padding-top: 1.5rem;
+      border-top: 1px dashed var(--border);
+    }
+    .to-buy-title {
+      font-size: 1.4rem; font-weight: 700; letter-spacing: 0.03em;
+      color: var(--accent); margin-bottom: 1.25rem;
+    }
+    .to-buy-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .to-buy-item {
+      font-size: 0.85rem; font-weight: 500; color: var(--muted);
+      background: transparent; border: 1px dashed var(--border);
+      border-radius: 20px; padding: 0.3rem 0.85rem;
+    }
+
     /* ── Menu ── */
     .menu-categories { display: flex; flex-direction: column; gap: 2rem; }
     .menu-category-title {
@@ -160,6 +175,53 @@
     .menu-tag.mixer   { --cat-color: var(--cat-mixer); }
     .menu-tag.syrup   { --cat-color: var(--cat-syrup); }
     .menu-tag.fruit   { --cat-color: var(--cat-fruit); }
+
+    .menu-row.clickable { cursor: pointer; transition: background 0.15s; }
+    .menu-row.clickable:hover,
+    .menu-row.clickable:active { background: rgba(255,255,255,0.04); }
+    .menu-row.clickable .menu-name::after {
+      content: '›'; margin-left: 0.4rem; color: var(--muted); font-weight: 700;
+    }
+
+    /* ── Recipe Modal ── */
+    .recipe-modal-backdrop {
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(0,0,0,0.6);
+      align-items: center; justify-content: center;
+      padding: 1.5rem;
+    }
+    .recipe-modal-backdrop[hidden] { display: none; }
+    .recipe-modal-backdrop:not([hidden]) { display: flex; }
+    .recipe-modal {
+      position: relative;
+      width: 100%; max-width: 420px; max-height: 85vh;
+      overflow-y: auto;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.75rem 1.5rem 1.5rem;
+    }
+    .recipe-modal-close {
+      position: absolute; top: 0.75rem; right: 0.75rem;
+      width: 32px; height: 32px; border-radius: 50%;
+      border: none; background: transparent; color: var(--muted);
+      font-size: 1.3rem; line-height: 1; cursor: pointer;
+    }
+    .recipe-modal-close:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+    .recipe-modal-title { font-size: 1.2rem; font-weight: 700; color: var(--accent); padding-right: 1.5rem; }
+    .recipe-modal .menu-abv { display: inline-block; margin-top: 0.5rem; }
+    .recipe-modal-section-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); margin: 1.25rem 0 0.6rem;
+    }
+    .recipe-modal ul, .recipe-modal ol { padding-left: 1.15rem; }
+    .recipe-modal li { font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+    @media (max-width: 600px) {
+      .recipe-modal-backdrop { align-items: flex-end; padding: 0; }
+      .recipe-modal {
+        max-width: 100%; max-height: 80vh;
+        border-radius: 16px 16px 0 0;
+        padding: 1.5rem 1.25rem 2rem;
+      }
+    }
 
     /* ── Footer ── */
     footer {
@@ -249,6 +311,13 @@
       </div>
     </div>
   </div>
+  <div class="to-buy">
+    <div class="to-buy-title">🛒 To Buy</div>
+    <div class="to-buy-items">
+      <span class="to-buy-item">Footed Pilsner Glass</span>
+      <span class="to-buy-item">Redder Grenadine Syrup</span>
+    </div>
+  </div>
 </section>
 
 <!-- ══════════ MENU ══════════ -->
@@ -273,8 +342,8 @@
             <span class="menu-tag syrup">Grenadine</span>
           </div>
         </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Okbodan (玉潽團)</span><span class="menu-abv low">6%</span></div>
+        <div class="menu-row clickable" data-recipe="okbodan">
+          <div class="menu-top"><span class="menu-name">Okbodan (玉潽團)</span><span class="menu-abv low">9%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -377,6 +446,19 @@
             <span class="menu-tag juice">Pineapple Juice</span>
           </div>
         </div>
+        <div class="menu-row clickable" data-recipe="okbodan">
+          <div class="menu-top"><span class="menu-name">Okbodan (玉潽團)</span><span class="menu-abv low">9%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag liqueur">Peach Schnapps</span>
+            <span class="menu-tag liqueur">Malibu Coconut Rum</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag juice">Orange Juice</span>
+            <span class="menu-tag syrup">Grenadine</span>
+            <span class="menu-tag fruit">Sugar</span>
+          </div>
+        </div>
         <div class="menu-row">
           <div class="menu-top"><span class="menu-name">Sex on the Beach</span><span class="menu-abv mid">14%</span></div>
           <div class="menu-tags">
@@ -432,6 +514,20 @@
             <span class="menu-tag base">Bourbon</span>
             <span class="menu-tag mixer">Tonic Water</span>
             <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+          </div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-top"><span class="menu-name">Adios Mother Fucker (AMF)</span><span class="menu-abv mid">15%</span></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag base">White Rum</span>
+            <span class="menu-tag base">Dry Gin</span>
+            <span class="menu-tag base">Tequila</span>
+            <span class="menu-tag liqueur">Blue Curaçao</span>
+            <span class="menu-tag juice">Lime Juice</span>
+            <span class="menu-tag mixer">Sprite</span>
           </div>
         </div>
       </div>
@@ -507,20 +603,6 @@
             <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Adios Mother Fucker (AMF)</span><span class="menu-abv mid">15%</span></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Shake</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Vodka</span>
-            <span class="menu-tag base">White Rum</span>
-            <span class="menu-tag base">Dry Gin</span>
-            <span class="menu-tag base">Tequila</span>
-            <span class="menu-tag liqueur">Blue Curaçao</span>
-            <span class="menu-tag juice">Lime Juice</span>
-            <span class="menu-tag mixer">Sprite</span>
-          </div>
-        </div>
       </div>
     </div>
     <div>
@@ -575,6 +657,19 @@
 
 <footer>© 2026 Byeongju Woo</footer>
 
+<!-- ══════════ RECIPE MODAL ══════════ -->
+<div class="recipe-modal-backdrop" id="recipe-backdrop" hidden>
+  <div class="recipe-modal" role="dialog" aria-modal="true" aria-labelledby="recipe-title">
+    <button class="recipe-modal-close" id="recipe-close" aria-label="Close">&times;</button>
+    <div class="recipe-modal-title" id="recipe-title"></div>
+    <span class="menu-abv" id="recipe-abv"></span>
+    <div class="recipe-modal-section-label">Ingredients</div>
+    <ul id="recipe-ingredients"></ul>
+    <div class="recipe-modal-section-label">Method</div>
+    <ol id="recipe-method"></ol>
+  </div>
+</div>
+
 <script>
   document.querySelectorAll('.tab-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -583,6 +678,75 @@
       btn.classList.add('active');
       document.getElementById(btn.dataset.tab).hidden = false;
     });
+  });
+
+  var RECIPES = {
+    okbodan: {
+      name: 'Okbodan (玉潽團)',
+      abv: '9%',
+      abvClass: 'low',
+      ingredients: [
+        'Peach Schnapps — 3/4 oz',
+        'Malibu Coconut Rum — 3/4 oz',
+        'Sweet & Sour Mix — 3/4 oz',
+        'Orange Juice — 1 1/2 oz',
+        'Grenadine — 1/2 oz',
+        'Sugar (for the rim)'
+      ],
+      method: [
+        'Rim a glass with sugar.',
+        'Shake the Peach Schnapps, Malibu Coconut Rum, Sweet & Sour Mix, and Orange Juice with ice.',
+        'Strain into the sugar-rimmed glass.',
+        'Pour the Grenadine in last — being denser, it sinks to the bottom instead of floating.'
+      ]
+    }
+  };
+
+  var recipeBackdrop = document.getElementById('recipe-backdrop');
+  var recipeTitle = document.getElementById('recipe-title');
+  var recipeAbv = document.getElementById('recipe-abv');
+  var recipeIngredients = document.getElementById('recipe-ingredients');
+  var recipeMethod = document.getElementById('recipe-method');
+
+  function openRecipe(id) {
+    var recipe = RECIPES[id];
+    if (!recipe) return;
+    recipeTitle.textContent = recipe.name;
+    recipeAbv.textContent = recipe.abv;
+    recipeAbv.className = 'menu-abv ' + recipe.abvClass;
+    recipeIngredients.innerHTML = '';
+    recipe.ingredients.forEach(function (item) {
+      var li = document.createElement('li');
+      li.textContent = item;
+      recipeIngredients.appendChild(li);
+    });
+    recipeMethod.innerHTML = '';
+    recipe.method.forEach(function (step) {
+      var li = document.createElement('li');
+      li.textContent = step;
+      recipeMethod.appendChild(li);
+    });
+    recipeBackdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeRecipe() {
+    recipeBackdrop.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-recipe]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      openRecipe(el.dataset.recipe);
+    });
+  });
+
+  document.getElementById('recipe-close').addEventListener('click', closeRecipe);
+  recipeBackdrop.addEventListener('click', function (e) {
+    if (e.target === recipeBackdrop) closeRecipe();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !recipeBackdrop.hidden) closeRecipe();
   });
 </script>
 
