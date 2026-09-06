@@ -140,6 +140,7 @@
     }
     .menu-name { font-size: 0.95rem; font-weight: 500; color: var(--text); }
     .menu-name.unstocked { color: var(--muted); }
+    .menu-name.recommended::before { content: '⭐ '; }
     .menu-abv {
       font-size: 0.78rem; font-weight: 700; padding: 0.15rem 0.55rem;
       border-radius: 20px; white-space: nowrap;
@@ -330,81 +331,6 @@
   </div>
   <div class="menu-categories">
     <div>
-      <div class="menu-category-title">⭐ Recommended</div>
-      <div class="menu-list">
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Tequila Sunrise</span><span class="menu-abv low">10%</span></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Build</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Tequila</span>
-            <span class="menu-tag juice">Orange Juice</span>
-            <span class="menu-tag syrup">Grenadine</span>
-          </div>
-        </div>
-        <div class="menu-row clickable" data-recipe="okbodan">
-          <div class="menu-top"><span class="menu-name">Okbodan (玉潽團)</span><span class="menu-abv low">9%</span></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Shake</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag liqueur">Peach Schnapps</span>
-            <span class="menu-tag liqueur">Malibu Coconut Rum</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-            <span class="menu-tag juice">Orange Juice</span>
-            <span class="menu-tag syrup">Grenadine</span>
-            <span class="menu-tag fruit">Sugar</span>
-          </div>
-        </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Adios Mother Fucker (AMF)</span><span class="menu-abv mid">15%</span></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Shake</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Vodka</span>
-            <span class="menu-tag base">White Rum</span>
-            <span class="menu-tag base">Dry Gin</span>
-            <span class="menu-tag base">Tequila</span>
-            <span class="menu-tag liqueur">Blue Curaçao</span>
-            <span class="menu-tag juice">Lime Juice</span>
-            <span class="menu-tag mixer">Sprite</span>
-          </div>
-        </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Gimlet</span><span class="menu-abv high">28%</span></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Shake</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Dry Gin</span>
-            <span class="menu-tag juice">Lime Juice</span>
-          </div>
-        </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name unstocked">Lemon Drop</span><span class="menu-abv mid">24%</span></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Shake</span>
-            <span class="technique-tag">Float</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Vodka</span>
-            <span class="menu-tag base">Overproof Rum</span>
-            <span class="menu-tag juice">Lime Juice</span>
-            <span class="menu-tag fruit">Lemon</span>
-            <span class="menu-tag fruit">Sugar</span>
-          </div>
-        </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Blue Sky</span><span class="menu-abv high">30%</span></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Float</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Vodka</span>
-            <span class="menu-tag liqueur">Peach Schnapps</span>
-            <span class="menu-tag liqueur">Blue Curaçao</span>
-            <span class="menu-tag fruit">Sugar</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
       <div class="menu-category-title">Tropical &amp; Fruity</div>
       <div class="menu-list">
         <div class="menu-row">
@@ -417,7 +343,7 @@
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Tequila Sunrise</span><span class="menu-abv low">10%</span></div>
+          <div class="menu-top"><span class="menu-name recommended">Tequila Sunrise</span><span class="menu-abv low">10%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -447,7 +373,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="okbodan">
-          <div class="menu-top"><span class="menu-name">Okbodan (玉潽團)</span><span class="menu-abv low">9%</span></div>
+          <div class="menu-top"><span class="menu-name recommended">Okbodan (玉潽團)</span><span class="menu-abv low">9%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -459,8 +385,8 @@
             <span class="menu-tag fruit">Sugar</span>
           </div>
         </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Sex on the Beach</span><span class="menu-abv mid">14%</span></div>
+        <div class="menu-row clickable" data-recipe="sotb">
+          <div class="menu-top"><span class="menu-name">Sex on the Beach</span><span class="menu-abv mid">12%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -517,7 +443,7 @@
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Adios Mother Fucker (AMF)</span><span class="menu-abv mid">15%</span></div>
+          <div class="menu-top"><span class="menu-name recommended">Adios Mother Fucker (AMF)</span><span class="menu-abv mid">15%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -543,16 +469,7 @@
             <span class="menu-tag base">Tequila</span>
             <span class="menu-tag liqueur">Triple Sec</span>
             <span class="menu-tag juice">Lime Juice</span>
-          </div>
-        </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Blue Margarita</span><span class="menu-abv high">26%</span></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Shake</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Tequila</span>
-            <span class="menu-tag liqueur">Blue Curaçao</span>
-            <span class="menu-tag juice">Lime Juice</span>
+            <span class="menu-tag fruit">Salt</span>
           </div>
         </div>
         <div class="menu-row">
@@ -595,7 +512,7 @@
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Gimlet</span><span class="menu-abv high">28%</span></div>
+          <div class="menu-top"><span class="menu-name recommended">Gimlet</span><span class="menu-abv high">28%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -619,7 +536,7 @@
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name unstocked">Lemon Drop</span><span class="menu-abv mid">24%</span></div>
+          <div class="menu-top"><span class="menu-name unstocked recommended">Lemon Drop</span><span class="menu-abv mid">24%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="technique-tag">Float</span>
@@ -632,7 +549,7 @@
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Blue Sky</span><span class="menu-abv high">30%</span></div>
+          <div class="menu-top"><span class="menu-name recommended">Blue Sky</span><span class="menu-abv high">30%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Float</span>
             <span class="tag-divider"></span>
@@ -643,11 +560,12 @@
           </div>
         </div>
         <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Tequila Shot</span><span class="menu-abv high">40%</span></div>
+          <div class="menu-top"><span class="menu-name recommended">Tequila Shot</span><span class="menu-abv high">40%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Neat</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Tequila</span>
+            <span class="menu-tag fruit">Salt</span>
           </div>
         </div>
       </div>
@@ -698,6 +616,22 @@
         'Shake the Peach Schnapps, Malibu Coconut Rum, Sweet & Sour Mix, and Orange Juice with ice.',
         'Strain into the sugar-rimmed glass.',
         'Pour the Grenadine in last — being denser, it sinks to the bottom instead of floating.'
+      ]
+    },
+    sotb: {
+      name: 'Sex on the Beach',
+      abv: '12%',
+      abvClass: 'mid',
+      ingredients: [
+        'Vodka — 1 1/2 oz',
+        'Peach Schnapps — 1 oz',
+        'Orange Juice — 2 oz',
+        'Cranberry Juice — 2 oz'
+      ],
+      method: [
+        'Fill a highball glass with ice.',
+        'Build the Vodka, Peach Schnapps, Orange Juice, and Cranberry Juice directly in the glass.',
+        'Stir briefly and garnish with an orange slice.'
       ]
     }
   };
