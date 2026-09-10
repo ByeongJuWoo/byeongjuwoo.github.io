@@ -342,8 +342,8 @@
             <span class="menu-tag juice">Orange Juice</span>
           </div>
         </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name recommended">Tequila Sunrise</span><span class="menu-abv low">10%</span></div>
+        <div class="menu-row clickable" data-recipe="tequila-sunrise">
+          <div class="menu-top"><span class="menu-name recommended">Tequila Sunrise</span><span class="menu-abv mid">14%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -373,7 +373,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="okbodan">
-          <div class="menu-top"><span class="menu-name recommended">Okbodan (玉潽團)</span><span class="menu-abv low">9%</span></div>
+          <div class="menu-top"><span class="menu-name recommended">Okbodan (玉潽團)</span><span class="menu-abv low">10%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -511,13 +511,15 @@
             <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
-        <div class="menu-row">
+        <div class="menu-row clickable" data-recipe="gimlet">
           <div class="menu-top"><span class="menu-name recommended">Gimlet</span><span class="menu-abv high">28%</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Dry Gin</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
             <span class="menu-tag juice">Lime Juice</span>
+            <span class="menu-tag fruit">Sugar</span>
           </div>
         </div>
       </div>
@@ -601,14 +603,14 @@
   var RECIPES = {
     okbodan: {
       name: 'Okbodan (玉潽團)',
-      abv: '9%',
+      abv: '10%',
       abvClass: 'low',
       ingredients: [
         'Peach Schnapps — 3/4 oz',
         'Malibu Coconut Rum — 3/4 oz',
         'Sweet & Sour Mix — 3/4 oz',
         'Orange Juice — 1 1/2 oz',
-        'Grenadine — 1/2 oz',
+        'Grenadine — 1/4 oz',
         'Sugar (for the rim)'
       ],
       method: [
@@ -632,6 +634,35 @@
         'Fill a highball glass with ice.',
         'Build the Vodka, Peach Schnapps, Orange Juice, and Cranberry Juice directly in the glass.',
         'Stir briefly and garnish with an orange slice.'
+      ]
+    },
+    gimlet: {
+      name: 'Gimlet',
+      abv: '28%',
+      abvClass: 'high',
+      ingredients: [
+        'Dry Gin — 2 oz',
+        'Sweet & Sour Mix — 1/2 oz',
+        'Lime Juice — 1/2 oz',
+        'Sugar — 1 tsp'
+      ],
+      method: [
+        'Shake all ingredients with ice until the sugar dissolves.',
+        'Strain into a chilled glass.'
+      ]
+    },
+    'tequila-sunrise': {
+      name: 'Tequila Sunrise',
+      abv: '14%',
+      abvClass: 'mid',
+      ingredients: [
+        'Tequila — 1 1/2 oz',
+        'Orange Juice — 2 1/2 oz',
+        'Grenadine — 1/3 oz'
+      ],
+      method: [
+        'Fill a glass with ice and pour in the Tequila and Orange Juice.',
+        'Slowly pour the Grenadine over the back of a spoon — it sinks and creates the sunrise layer.'
       ]
     }
   };
