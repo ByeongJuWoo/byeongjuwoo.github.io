@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cocktail</title>
+  <title>Ben's Bar</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +42,8 @@
       padding: 1.5rem 1.5rem 0;
       text-align: center;
     }
-    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 1.25rem; }
+    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.02em; color: var(--accent); margin-bottom: 1.25rem; }
+    header h1 .bb-mark { font-size: 1.3em; font-weight: 900; }
     nav { display: flex; }
     .tab-btn {
       flex: 1;
@@ -259,7 +260,7 @@
 <body>
 
 <header>
-  <h1>Byeongju's home bar</h1>
+  <h1><span class="bb-mark">B</span>en's <span class="bb-mark">B</span>ar</h1>
   <nav>
     <button class="tab-btn active" data-tab="welcome">Welcome</button>
     <button class="tab-btn" data-tab="menu">Menu</button>
@@ -270,7 +271,7 @@
 <!-- ══════════ WELCOME ══════════ -->
 <section id="welcome">
   <div class="section-title">🏠 Welcome</div>
-  <p style="font-size:0.95rem;">Hi! Welcome to Byeongju's home bar.</p>
+  <p style="font-size:0.95rem;">Hi! Welcome to Ben's Bar.</p>
   <p style="font-size:0.95rem; margin-top:0.75rem;">
     📍 Location: <a href="https://www.google.com/maps/search/?api=1&query=3570+Green+Brier+Blvd+Apt+410C" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--muted);text-decoration-thickness:1px;text-underline-offset:3px;">3570 Green Brier Blvd Apt 410C</a>
   </p>
@@ -304,6 +305,7 @@
         <span class="stock-item">Blue Curaçao</span>
         <span class="stock-item">Malibu Coconut Rum</span>
         <span class="stock-item">Kahlúa</span>
+        <span class="stock-item">Baileys</span>
       </div>
     </div>
     <div class="stock-card juice">
@@ -566,16 +568,6 @@
             <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
-        <div class="menu-row clickable" data-recipe="white-russian">
-          <div class="menu-top"><span class="menu-name">White Russian</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.5</span> soju</span><span class="menu-abv mid">25%</span></div></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Build</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Vodka</span>
-            <span class="menu-tag liqueur">Kahlúa</span>
-            <span class="menu-tag mixer">Milk</span>
-          </div>
-        </div>
         <div class="menu-row clickable" data-recipe="black-russian">
           <div class="menu-top"><span class="menu-name">Black Russian</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.5</span> soju</span><span class="menu-abv high">33%</span></div></div>
           <div class="menu-tags">
@@ -590,17 +582,24 @@
     <div>
       <div class="menu-category-title">Shots</div>
       <div class="menu-list">
-        <div class="menu-row clickable" data-recipe="lemon-drop">
-          <div class="menu-top"><span class="menu-name recommended">Lemon Drop</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.5</span> soju</span><span class="menu-abv mid">19%</span></div></div>
+        <div class="menu-row clickable" data-recipe="b-52">
+          <div class="menu-top"><span class="menu-name recommended">B-52</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.4</span> soju</span><span class="menu-abv high">26%</span></div></div>
           <div class="menu-tags">
-            <span class="technique-tag">Shake</span>
             <span class="technique-tag">Float</span>
             <span class="tag-divider"></span>
-            <span class="menu-tag base">Vodka</span>
-            <span class="menu-tag base">Overproof Rum</span>
-            <span class="menu-tag juice">Lime Juice</span>
-            <span class="menu-tag fruit">Lemon</span>
-            <span class="menu-tag fruit">Sugar</span>
+            <span class="menu-tag liqueur">Kahlúa</span>
+            <span class="menu-tag liqueur">Baileys</span>
+            <span class="menu-tag liqueur">Cointreau</span>
+          </div>
+        </div>
+        <div class="menu-row clickable" data-recipe="quick-fuck">
+          <div class="menu-top"><span class="menu-name">Quick Fuck</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.0</span> soju</span><span class="menu-abv mid">19%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Float</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag liqueur">Kahlúa</span>
+            <span class="menu-tag liqueur">Midori</span>
+            <span class="menu-tag liqueur">Baileys</span>
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="blue-sky">
@@ -615,8 +614,21 @@
             <span class="menu-tag fruit">Sugar</span>
           </div>
         </div>
+        <div class="menu-row clickable" data-recipe="lemon-drop">
+          <div class="menu-top"><span class="menu-name recommended">Lemon Drop</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.5</span> soju</span><span class="menu-abv mid">19%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="technique-tag">Float</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag base">Overproof Rum</span>
+            <span class="menu-tag juice">Lime Juice</span>
+            <span class="menu-tag fruit">Lemon</span>
+            <span class="menu-tag fruit">Sugar</span>
+          </div>
+        </div>
         <div class="menu-row clickable" data-recipe="tequila-shot">
-          <div class="menu-top"><span class="menu-name recommended">Tequila Shot</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv high">40%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Tequila Shot</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv high">40%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Neat</span>
             <span class="tag-divider"></span>
@@ -838,8 +850,6 @@
     },
     'tequila-shot': {
       name: 'Tequila Shot',
-      why: "Byeongju is straight up addicted to this.",
-      starred: true,
       abv: '40%',
       soju: '2.1',
       abvClass: 'high',
@@ -878,22 +888,6 @@
       method: [
         'Stir all ingredients with ice.',
         'Strain into a chilled glass.'
-      ]
-    },
-    'white-russian': {
-      name: 'White Russian',
-      abv: '25%',
-      soju: '3.5',
-      abvClass: 'mid',
-      ingredients: [
-        'Vodka — 2 oz',
-        'Kahlúa — 1 oz',
-        'Milk — 1 oz (30ml)'
-      ],
-      method: [
-        'Fill a glass with ice.',
-        'Build the Vodka and Kahlúa directly in the glass.',
-        'Float the Milk on top.'
       ]
     },
     'black-russian': {
@@ -942,6 +936,38 @@
         'Shake the Vodka, Dry Gin, White Rum, Tequila, Cointreau, and Sweet & Sour Mix with ice.',
         'Strain into an ice-filled glass.',
         'Top with the Cola and garnish with a lime wedge.'
+      ]
+    },
+    'quick-fuck': {
+      name: 'Quick Fuck',
+      abv: '19%',
+      soju: '1.0',
+      abvClass: 'mid',
+      ingredients: [
+        'Kahlúa — 1/2 oz',
+        'Midori — 1/2 oz',
+        'Baileys — 1/2 oz'
+      ],
+      method: [
+        'Pour the Kahlúa into a shot glass.',
+        'Slowly layer the Midori over the back of a spoon, then the Baileys on top the same way.'
+      ]
+    },
+    'b-52': {
+      name: 'B-52',
+      why: 'Rich coffee-cream layers — tastes like dessert in a shot glass.',
+      starred: true,
+      abv: '26%',
+      soju: '1.4',
+      abvClass: 'high',
+      ingredients: [
+        'Kahlúa — 1/2 oz',
+        'Baileys — 1/2 oz',
+        'Cointreau — 1/2 oz'
+      ],
+      method: [
+        'Pour the Kahlúa into a shot glass.',
+        'Slowly layer the Baileys over the back of a spoon, then the Cointreau on top the same way.'
       ]
     }
   };
