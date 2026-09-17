@@ -74,7 +74,7 @@
       border-radius: 10px; border: 1px solid var(--border);
     }
     @media (max-width: 600px) {
-      .welcome-photos img.mobile-hide { display: none; }
+      .welcome-photos { flex-direction: column; }
       .welcome-photos img { width: 100%; }
     }
 
@@ -240,6 +240,15 @@
     }
     .recipe-modal ul, .recipe-modal ol { padding-left: 1.15rem; }
     .recipe-modal li { font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+    .recipe-modal-formula {
+      margin-top: 0.5rem; padding: 0.65rem 0.8rem;
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+      font-size: 0.72rem; line-height: 1.6; color: var(--muted);
+      white-space: pre-wrap; word-break: break-word;
+    }
+    .recipe-modal-formula b { color: var(--text); font-weight: 700; }
     @media (max-width: 600px) {
       .recipe-modal-backdrop { align-items: flex-end; padding: 0; }
       .recipe-modal {
@@ -277,7 +286,7 @@
   </p>
   <div class="welcome-photos">
     <img src="../images/cocktail1.jpeg" alt="Home bar photo 1">
-    <img class="mobile-hide" src="../images/cocktail2.jpeg" alt="Home bar photo 2">
+    <img src="../images/cocktail3.jpeg" alt="Home bar photo 2">
   </div>
 </section>
 
@@ -365,8 +374,8 @@
     <div>
       <div class="menu-category-title">Tropical &amp; Fruity</div>
       <div class="menu-list">
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Screwdriver</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.8</span> soju</span><span class="menu-abv low">10%</span></div></div>
+        <div class="menu-row clickable" data-recipe="screwdriver">
+          <div class="menu-top"><span class="menu-name">Screwdriver</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv low">10%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -385,7 +394,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="midori-sour">
-          <div class="menu-top"><span class="menu-name">Midori Sour</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.0</span> soju</span><span class="menu-abv low">8%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Midori Sour</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.4</span> soju</span><span class="menu-abv low">5%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="technique-tag">Build</span>
@@ -396,7 +405,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="okbodan">
-          <div class="menu-top"><span class="menu-name recommended">Okbodan (玉潽團)</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.1</span> soju</span><span class="menu-abv low">8%</span></div></div>
+          <div class="menu-top"><span class="menu-name recommended">Okbodan (玉潽團)</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.0</span> soju</span><span class="menu-abv low">5%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -408,7 +417,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="sotb">
-          <div class="menu-top"><span class="menu-name">Sex on the Beach</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">12%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Sex on the Beach</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.6</span> soju</span><span class="menu-abv mid">12%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -418,8 +427,8 @@
             <span class="menu-tag juice">Orange Juice</span>
           </div>
         </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Woo Woo</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.8</span> soju</span><span class="menu-abv mid">13%</span></div></div>
+        <div class="menu-row clickable" data-recipe="woo-woo">
+          <div class="menu-top"><span class="menu-name">Woo Woo</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.4</span> soju</span><span class="menu-abv low">11%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -428,8 +437,8 @@
             <span class="menu-tag juice">Cranberry Juice</span>
           </div>
         </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Blue Hawaii</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.8</span> soju</span><span class="menu-abv low">10%</span></div></div>
+        <div class="menu-row clickable" data-recipe="blue-hawaii">
+          <div class="menu-top"><span class="menu-name">Blue Hawaii</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">12%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -445,7 +454,7 @@
     <div>
       <div class="menu-category-title">Highballs</div>
       <div class="menu-list">
-        <div class="menu-row">
+        <div class="menu-row clickable" data-recipe="gin-tonic">
           <div class="menu-top"><span class="menu-name">Gin &amp; Tonic</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv low">10%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
@@ -454,8 +463,8 @@
             <span class="menu-tag mixer">Tonic Water</span>
           </div>
         </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Jim Beam Highball</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.9</span> soju</span><span class="menu-abv low">11%</span></div></div>
+        <div class="menu-row clickable" data-recipe="jim-beam-highball">
+          <div class="menu-top"><span class="menu-name">Jim Beam Highball</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv low">11%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -465,7 +474,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="kahlua-milk">
-          <div class="menu-top"><span class="menu-name">Kahlúa Milk</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.0</span> soju</span><span class="menu-abv low">5%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Kahlúa Milk</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.1</span> soju</span><span class="menu-abv low">5%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -474,7 +483,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="long-island">
-          <div class="menu-top"><span class="menu-name unstocked">Long Island Iced Tea</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.2</span> soju</span><span class="menu-abv mid">17%</span></div></div>
+          <div class="menu-top"><span class="menu-name unstocked">Long Island Iced Tea</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.5</span> soju</span><span class="menu-abv mid">15%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -488,7 +497,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="amf">
-          <div class="menu-top"><span class="menu-name">Adios Mother Fucker (AMF)</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.6</span> soju</span><span class="menu-abv mid">13%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Adios Mother Fucker (AMF)</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.2</span> soju</span><span class="menu-abv mid">13%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -507,7 +516,7 @@
       <div class="menu-category-title">Classics</div>
       <div class="menu-list">
         <div class="menu-row clickable" data-recipe="margarita">
-          <div class="menu-top"><span class="menu-name recommended">Margarita</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.0</span> soju</span><span class="menu-abv high">27%</span></div></div>
+          <div class="menu-top"><span class="menu-name recommended">Margarita</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.8</span> soju</span><span class="menu-abv high">27%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -517,8 +526,8 @@
             <span class="menu-tag fruit">Salt</span>
           </div>
         </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Daiquiri</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.0</span> soju</span><span class="menu-abv mid">19%</span></div></div>
+        <div class="menu-row clickable" data-recipe="daiquiri">
+          <div class="menu-top"><span class="menu-name">Daiquiri</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">20%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -526,19 +535,19 @@
             <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">Cosmopolitan</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.7</span> soju</span><span class="menu-abv mid">22%</span></div></div>
+        <div class="menu-row clickable" data-recipe="cosmopolitan">
+          <div class="menu-top"><span class="menu-name recommended">Cosmopolitan</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv mid">14%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Vodka</span>
             <span class="menu-tag liqueur">Cointreau</span>
             <span class="menu-tag juice">Cranberry Juice</span>
-            <span class="menu-tag juice">Lime Juice</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="gimlet">
-          <div class="menu-top"><span class="menu-name recommended">Gimlet</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.5</span> soju</span><span class="menu-abv mid">22%</span></div></div>
+          <div class="menu-top"><span class="menu-name recommended">Gimlet</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">20%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -549,7 +558,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="blue-ribbon">
-          <div class="menu-top"><span class="menu-name">Blue Ribbon</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.0</span> soju</span><span class="menu-abv high">28%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Blue Ribbon</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.7</span> soju</span><span class="menu-abv high">28%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Stir</span>
             <span class="tag-divider"></span>
@@ -558,8 +567,8 @@
             <span class="menu-tag liqueur">Blue Curaçao</span>
           </div>
         </div>
-        <div class="menu-row">
-          <div class="menu-top"><span class="menu-name">White Lady</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.5</span> soju</span><span class="menu-abv mid">24%</span></div></div>
+        <div class="menu-row clickable" data-recipe="white-lady">
+          <div class="menu-top"><span class="menu-name">White Lady</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.2</span> soju</span><span class="menu-abv mid">24%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -603,7 +612,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="blue-sky">
-          <div class="menu-top"><span class="menu-name recommended">Blue Sky</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.6</span> soju</span><span class="menu-abv high">30%</span></div></div>
+          <div class="menu-top"><span class="menu-name recommended">Blue Sky</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.3</span> soju</span><span class="menu-abv mid">25%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Float</span>
             <span class="tag-divider"></span>
@@ -615,7 +624,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="lemon-drop">
-          <div class="menu-top"><span class="menu-name recommended">Lemon Drop</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.5</span> soju</span><span class="menu-abv mid">19%</span></div></div>
+          <div class="menu-top"><span class="menu-name recommended">Lemon Drop</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.9</span> soju</span><span class="menu-abv mid">19%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="technique-tag">Float</span>
@@ -663,10 +672,13 @@
     <ul id="recipe-ingredients"></ul>
     <div class="recipe-modal-section-label">Method</div>
     <ol id="recipe-method"></ol>
+    <div class="recipe-modal-section-label">How the ABV &amp; soju count is calculated</div>
+    <div class="recipe-modal-formula" id="recipe-formula"></div>
   </div>
 </div>
 
 <script>
+
   document.querySelectorAll('.tab-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
@@ -676,20 +688,28 @@
     });
   });
 
+  var ABV_TABLE = {
+    'Vodka': 40, 'Bourbon': 40, 'White Rum': 40, 'Dry Gin': 40, 'Tequila': 40,
+    'Overproof Rum': 75, 'Monkey 47': 47, 'Cointreau': 40, 'Midori': 20,
+    'Peach Schnapps': 15, 'Blue Curaçao': 20, 'Malibu Coconut Rum': 21,
+    'Kahlúa': 20, 'Baileys': 17,
+    'Cranberry Juice': 0, 'Orange Juice': 0, 'Pineapple Juice': 0, 'Lime Juice': 0,
+    'Sweet & Sour Mix': 0, 'Tonic Water': 0, 'Sprite': 0, 'Milk': 0, 'Cola': 0, 'Grenadine': 0,
+    'Sugar': 0, 'Salt': 0, 'Lemon': 0, 'Orange': 0, 'Cinnamon Powder': 0
+  };
+
   var RECIPES = {
     okbodan: {
       name: 'Okbodan (玉潽團)',
       why: 'Gorgeous color, very sweet.',
       starred: true,
-      abv: '8%',
-      soju: '1.1',
-      abvClass: 'low',
+      dilute: true,
       ingredients: [
-        'Peach Schnapps — 3/4 oz',
-        'Malibu Coconut Rum — 3/4 oz',
-        'Sweet & Sour Mix — 3/4 oz',
-        'Orange Juice — 1 1/2 oz',
-        'Grenadine — 1/4 oz'
+        { n: 'Peach Schnapps', o: 0.75 },
+        { n: 'Malibu Coconut Rum', o: 0.75 },
+        { n: 'Sweet & Sour Mix', o: 0.75 },
+        { n: 'Orange Juice', o: 1.5 },
+        { n: 'Grenadine', o: 0.25 }
       ],
       method: [
         'Shake the Peach Schnapps, Malibu Coconut Rum, Sweet & Sour Mix, and Orange Juice with ice.',
@@ -700,14 +720,12 @@
     sotb: {
       name: 'Sex on the Beach',
       why: 'A little boozier than it looks. Nice and tangy.',
-      abv: '12%',
-      soju: '2.8',
-      abvClass: 'mid',
+      dilute: false,
       ingredients: [
-        'Vodka — 1 1/2 oz',
-        'Peach Schnapps — 1 oz',
-        'Orange Juice — 2 oz',
-        'Cranberry Juice — 2 oz'
+        { n: 'Vodka', o: 1.5 },
+        { n: 'Peach Schnapps', o: 1 },
+        { n: 'Orange Juice', o: 2 },
+        { n: 'Cranberry Juice', o: 2 }
       ],
       method: [
         'Fill a highball glass with ice.',
@@ -719,14 +737,12 @@
       name: 'Gimlet',
       why: "Byeongju's all-time favorite drink.",
       starred: true,
-      abv: '22%',
-      soju: '2.5',
-      abvClass: 'mid',
+      dilute: true,
       ingredients: [
-        'Dry Gin — 2 oz',
-        'Sweet & Sour Mix — 1/2 oz',
-        'Lime Juice — 1/2 oz',
-        'Sugar — 1 tsp'
+        { n: 'Dry Gin', o: 2 },
+        { n: 'Sweet & Sour Mix', o: 0.5 },
+        { n: 'Lime Juice', o: 0.5 },
+        { n: 'Sugar', o: 1 / 6, label: '1 tsp' }
       ],
       method: [
         'Shake all ingredients with ice until the sugar dissolves.',
@@ -737,13 +753,11 @@
       name: 'Tequila Sunrise',
       why: 'Universally loved — hard to dislike.',
       starred: true,
-      abv: '14%',
-      soju: '2.1',
-      abvClass: 'mid',
+      dilute: false,
       ingredients: [
-        'Tequila — 1 1/2 oz',
-        'Orange Juice — 2 1/2 oz',
-        'Grenadine — 1/3 oz'
+        { n: 'Tequila', o: 1.5 },
+        { n: 'Orange Juice', o: 2.5 },
+        { n: 'Grenadine', o: 1 / 3 }
       ],
       method: [
         'Fill a glass with ice and pour in the Tequila and Orange Juice.',
@@ -753,13 +767,11 @@
     'midori-sour': {
       name: 'Midori Sour',
       why: 'Sweet and tangy — delicious flavored Sprite.',
-      abv: '8%',
-      soju: '2.0',
-      abvClass: 'low',
+      dilute: true,
       ingredients: [
-        'Midori — 2 oz',
-        'Sweet & Sour Mix — 2 oz',
-        'Sprite — 3 oz'
+        { n: 'Midori', o: 2 },
+        { n: 'Sweet & Sour Mix', o: 2 },
+        { n: 'Sprite', o: 3 }
       ],
       method: [
         'Shake the Midori and Sweet & Sour Mix with ice.',
@@ -767,18 +779,32 @@
         'Build the Sprite on top.'
       ]
     },
+    cosmopolitan: {
+      name: 'Cosmopolitan',
+      why: 'Start here to figure out your cocktail taste.',
+      starred: true,
+      dilute: true,
+      ingredients: [
+        { n: 'Vodka', o: 1 },
+        { n: 'Cointreau', o: 0.5 },
+        { n: 'Cranberry Juice', o: 1.5 },
+        { n: 'Sweet & Sour Mix', o: 0.5 }
+      ],
+      method: [
+        'Shake all ingredients with ice.',
+        'Strain into a chilled glass.'
+      ]
+    },
     margarita: {
       name: 'Margarita',
       why: 'Simple, balanced, and never goes out of style.',
       starred: true,
-      abv: '27%',
-      soju: '3.0',
-      abvClass: 'high',
+      dilute: true,
       ingredients: [
-        'Tequila — 1 2/3 oz',
-        'Cointreau — 1 oz',
-        'Lime Juice — 1/2 oz',
-        'Salt (for the rim)'
+        { n: 'Tequila', o: 5 / 3 },
+        { n: 'Cointreau', o: 1 },
+        { n: 'Lime Juice', o: 0.5 },
+        { n: 'Salt', o: 0, note: '(for the rim)' }
       ],
       method: [
         'Rim a glass with salt.',
@@ -789,17 +815,15 @@
     amf: {
       name: 'Adios Mother Fucker (AMF)',
       why: 'Similar to a Long Island Iced Tea, but with blue curaçao and Sprite instead of cola — fruitier and easier to drink than it has any right to be.',
-      abv: '13%',
-      soju: '2.6',
-      abvClass: 'mid',
+      dilute: true,
       ingredients: [
-        'Vodka — 1/2 oz',
-        'White Rum — 1/2 oz',
-        'Dry Gin — 1/2 oz',
-        'Tequila — 1/2 oz',
-        'Blue Curaçao — 1/2 oz',
-        'Lime Juice — 3/4 oz',
-        'Sprite — 2 1/2 oz'
+        { n: 'Vodka', o: 0.5 },
+        { n: 'White Rum', o: 0.5 },
+        { n: 'Dry Gin', o: 0.5 },
+        { n: 'Tequila', o: 0.5 },
+        { n: 'Blue Curaçao', o: 0.5 },
+        { n: 'Lime Juice', o: 0.75 },
+        { n: 'Sprite', o: 2.5 }
       ],
       method: [
         'Shake the Vodka, White Rum, Dry Gin, Tequila, Blue Curaçao, and Lime Juice with ice.',
@@ -811,15 +835,13 @@
       name: 'Lemon Drop',
       why: 'Fire 🔥',
       starred: true,
-      abv: '19%',
-      soju: '1.5',
-      abvClass: 'mid',
+      dilute: true,
       ingredients: [
-        'Vodka — 1 oz',
-        'Lime Juice — 1 oz',
-        'Overproof Rum — 1/6 oz (float)',
-        'Sugar (for the rim)',
-        'Lemon (twist, for garnish)'
+        { n: 'Vodka', o: 1 },
+        { n: 'Lime Juice', o: 1 },
+        { n: 'Overproof Rum', o: 1 / 6, note: '(float)' },
+        { n: 'Sugar', o: 0, note: '(for the rim)' },
+        { n: 'Lemon', o: 0, note: '(twist, for garnish)' }
       ],
       method: [
         'Rim a glass with sugar.',
@@ -832,15 +854,13 @@
       name: 'Blue Sky',
       why: 'Just really pretty to look at.',
       starred: true,
-      abv: '30%',
-      soju: '1.6',
-      abvClass: 'high',
+      dilute: false,
       ingredients: [
-        'Vodka — 1/2 oz',
-        'Peach Schnapps — 1/2 oz',
-        'Blue Curaçao — 1/2 oz',
-        'Milk — 2 dashes',
-        'Sugar (for the rim)'
+        { n: 'Vodka', o: 0.5 },
+        { n: 'Peach Schnapps', o: 0.5 },
+        { n: 'Blue Curaçao', o: 0.5 },
+        { n: 'Milk', o: 0, display: 'Milk — 2 dashes' },
+        { n: 'Sugar', o: 0, note: '(for the rim)' }
       ],
       method: [
         'Rim a glass with sugar.',
@@ -850,12 +870,10 @@
     },
     'tequila-shot': {
       name: 'Tequila Shot',
-      abv: '40%',
-      soju: '2.1',
-      abvClass: 'high',
+      dilute: false,
       ingredients: [
-        'Tequila — 1 1/2 oz (neat)',
-        'Salt (for your wrist)'
+        { n: 'Tequila', o: 1.5, note: '(neat)' },
+        { n: 'Salt', o: 0, note: '(for your wrist)' }
       ],
       method: [
         'Lick the salt from your wrist.',
@@ -865,11 +883,9 @@
     'monkey-shot': {
       name: 'Monkey Shot',
       why: "Byeongju's favorite base spirit.",
-      abv: '47%',
-      soju: '2.5',
-      abvClass: 'high',
+      dilute: false,
       ingredients: [
-        'Dry Gin (Monkey 47) — 1 1/2 oz (neat)'
+        { n: 'Monkey 47', o: 1.5, note: '(neat)', display: 'Dry Gin (Monkey 47) — 1 1/2 oz (neat)' }
       ],
       method: [
         'Pour and drink neat — no mixing needed.'
@@ -877,13 +893,11 @@
     },
     'blue-ribbon': {
       name: 'Blue Ribbon',
-      abv: '28%',
-      soju: '3.0',
-      abvClass: 'high',
+      dilute: true,
       ingredients: [
-        'Dry Gin — 1 1/2 oz',
-        'Cointreau — 3/4 oz',
-        'Blue Curaçao — 3/4 oz'
+        { n: 'Dry Gin', o: 1.5 },
+        { n: 'Cointreau', o: 0.75 },
+        { n: 'Blue Curaçao', o: 0.75 }
       ],
       method: [
         'Stir all ingredients with ice.',
@@ -892,12 +906,10 @@
     },
     'black-russian': {
       name: 'Black Russian',
-      abv: '33%',
-      soju: '3.5',
-      abvClass: 'high',
+      dilute: false,
       ingredients: [
-        'Vodka — 2 oz',
-        'Kahlúa — 1 oz'
+        { n: 'Vodka', o: 2 },
+        { n: 'Kahlúa', o: 1 }
       ],
       method: [
         'Fill a glass with ice.',
@@ -906,12 +918,10 @@
     },
     'kahlua-milk': {
       name: 'Kahlúa Milk',
-      abv: '5%',
-      soju: '1.0',
-      abvClass: 'low',
+      dilute: false,
       ingredients: [
-        'Kahlúa — 1 1/2 oz',
-        'Milk — 4 oz'
+        { n: 'Kahlúa', o: 1.5 },
+        { n: 'Milk', o: 4 }
       ],
       method: [
         'Fill a glass with ice.',
@@ -920,17 +930,15 @@
     },
     'long-island': {
       name: 'Long Island Iced Tea',
-      abv: '17%',
-      soju: '3.2',
-      abvClass: 'mid',
+      dilute: true,
       ingredients: [
-        'Vodka — 1/2 oz',
-        'Dry Gin — 1/2 oz',
-        'White Rum — 1/2 oz',
-        'Tequila — 1/2 oz',
-        'Cointreau — 1/2 oz',
-        'Sweet & Sour Mix — 3/4 oz',
-        'Cola — 2 oz'
+        { n: 'Vodka', o: 0.5 },
+        { n: 'Dry Gin', o: 0.5 },
+        { n: 'White Rum', o: 0.5 },
+        { n: 'Tequila', o: 0.5 },
+        { n: 'Cointreau', o: 0.5 },
+        { n: 'Sweet & Sour Mix', o: 0.75 },
+        { n: 'Cola', o: 2 }
       ],
       method: [
         'Shake the Vodka, Dry Gin, White Rum, Tequila, Cointreau, and Sweet & Sour Mix with ice.',
@@ -940,13 +948,11 @@
     },
     'quick-fuck': {
       name: 'Quick Fuck',
-      abv: '19%',
-      soju: '1.0',
-      abvClass: 'mid',
+      dilute: false,
       ingredients: [
-        'Kahlúa — 1/2 oz',
-        'Midori — 1/2 oz',
-        'Baileys — 1/2 oz'
+        { n: 'Kahlúa', o: 0.5 },
+        { n: 'Midori', o: 0.5 },
+        { n: 'Baileys', o: 0.5 }
       ],
       method: [
         'Pour the Kahlúa into a shot glass.',
@@ -957,20 +963,173 @@
       name: 'B-52',
       why: 'Rich coffee-cream layers — tastes like dessert in a shot glass.',
       starred: true,
-      abv: '26%',
-      soju: '1.4',
-      abvClass: 'high',
+      dilute: false,
       ingredients: [
-        'Kahlúa — 1/2 oz',
-        'Baileys — 1/2 oz',
-        'Cointreau — 1/2 oz'
+        { n: 'Kahlúa', o: 0.5 },
+        { n: 'Baileys', o: 0.5 },
+        { n: 'Cointreau', o: 0.5 }
       ],
       method: [
         'Pour the Kahlúa into a shot glass.',
         'Slowly layer the Baileys over the back of a spoon, then the Cointreau on top the same way.'
       ]
+    },
+    'blue-hawaii': {
+      name: 'Blue Hawaii',
+      dilute: true,
+      ingredients: [
+        { n: 'White Rum', o: 1 },
+        { n: 'Vodka', o: 0.5 },
+        { n: 'Blue Curaçao', o: 1 },
+        { n: 'Pineapple Juice', o: 2 },
+        { n: 'Sweet & Sour Mix', o: 1 }
+      ],
+      method: [
+        'Shake all ingredients with ice.',
+        'Strain into an ice-filled glass.'
+      ]
+    },
+    'jim-beam-highball': {
+      name: 'Jim Beam Highball',
+      dilute: false,
+      ingredients: [
+        { n: 'Bourbon', o: 1.5 },
+        { n: 'Tonic Water', o: 3 },
+        { n: 'Sweet & Sour Mix', o: 1 }
+      ],
+      method: [
+        'Fill a glass with ice.',
+        'Build the Bourbon, Tonic Water, and Sweet & Sour Mix directly in the glass and stir.'
+      ]
+    },
+    screwdriver: {
+      name: 'Screwdriver',
+      dilute: false,
+      ingredients: [
+        { n: 'Vodka', o: 1.5 },
+        { n: 'Orange Juice', o: 4.5 }
+      ],
+      method: [
+        'Fill a glass with ice.',
+        'Build the Vodka and Orange Juice directly in the glass and stir.'
+      ]
+    },
+    'woo-woo': {
+      name: 'Woo Woo',
+      dilute: false,
+      ingredients: [
+        { n: 'Vodka', o: 1.5 },
+        { n: 'Peach Schnapps', o: 0.5 },
+        { n: 'Cranberry Juice', o: 4 }
+      ],
+      method: [
+        'Fill a glass with ice.',
+        'Build the Vodka, Peach Schnapps, and Cranberry Juice directly in the glass and stir.'
+      ]
+    },
+    'gin-tonic': {
+      name: 'Gin & Tonic',
+      dilute: false,
+      ingredients: [
+        { n: 'Dry Gin', o: 1.5 },
+        { n: 'Tonic Water', o: 4.5 }
+      ],
+      method: [
+        'Fill a glass with ice.',
+        'Build the Dry Gin and Tonic Water directly in the glass and stir gently.'
+      ]
+    },
+    daiquiri: {
+      name: 'Daiquiri',
+      dilute: true,
+      ingredients: [
+        { n: 'White Rum', o: 2 },
+        { n: 'Lime Juice', o: 1 },
+        { n: 'Sugar', o: 1 / 6, label: '1 tsp' }
+      ],
+      method: [
+        'Shake all ingredients with ice until the sugar dissolves.',
+        'Strain into a chilled glass.'
+      ]
+    },
+    'white-lady': {
+      name: 'White Lady',
+      dilute: true,
+      ingredients: [
+        { n: 'Dry Gin', o: 1.5 },
+        { n: 'Cointreau', o: 0.75 },
+        { n: 'Lime Juice', o: 0.75 }
+      ],
+      method: [
+        'Shake all ingredients with ice.',
+        'Strain into a chilled glass.'
+      ]
     }
   };
+
+  function formatOz(o) {
+    var whole = Math.floor(o + 1e-6);
+    var frac = o - whole;
+    var fracs = [[0, ''], [1 / 6, '1/6'], [1 / 4, '1/4'], [1 / 3, '1/3'], [1 / 2, '1/2'], [2 / 3, '2/3'], [3 / 4, '3/4'], [5 / 6, '5/6']];
+    var best = fracs[0], bestDiff = 1;
+    fracs.forEach(function (f) {
+      var d = Math.abs(f[0] - frac);
+      if (d < bestDiff) { bestDiff = d; best = f; }
+    });
+    var fracStr = best[1];
+    if (whole === 0) return fracStr || '0';
+    return fracStr ? (whole + ' ' + fracStr) : String(whole);
+  }
+
+  function trimNum(n, d) {
+    var f = Math.pow(10, d);
+    return (Math.round(n * f) / f).toString();
+  }
+
+  function formatIngredient(ing) {
+    if (ing.display) return ing.display;
+    if (ing.label) return ing.n + ' — ' + ing.label + (ing.note ? ' ' + ing.note : '');
+    if (ing.o === 0) return ing.n + (ing.note ? ' ' + ing.note : '');
+    return ing.n + ' — ' + formatOz(ing.o) + ' oz' + (ing.note ? ' ' + ing.note : '');
+  }
+
+  function abvClassFor(pct) {
+    if (pct < 12) return 'low';
+    if (pct <= 25) return 'mid';
+    return 'high';
+  }
+
+  function computeRecipe(r) {
+    var alcOz = 0, totOz = 0, terms = [];
+    r.ingredients.forEach(function (ing) {
+      var pct = ABV_TABLE.hasOwnProperty(ing.n) ? ABV_TABLE[ing.n] : 0;
+      alcOz += ing.o * pct / 100;
+      totOz += ing.o;
+      if (ing.o > 0) terms.push(formatOz(ing.o) + 'oz×' + pct + '%');
+    });
+    var rawAbv = totOz > 0 ? (alcOz / totOz * 100) : 0;
+    var finalAbv = r.dilute ? rawAbv * 0.8 : rawAbv;
+    var alcMl = alcOz * 30;
+    var soju = alcMl / 8.5;
+    return {
+      alcOz: alcOz, totOz: totOz, rawAbv: rawAbv, finalAbv: finalAbv,
+      alcMl: alcMl, soju: soju, terms: terms,
+      abvRounded: Math.round(finalAbv),
+      sojuRounded: Math.round(soju * 10) / 10
+    };
+  }
+
+  function renderFormula(r, c) {
+    var mlTerms = r.ingredients.filter(function (ing) { return ing.o > 0; }).map(function (ing) {
+      var pct = ABV_TABLE.hasOwnProperty(ing.n) ? ABV_TABLE[ing.n] : 0;
+      return trimNum(ing.o * 30, 1) + 'ml×' + pct + '%';
+    });
+    var totalMl = c.totOz * 30;
+    var netLine = 'Net alcohol = ' + trimNum(c.alcMl, 2) + 'ml (= ' + mlTerms.join(' + ') + ')';
+    var abvLine = 'ABV: ' + c.abvRounded + '% (' + trimNum(c.alcMl, 2) + 'ml / ' + trimNum(totalMl, 1) + 'ml' + (r.dilute ? ' & water dilution' : '') + ')';
+    var sojuLine = 'Soju: ' + c.sojuRounded.toFixed(1) + ' (' + trimNum(c.alcMl, 2) + 'ml ÷ 8.5ml)';
+    return netLine + '\n\n' + abvLine + '\n\n' + sojuLine;
+  }
 
   var recipeBackdrop = document.getElementById('recipe-backdrop');
   var recipeTitle = document.getElementById('recipe-title');
@@ -979,14 +1138,16 @@
   var recipeWhy = document.getElementById('recipe-why');
   var recipeIngredients = document.getElementById('recipe-ingredients');
   var recipeMethod = document.getElementById('recipe-method');
+  var recipeFormula = document.getElementById('recipe-formula');
 
   function openRecipe(id) {
     var recipe = RECIPES[id];
     if (!recipe) return;
+    var c = computeRecipe(recipe);
     recipeTitle.textContent = recipe.name;
-    recipeAbv.textContent = recipe.abv;
-    recipeAbv.className = 'menu-abv ' + recipe.abvClass;
-    recipeSoju.innerHTML = '<span class="soju-num">' + recipe.soju + '</span> soju';
+    recipeAbv.textContent = c.abvRounded + '%';
+    recipeAbv.className = 'menu-abv ' + abvClassFor(c.abvRounded);
+    recipeSoju.innerHTML = '<span class="soju-num">' + c.sojuRounded.toFixed(1) + '</span> soju';
     if (recipe.why) {
       recipeWhy.textContent = (recipe.starred ? '⭐ ' : '') + recipe.why;
       recipeWhy.hidden = false;
@@ -994,9 +1155,9 @@
       recipeWhy.hidden = true;
     }
     recipeIngredients.innerHTML = '';
-    recipe.ingredients.forEach(function (item) {
+    recipe.ingredients.forEach(function (ing) {
       var li = document.createElement('li');
-      li.textContent = item;
+      li.textContent = formatIngredient(ing);
       recipeIngredients.appendChild(li);
     });
     recipeMethod.innerHTML = '';
@@ -1005,6 +1166,7 @@
       li.textContent = step;
       recipeMethod.appendChild(li);
     });
+    recipeFormula.textContent = renderFormula(recipe, c);
     recipeBackdrop.hidden = false;
     document.body.style.overflow = 'hidden';
   }
@@ -1027,6 +1189,7 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !recipeBackdrop.hidden) closeRecipe();
   });
+
 </script>
 
 </body>
