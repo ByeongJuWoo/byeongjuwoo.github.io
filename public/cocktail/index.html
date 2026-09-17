@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ben's Bar</title>
+  <title>Ben's Bar, Ann Arbor</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,7 +43,7 @@
       text-align: center;
     }
     header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.02em; color: var(--accent); margin-bottom: 1.25rem; }
-    header h1 .bb-mark { font-size: 1.3em; font-weight: 900; }
+    header h1 .bb-mark { font-size: 1.15em; font-weight: 900; }
     nav { display: flex; }
     .tab-btn {
       flex: 1;
@@ -269,7 +269,7 @@
 <body>
 
 <header>
-  <h1><span class="bb-mark">B</span>en's <span class="bb-mark">B</span>ar</h1>
+  <h1><span class="bb-mark">B</span>en's <span class="bb-mark">B</span>ar, <span class="bb-mark">A</span>nn <span class="bb-mark">A</span>rbor</h1>
   <nav>
     <button class="tab-btn active" data-tab="welcome">Welcome</button>
     <button class="tab-btn" data-tab="menu">Menu</button>
@@ -280,7 +280,7 @@
 <!-- ══════════ WELCOME ══════════ -->
 <section id="welcome">
   <div class="section-title">🏠 Welcome</div>
-  <p style="font-size:0.95rem;">Hi! Welcome to Ben's Bar.</p>
+  <p style="font-size:0.95rem;">Hi! Welcome to B2A2.</p>
   <p style="font-size:0.95rem; margin-top:0.75rem;">
     📍 Location: <a href="https://www.google.com/maps/search/?api=1&query=3570+Green+Brier+Blvd+Apt+410C" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--muted);text-decoration-thickness:1px;text-underline-offset:3px;">3570 Green Brier Blvd Apt 410C</a>
   </p>
@@ -331,6 +331,7 @@
       <div class="stock-items">
         <span class="stock-item">Sweet &amp; Sour Mix</span>
         <span class="stock-item">Tonic Water</span>
+        <span class="stock-item">Ginger Ale</span>
         <span class="stock-item">Sprite</span>
         <span class="stock-item">Milk</span>
       </div>
@@ -469,7 +470,7 @@
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Bourbon</span>
-            <span class="menu-tag mixer">Tonic Water</span>
+            <span class="menu-tag mixer">Ginger Ale</span>
             <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
           </div>
         </div>
@@ -655,6 +656,21 @@
         </div>
       </div>
     </div>
+    <div>
+      <div class="menu-category-title">Non-Alcoholic</div>
+      <div class="menu-list">
+        <div class="menu-row clickable" data-recipe="shirley-temple">
+          <div class="menu-top"><span class="menu-name">Shirley Temple</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">0.0</span> soju</span><span class="menu-abv low">0%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag syrup">Grenadine</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag mixer">Ginger Ale</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -694,7 +710,7 @@
     'Peach Schnapps': 15, 'Blue Curaçao': 20, 'Malibu Coconut Rum': 21,
     'Kahlúa': 20, 'Baileys': 17,
     'Cranberry Juice': 0, 'Orange Juice': 0, 'Pineapple Juice': 0, 'Lime Juice': 0,
-    'Sweet & Sour Mix': 0, 'Tonic Water': 0, 'Sprite': 0, 'Milk': 0, 'Cola': 0, 'Grenadine': 0,
+    'Sweet & Sour Mix': 0, 'Tonic Water': 0, 'Ginger Ale': 0, 'Sprite': 0, 'Milk': 0, 'Cola': 0, 'Grenadine': 0,
     'Sugar': 0, 'Salt': 0, 'Lemon': 0, 'Orange': 0, 'Cinnamon Powder': 0
   };
 
@@ -994,12 +1010,12 @@
       dilute: false,
       ingredients: [
         { n: 'Bourbon', o: 1.5 },
-        { n: 'Tonic Water', o: 3 },
+        { n: 'Ginger Ale', o: 3 },
         { n: 'Sweet & Sour Mix', o: 1 }
       ],
       method: [
         'Fill a glass with ice.',
-        'Build the Bourbon, Tonic Water, and Sweet & Sour Mix directly in the glass and stir.'
+        'Build the Bourbon, Ginger Ale, and Sweet & Sour Mix directly in the glass and stir.'
       ]
     },
     screwdriver: {
@@ -1063,6 +1079,20 @@
       method: [
         'Shake all ingredients with ice.',
         'Strain into a chilled glass.'
+      ]
+    },
+    'shirley-temple': {
+      name: 'Shirley Temple',
+      dilute: false,
+      ingredients: [
+        { n: 'Grenadine', o: 0.5 },
+        { n: 'Sweet & Sour Mix', o: 0.5 },
+        { n: 'Ginger Ale', o: 4.5 }
+      ],
+      method: [
+        'Fill a glass with ice.',
+        'Build the Grenadine, Sweet & Sour Mix, and Ginger Ale directly in the glass and stir.',
+        'Garnish with a maraschino cherry.'
       ]
     }
   };
