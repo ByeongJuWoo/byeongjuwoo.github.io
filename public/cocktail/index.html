@@ -78,6 +78,73 @@
       .welcome-photos img { width: 100%; }
     }
 
+    /* ── Schedule ── */
+    .schedule-section {
+      margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .schedule-desc {
+      font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin: 0.75rem 0 1.5rem;
+    }
+    .calendar-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 0.9rem;
+    }
+    .calendar-title {
+      font-size: 1.15rem; font-weight: 700; color: var(--text);
+    }
+    .calendar-nav-btn {
+      width: 2.1rem; height: 2.1rem; border-radius: 50%;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text); font-size: 1.1rem; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, border-color 0.15s; font-family: inherit;
+    }
+    .calendar-nav-btn:hover:not(:disabled) {
+      background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+      border-color: var(--accent);
+    }
+    .calendar-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .calendar-weekdays, .calendar-grid {
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;
+    }
+    .calendar-weekdays {
+      font-size: 0.68rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; text-align: center; margin-bottom: 0.5rem;
+    }
+    .cal-day {
+      min-height: 4.4rem; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface); display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: flex-start; gap: 3px;
+      font-size: 0.85rem; color: var(--text); padding: 6px 6px;
+    }
+    .cal-day.outside { opacity: 0.25; border-color: transparent; background: transparent; }
+    .cal-day.available { cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+    .cal-day.available:hover { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); border-color: var(--accent); }
+    .cal-day.busy { background: rgba(248,113,113,0.06); border-color: rgba(248,113,113,0.18); cursor: not-allowed; }
+    .cal-day.busy .cal-label { font-size: 0.78rem; color: var(--muted); line-height: 1.2; }
+    .cal-day.booked { background: color-mix(in srgb, var(--accent) 12%, var(--surface)); border-color: color-mix(in srgb, var(--accent) 40%, transparent); cursor: not-allowed; }
+    .cal-day.booked .cal-num { color: var(--accent); font-weight: 700; }
+    .cal-day.booked .cal-label { font-size: 0.78rem; color: var(--accent); line-height: 1.2; }
+    .calendar-legend {
+      display: flex; gap: 1.1rem; flex-wrap: wrap; margin-top: 1rem;
+      font-size: 0.72rem; color: var(--muted);
+    }
+    .calendar-legend span { display: flex; align-items: center; gap: 0.4rem; }
+    .cal-dot { width: 9px; height: 9px; border-radius: 3px; display: inline-block; }
+    .cal-dot.available { background: var(--surface); border: 1px solid var(--border); }
+    .cal-dot.busy { background: rgba(248,113,113,0.15); border: 1px solid rgba(248,113,113,0.3); }
+    .cal-dot.booked { background: color-mix(in srgb, var(--accent) 25%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); }
+    @media (max-width: 600px) {
+      .calendar-weekdays, .calendar-grid { gap: 3px; }
+      .cal-day { min-height: 3.9rem; font-size: 0.72rem; padding: 3px 2px; }
+      .cal-day.booked .cal-label, .cal-day.busy .cal-label { font-size: 0.63rem; }
+      .calendar-title { font-size: 1rem; }
+      .calendar-nav-btn { width: 1.9rem; height: 1.9rem; font-size: 1rem; }
+    }
+    @media (max-width: 380px) {
+      .cal-day.booked .cal-label, .cal-day.busy .cal-label { font-size: 0.56rem; }
+    }
+
     /* ── Stock ── */
     .stock-grid {
       display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
@@ -249,6 +316,24 @@
       white-space: pre-wrap; word-break: break-word;
     }
     .recipe-modal-formula b { color: var(--text); font-weight: 700; }
+    .booking-desc {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.6;
+      margin: 0.75rem 0 1.1rem;
+    }
+    .booking-textarea {
+      width: 100%; min-height: 7rem; resize: vertical;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-family: inherit; font-size: 0.88rem;
+      padding: 0.7rem 0.8rem; margin-bottom: 1rem;
+    }
+    .booking-textarea:focus { outline: none; border-color: var(--accent); }
+    .booking-submit {
+      width: 100%; padding: 0.75rem; border: none; border-radius: 8px;
+      background: var(--accent); color: #1a1408; font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; transition: opacity 0.15s; font-family: inherit;
+    }
+    .booking-submit:hover { opacity: 0.88; }
+    .booking-submit:disabled { opacity: 0.5; cursor: not-allowed; }
     @media (max-width: 600px) {
       .recipe-modal-backdrop { align-items: flex-end; padding: 0; }
       .recipe-modal {
@@ -287,6 +372,27 @@
   <div class="welcome-photos">
     <img src="../images/cocktail1.jpeg" alt="Home bar photo 1">
     <img src="../images/cocktail3.jpeg" alt="Home bar photo 2">
+  </div>
+
+  <div class="schedule-section">
+    <div class="section-title">📅 Schedule</div>
+    <p class="schedule-desc">
+      Pick a date you'd like to visit the bar and submit a request — I'll get notified and get back to you.
+    </p>
+    <div class="calendar-header">
+      <button class="calendar-nav-btn" id="cal-prev" aria-label="Previous month">‹</button>
+      <div class="calendar-title" id="calendar-title"></div>
+      <button class="calendar-nav-btn" id="cal-next" aria-label="Next month">›</button>
+    </div>
+    <div class="calendar-weekdays">
+      <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+    </div>
+    <div class="calendar-grid" id="calendar-grid"></div>
+    <div class="calendar-legend">
+      <span><span class="cal-dot available"></span> Open</span>
+      <span><span class="cal-dot busy"></span> Busy</span>
+      <span><span class="cal-dot booked"></span> Booked</span>
+    </div>
   </div>
 </section>
 
@@ -523,7 +629,7 @@
             <span class="tag-divider"></span>
             <span class="menu-tag base">Tequila</span>
             <span class="menu-tag liqueur">Cointreau</span>
-            <span class="menu-tag juice">Lime Juice</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
             <span class="menu-tag fruit">Salt</span>
           </div>
         </div>
@@ -693,6 +799,20 @@
   </div>
 </div>
 
+<!-- ══════════ BOOKING MODAL ══════════ -->
+<div class="recipe-modal-backdrop" id="booking-backdrop" hidden>
+  <div class="recipe-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <button class="recipe-modal-close" id="booking-close" aria-label="Close">&times;</button>
+    <div class="recipe-modal-title" id="booking-title"></div>
+    <p class="booking-desc">
+      Please share the names of everyone attending (max 3) and your visit time (after 7 PM).
+    </p>
+    <textarea id="booking-message" class="booking-textarea" placeholder="e.g. John, Jane — around 8 PM"></textarea>
+    <button class="booking-submit" id="booking-submit">Send Request</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 
   document.querySelectorAll('.tab-btn').forEach(function (btn) {
@@ -819,12 +939,12 @@
       ingredients: [
         { n: 'Tequila', o: 5 / 3 },
         { n: 'Cointreau', o: 1 },
-        { n: 'Lime Juice', o: 0.5 },
+        { n: 'Sweet & Sour Mix', o: 0.5 },
         { n: 'Salt', o: 0, note: '(for the rim)' }
       ],
       method: [
         'Rim a glass with salt.',
-        'Shake the Tequila, Cointreau, and Lime Juice with ice.',
+        'Shake the Tequila, Cointreau, and Sweet & Sour Mix with ice.',
         'Strain into the salt-rimmed glass.'
       ]
     },
@@ -1206,6 +1326,88 @@
     document.body.style.overflow = '';
   }
 
+  var EMAILJS_SERVICE_ID = 'service_zwcl1u4';
+  var EMAILJS_TEMPLATE_ID = 'template_jpo1yir';
+  var EMAILJS_PUBLIC_KEY = 'uQGlnvWkjCoKBQzOO';
+  var HOST_EMAIL = 'byeongju@umich.edu';
+  if (window.emailjs) {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+  var bookingBackdrop = document.getElementById('booking-backdrop');
+  var bookingTitle = document.getElementById('booking-title');
+  var bookingMessage = document.getElementById('booking-message');
+  var bookingSubmit = document.getElementById('booking-submit');
+  var bookingDate = null;
+
+  function formatBookingDate(dateStr) {
+    var parts = dateStr.split('-').map(Number);
+    var d = new Date(parts[0], parts[1] - 1, parts[2]);
+    var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return weekdays[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  function openBooking(dateStr) {
+    bookingDate = dateStr;
+    bookingTitle.textContent = formatBookingDate(dateStr);
+    bookingMessage.value = '';
+    bookingBackdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    bookingMessage.focus();
+  }
+
+  function closeBooking() {
+    bookingBackdrop.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  var bookingDefaultLabel = 'Send Request';
+
+  bookingSubmit.addEventListener('click', function () {
+    var message = bookingMessage.value.trim();
+    if (!message) {
+      bookingMessage.focus();
+      return;
+    }
+    var subject = 'Bar Visit Request — ' + formatBookingDate(bookingDate);
+    bookingSubmit.disabled = true;
+    bookingSubmit.textContent = 'Sending…';
+    // Sent under several common EmailJS default-template variable names
+    // (name/title/subject/message/content/body/to_email/reply_to) so it
+    // works no matter which placeholders the template scaffold ended up with.
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      to_email: HOST_EMAIL,
+      reply_to: HOST_EMAIL,
+      email: HOST_EMAIL,
+      name: 'Ben\'s Bar visit request',
+      title: subject,
+      subject: subject,
+      message: message,
+      content: message,
+      body: message
+    }).then(function () {
+      bookingSubmit.textContent = 'Sent!';
+      setTimeout(function () {
+        closeBooking();
+        bookingSubmit.disabled = false;
+        bookingSubmit.textContent = bookingDefaultLabel;
+      }, 1200);
+    }, function (err) {
+      bookingSubmit.disabled = false;
+      bookingSubmit.textContent = bookingDefaultLabel;
+      alert('Something went wrong sending the request — please try again.');
+      console.error('EmailJS error:', err);
+    });
+  });
+
+  document.getElementById('booking-close').addEventListener('click', closeBooking);
+  bookingBackdrop.addEventListener('click', function (e) {
+    if (e.target === bookingBackdrop) closeBooking();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !bookingBackdrop.hidden) closeBooking();
+  });
+
   document.querySelectorAll('[data-recipe]').forEach(function (el) {
     el.addEventListener('click', function () {
       openRecipe(el.dataset.recipe);
@@ -1220,6 +1422,97 @@
     if (e.key === 'Escape' && !recipeBackdrop.hidden) closeRecipe();
   });
 
+  (function () {
+    var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var MIN_YEAR = 2026, MIN_MONTH = 8;  // September 2026 (bar's opening month)
+    var MAX_YEAR = 2026, MAX_MONTH = 11; // December 2026 (end of year)
+    var BOOKED_DATES = ['2026-09-14', '2026-09-19', '2026-09-20', '2026-09-23', '2026-09-24'];
+
+    var curYear = MIN_YEAR, curMonth = MIN_MONTH;
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    function fmt(y, m, d) { return y + '-' + pad(m + 1) + '-' + pad(d); }
+    function beforeMin(y, m) { return y < MIN_YEAR || (y === MIN_YEAR && m < MIN_MONTH); }
+    function afterMax(y, m) { return y > MAX_YEAR || (y === MAX_YEAR && m > MAX_MONTH); }
+
+    var grid = document.getElementById('calendar-grid');
+    var titleEl = document.getElementById('calendar-title');
+    var prevBtn = document.getElementById('cal-prev');
+    var nextBtn = document.getElementById('cal-next');
+    if (!grid || !titleEl) return;
+
+    function renderCalendar() {
+      titleEl.textContent = MONTH_NAMES[curMonth] + ' ' + curYear;
+      prevBtn.disabled = beforeMin(curYear, curMonth - 1);
+      nextBtn.disabled = afterMax(curYear, curMonth + 1);
+
+      var firstWeekday = (new Date(curYear, curMonth, 1).getDay() + 6) % 7; // Mon=0 .. Sun=6
+      var daysInMonth = new Date(curYear, curMonth + 1, 0).getDate();
+      var daysInPrevMonth = new Date(curYear, curMonth, 0).getDate();
+
+      var cells = [];
+      for (var i = firstWeekday - 1; i >= 0; i--) {
+        cells.push({ day: daysInPrevMonth - i, outside: true });
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        cells.push({ day: d, outside: false, dateStr: fmt(curYear, curMonth, d) });
+      }
+      var nextDay = 1;
+      while (cells.length % 7 !== 0) {
+        cells.push({ day: nextDay++, outside: true });
+      }
+
+      grid.innerHTML = '';
+      cells.forEach(function (cell) {
+        var el = document.createElement('div');
+        el.className = 'cal-day';
+
+        if (cell.outside) {
+          el.classList.add('outside');
+          el.innerHTML = '<span class="cal-num">' + cell.day + '</span>';
+          grid.appendChild(el);
+          return;
+        }
+
+        var booking = BOOKED_DATES.indexOf(cell.dateStr) !== -1;
+        // Thursdays are the bar's regular busy day, unless that Thursday
+        // already has a visit booked on it.
+        var isThursday = new Date(curYear, curMonth, cell.day).getDay() === 4;
+        var isBusy = isThursday && !booking;
+        var numHtml = '<span class="cal-num">' + cell.day + '</span>';
+
+        if (booking) {
+          el.classList.add('booked');
+          el.innerHTML = numHtml + '<span class="cal-label">Booked</span>';
+        } else if (isBusy) {
+          el.classList.add('busy');
+          el.innerHTML = numHtml + '<span class="cal-label">Busy</span>';
+        } else {
+          el.classList.add('available');
+          el.innerHTML = numHtml;
+          el.addEventListener('click', function () {
+            openBooking(cell.dateStr);
+          });
+        }
+        grid.appendChild(el);
+      });
+    }
+
+    prevBtn.addEventListener('click', function () {
+      if (prevBtn.disabled) return;
+      curMonth--;
+      if (curMonth < 0) { curMonth = 11; curYear--; }
+      renderCalendar();
+    });
+    nextBtn.addEventListener('click', function () {
+      if (nextBtn.disabled) return;
+      curMonth++;
+      if (curMonth > 11) { curMonth = 0; curYear++; }
+      renderCalendar();
+    });
+
+    renderCalendar();
+  })();
 </script>
 
 </body>
