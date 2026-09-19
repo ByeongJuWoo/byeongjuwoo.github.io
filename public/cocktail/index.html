@@ -731,14 +731,14 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="lemon-drop">
-          <div class="menu-top"><span class="menu-name recommended">Lemon Drop</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.9</span> soju</span><span class="menu-abv mid">19%</span></div></div>
+          <div class="menu-top"><span class="menu-name recommended">Lemon Drop</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.5</span> soju</span><span class="menu-abv mid">20%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="technique-tag">Float</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Vodka</span>
             <span class="menu-tag base">Overproof Rum</span>
-            <span class="menu-tag juice">Lime Juice</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
             <span class="menu-tag fruit">Lemon</span>
             <span class="menu-tag fruit">Sugar</span>
           </div>
@@ -758,6 +758,27 @@
             <span class="technique-tag">Neat</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Dry Gin</span>
+          </div>
+        </div>
+        <div class="menu-row clickable" data-recipe="awol">
+          <div class="menu-top"><span class="menu-name">Absent Without Leave (AWOL)</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.1</span> soju</span><span class="menu-abv mid">17%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Float</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag liqueur">Midori</span>
+            <span class="menu-tag juice">Pineapple Juice</span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag base">Overproof Rum</span>
+          </div>
+        </div>
+        <div class="menu-row clickable" data-recipe="monkey-brain">
+          <div class="menu-top"><span class="menu-name">Monkey Brain</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.2</span> soju</span><span class="menu-abv mid">20%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag liqueur">Baileys</span>
           </div>
         </div>
       </div>
@@ -973,15 +994,15 @@
       starred: true,
       dilute: true,
       ingredients: [
-        { n: 'Vodka', o: 1 },
-        { n: 'Lime Juice', o: 1 },
+        { n: 'Vodka', o: 0.75 },
+        { n: 'Sweet & Sour Mix', o: 0.75 },
         { n: 'Overproof Rum', o: 1 / 6, note: '(float)' },
         { n: 'Sugar', o: 0, note: '(for the rim)' },
         { n: 'Lemon', o: 0, note: '(twist, for garnish)' }
       ],
       method: [
         'Rim a glass with sugar.',
-        'Shake the Vodka and Lime Juice with ice.',
+        'Shake the Vodka and Sweet & Sour Mix with ice.',
         'Strain into the sugar-rimmed glass.',
         'Float the Overproof Rum on top and garnish with a lemon twist.'
       ]
@@ -1213,6 +1234,34 @@
         'Fill a glass with ice.',
         'Build the Grenadine, Sweet & Sour Mix, and Ginger Ale directly in the glass and stir.',
         'Garnish with a maraschino cherry.'
+      ]
+    },
+    awol: {
+      name: 'Absent Without Leave (AWOL)',
+      dilute: false,
+      ingredients: [
+        { n: 'Midori', o: 0.5 },
+        { n: 'Pineapple Juice', o: 0.75 },
+        { n: 'Vodka', o: 0.5 },
+        { n: 'Overproof Rum', o: 0, display: 'Overproof Rum — 3ml (float, not counted toward ABV)' }
+      ],
+      method: [
+        'Layer the Midori, Pineapple Juice, and Vodka in that order in a shot glass.',
+        'Float 3ml of Overproof Rum on top and carefully light it.',
+        'Let it burn briefly, then blow it out and shoot.'
+      ]
+    },
+    'monkey-brain': {
+      name: 'Monkey Brain',
+      dilute: false,
+      ingredients: [
+        { n: 'Vodka', o: 0.75 },
+        { n: 'Sweet & Sour Mix', o: 0.75 },
+        { n: 'Baileys', o: 0.25 }
+      ],
+      method: [
+        'Build the Vodka and Sweet & Sour Mix in a shot glass.',
+        'Drop the Baileys on top — it curdles into brain-like strands on contact.'
       ]
     }
   };
