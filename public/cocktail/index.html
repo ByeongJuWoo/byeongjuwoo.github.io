@@ -68,14 +68,16 @@
     }
 
     /* ── Welcome ── */
-    .welcome-photos { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    .welcome-photos {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;
+    }
     .welcome-photos img {
-      width: 50%; height: 260px; object-fit: cover;
+      width: 100%; height: 220px; object-fit: cover;
       border-radius: 10px; border: 1px solid var(--border);
     }
     @media (max-width: 600px) {
-      .welcome-photos { flex-direction: column; }
-      .welcome-photos img { width: 100%; }
+      .welcome-photos img.mobile-hide { display: none; }
+      .welcome-photos img { height: 200px; }
     }
 
     /* ── Schedule ── */
@@ -371,7 +373,9 @@
   </p>
   <div class="welcome-photos">
     <img src="../images/cocktail1.jpeg" alt="Home bar photo 1">
-    <img src="../images/cocktail3.jpeg" alt="Home bar photo 2">
+    <img class="mobile-hide" src="../images/cocktail2.jpeg" alt="Home bar photo 2">
+    <img class="mobile-hide" src="../images/cocktail3.jpeg" alt="Home bar photo 3">
+    <img src="../images/cocktail4.jpeg" alt="Home bar photo 4">
   </div>
 
   <div class="schedule-section">
@@ -491,7 +495,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="tequila-sunrise">
-          <div class="menu-top"><span class="menu-name recommended">Tequila Sunrise</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv mid">14%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Tequila Sunrise</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv mid">14%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -524,7 +528,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="sotb">
-          <div class="menu-top"><span class="menu-name">Sex on the Beach</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.6</span> soju</span><span class="menu-abv mid">12%</span></div></div>
+          <div class="menu-top"><span class="menu-name recommended">Sex on the Beach</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.6</span> soju</span><span class="menu-abv mid">12%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -743,23 +747,6 @@
             <span class="menu-tag fruit">Sugar</span>
           </div>
         </div>
-        <div class="menu-row clickable" data-recipe="tequila-shot">
-          <div class="menu-top"><span class="menu-name">Tequila Shot</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv high">40%</span></div></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Neat</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Tequila</span>
-            <span class="menu-tag fruit">Salt</span>
-          </div>
-        </div>
-        <div class="menu-row clickable" data-recipe="monkey-shot">
-          <div class="menu-top"><span class="menu-name">Monkey Shot</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.5</span> soju</span><span class="menu-abv high">47%</span></div></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Neat</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Dry Gin</span>
-          </div>
-        </div>
         <div class="menu-row clickable" data-recipe="awol">
           <div class="menu-top"><span class="menu-name">Absent Without Leave (AWOL)</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.1</span> soju</span><span class="menu-abv mid">17%</span></div></div>
           <div class="menu-tags">
@@ -779,6 +766,23 @@
             <span class="menu-tag base">Vodka</span>
             <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
             <span class="menu-tag liqueur">Baileys</span>
+          </div>
+        </div>
+        <div class="menu-row clickable" data-recipe="monkey-shot">
+          <div class="menu-top"><span class="menu-name">Monkey Shot</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.5</span> soju</span><span class="menu-abv high">47%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Neat</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Dry Gin</span>
+          </div>
+        </div>
+        <div class="menu-row clickable" data-recipe="tequila-shot">
+          <div class="menu-top"><span class="menu-name">Tequila Shot</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv high">40%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Neat</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Tequila</span>
+            <span class="menu-tag fruit">Salt</span>
           </div>
         </div>
       </div>
@@ -877,6 +881,7 @@
     sotb: {
       name: 'Sex on the Beach',
       why: 'A little boozier than it looks. Nice and tangy.',
+      starred: true,
       dilute: false,
       ingredients: [
         { n: 'Vodka', o: 1.5 },
@@ -908,8 +913,6 @@
     },
     'tequila-sunrise': {
       name: 'Tequila Sunrise',
-      why: 'Universally loved — hard to dislike.',
-      starred: true,
       dilute: false,
       ingredients: [
         { n: 'Tequila', o: 1.5 },

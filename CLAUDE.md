@@ -45,6 +45,10 @@ The single page (`page.tsx`) imports all data and components. It renders a two-c
 
 Project-specific pages (e.g., `/CAFT/`) live under `public/` as standalone HTML, not as Next.js routes.
 
+`public/cocktail/` (the home-bar menu page) has its own `CLAUDE.md` with the
+ABV/soju calculation rules, recipe data conventions, and other project-specific
+patterns — read it before editing anything in that directory.
+
 ### HTML strings in data
 
 The `description` and `researchInterests` fields in `aboutme.ts` are raw HTML strings rendered via `dangerouslySetInnerHTML`. Use `<br />`, `<a>`, `<em>`, `<strong>`, and inline `style` attributes freely there.
