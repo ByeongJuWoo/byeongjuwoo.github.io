@@ -85,7 +85,18 @@
       margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);
     }
     .schedule-desc {
-      font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin: 0.75rem 0 1.5rem;
+      font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin: 0.75rem 0 1rem;
+    }
+    .schedule-rules {
+      list-style: none; padding: 0; margin: 0 0 1.5rem;
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .schedule-rules li {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.5;
+      padding-left: 1.1rem; position: relative;
+    }
+    .schedule-rules li::before {
+      content: '•'; position: absolute; left: 0; color: var(--accent);
     }
     .calendar-header {
       display: flex; align-items: center; justify-content: space-between;
@@ -351,6 +362,8 @@
       text-align: center; padding: 1.5rem;
       font-size: 0.75rem; color: #444;
     }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -383,6 +396,11 @@
     <p class="schedule-desc">
       Pick a date you'd like to visit the bar and submit a request — I'll get notified and get back to you.
     </p>
+    <ul class="schedule-rules">
+      <li>Groups of 2 are preferred, up to 3 guests max</li>
+      <li>Max 2 bookings per week</li>
+      <li>Visits start after 6 PM</li>
+    </ul>
     <div class="calendar-header">
       <button class="calendar-nav-btn" id="cal-prev" aria-label="Previous month">‹</button>
       <div class="calendar-title" id="calendar-title"></div>
@@ -805,7 +823,7 @@
   </div>
 </section>
 
-<footer>© 2026 Byeongju Woo</footer>
+<footer>© 2026 Byeongju Woo · <a href="../">← Back to Home</a></footer>
 
 <!-- ══════════ RECIPE MODAL ══════════ -->
 <div class="recipe-modal-backdrop" id="recipe-backdrop" hidden>
@@ -830,7 +848,7 @@
     <button class="recipe-modal-close" id="booking-close" aria-label="Close">&times;</button>
     <div class="recipe-modal-title" id="booking-title"></div>
     <p class="booking-desc">
-      Please share the names of everyone attending (max 3) and your visit time (after 7 PM).
+      Please share the names of everyone attending (max 3) and your visit time (after 6 PM).
     </p>
     <textarea id="booking-message" class="booking-textarea" placeholder="e.g. John, Jane — around 8 PM"></textarea>
     <button class="booking-submit" id="booking-submit">Send Request</button>
@@ -1482,10 +1500,28 @@
 
     var curYear = MIN_YEAR, curMonth = MIN_MONTH;
 
+    var MAX_BOOKINGS_PER_WEEK = 2;
+
     function pad(n) { return n < 10 ? '0' + n : '' + n; }
     function fmt(y, m, d) { return y + '-' + pad(m + 1) + '-' + pad(d); }
     function beforeMin(y, m) { return y < MIN_YEAR || (y === MIN_YEAR && m < MIN_MONTH); }
     function afterMax(y, m) { return y > MAX_YEAR || (y === MAX_YEAR && m > MAX_MONTH); }
+
+    // Monday-of-the-week key for a 'YYYY-MM-DD' string (weeks run Mon-Sun,
+    // matching the calendar's weekday header order).
+    function weekKey(dateStr) {
+      var parts = dateStr.split('-').map(Number);
+      var d = new Date(parts[0], parts[1] - 1, parts[2]);
+      var offset = (d.getDay() + 6) % 7; // Mon=0 .. Sun=6
+      d.setDate(d.getDate() - offset);
+      return fmt(d.getFullYear(), d.getMonth(), d.getDate());
+    }
+    function weekBookingCount(dateStr) {
+      var wk = weekKey(dateStr);
+      var count = 0;
+      BOOKED_DATES.forEach(function (bd) { if (weekKey(bd) === wk) count++; });
+      return count;
+    }
 
     var grid = document.getElementById('calendar-grid');
     var titleEl = document.getElementById('calendar-title');
@@ -1527,10 +1563,12 @@
         }
 
         var booking = BOOKED_DATES.indexOf(cell.dateStr) !== -1;
-        // Thursdays are the bar's regular busy day, unless that Thursday
-        // already has a visit booked on it.
+        // Thursdays are the bar's regular busy day, and once a week already
+        // has MAX_BOOKINGS_PER_WEEK visits booked, the rest of that week
+        // closes too — unless this day is itself already booked.
         var isThursday = new Date(curYear, curMonth, cell.day).getDay() === 4;
-        var isBusy = isThursday && !booking;
+        var weekFull = weekBookingCount(cell.dateStr) >= MAX_BOOKINGS_PER_WEEK;
+        var isBusy = !booking && (isThursday || weekFull);
         var numHtml = '<span class="cal-num">' + cell.day + '</span>';
 
         if (booking) {
