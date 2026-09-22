@@ -398,7 +398,6 @@
     </p>
     <ul class="schedule-rules">
       <li>Groups of 2 are preferred, up to 3 guests max</li>
-      <li>Max 2 bookings per week</li>
       <li>Visits start after 6 PM</li>
     </ul>
     <div class="calendar-header">
@@ -1507,12 +1506,12 @@
     function beforeMin(y, m) { return y < MIN_YEAR || (y === MIN_YEAR && m < MIN_MONTH); }
     function afterMax(y, m) { return y > MAX_YEAR || (y === MAX_YEAR && m > MAX_MONTH); }
 
-    // Monday-of-the-week key for a 'YYYY-MM-DD' string (weeks run Mon-Sun,
-    // matching the calendar's weekday header order).
+    // Saturday-of-the-week key for a 'YYYY-MM-DD' string. Booking weeks run
+    // Sat-Fri internally (not the calendar's displayed Mon-Sun grid rows).
     function weekKey(dateStr) {
       var parts = dateStr.split('-').map(Number);
       var d = new Date(parts[0], parts[1] - 1, parts[2]);
-      var offset = (d.getDay() + 6) % 7; // Mon=0 .. Sun=6
+      var offset = (d.getDay() + 1) % 7; // Sat=0 .. Fri=6
       d.setDate(d.getDate() - offset);
       return fmt(d.getFullYear(), d.getMonth(), d.getDate());
     }
