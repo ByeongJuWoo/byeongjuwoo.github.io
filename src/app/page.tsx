@@ -37,7 +37,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 mb-4">
               {aboutMe.imageUrl && (
                 <div className="flex-shrink-0">
-                  <div className="relative w-36 h-[168px] sm:w-44 sm:h-52">
+                  <div className="relative w-40 h-[168px] sm:w-48 sm:h-52">
                     <Image
                       src={aboutMe.imageUrl}
                       alt={aboutMe.name}
