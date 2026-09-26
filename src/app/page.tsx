@@ -216,7 +216,7 @@ export default function Home() {
               <div className="space-y-2">
                 {newsData.slice(0, 5).map((news, i) => (
                   <div key={i} className="flex flex-col sm:flex-row gap-1 sm:gap-8">
-                    <span className="text-[0.97rem] text-stone-500 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
+                    <span className="text-[0.97rem] text-stone-700 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
                       {news.date}
                     </span>
                     <div>
@@ -247,7 +247,7 @@ export default function Home() {
                     <div className="space-y-2 mt-2">
                       {newsData.slice(5).map((news, i) => (
                         <div key={i} className="flex flex-col sm:flex-row gap-1 sm:gap-8">
-                          <span className="text-[0.97rem] text-stone-500 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
+                          <span className="text-[0.97rem] text-stone-700 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
                             {news.date}
                           </span>
                           <div>

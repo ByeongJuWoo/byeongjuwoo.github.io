@@ -9,8 +9,8 @@ export interface News {
 export const newsData: News[] = [
   {
     date: "Sep 2026",
-    title: "CAFT was accepted to NeurIPS 2026",
-    titleHtml: "<a href='https://byeongju.me/CAFT/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: inherit;'>CAFT</a> was accepted to NeurIPS 2026",
+    title: "CAFT was accepted to NeurIPS 2026. See you at Atlanta!",
+    titleHtml: "<a href='https://byeongju.me/CAFT/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: inherit;'>CAFT</a> was accepted to NeurIPS 2026. See you at Atlanta!",
     description: "",
   },
   {

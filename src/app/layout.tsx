@@ -56,9 +56,9 @@ export const metadata: Metadata = {
     description: customMetadata.description || aboutMe.description,
     images: [
       {
-        url: "/images/profile_3.jpg",
-        width: 374,
-        height: 267,
+        url: "/images/profile_6.jpg",
+        width: 1391,
+        height: 1391,
         alt: `${aboutMe.name} – preview`,
       },
     ],
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: customMetadata.title || aboutMe.name,
     description: customMetadata.description || aboutMe.description,
-    images: ["/images/profile_3.jpg"],
+    images: ["/images/profile_6.jpg"],
   },
 };
 
