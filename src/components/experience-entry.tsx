@@ -8,11 +8,11 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
     <div className="mb-6">
       {/* Company name (prominent) + date */}
       <div className="flex justify-between items-baseline">
-        <h3 className="text-md font-serif text-stone-900">
+        <h3 className="text-md font-serif text-[#2E2E2F]">
           {experience.companyUrl ? (
             <a
               href={experience.companyUrl}
-              className="hover:text-stone-600 transition-colors"
+              className="hover:opacity-70 transition-opacity"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -26,18 +26,18 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
       </div>
 
       {/* Job title */}
-      <p className="text-sm text-stone-600 mb-1.5">{experience.title}</p>
+      <p className="text-sm text-[#2E2E2F] mb-1.5">{experience.title}</p>
 
       {/* Bullet points */}
       {experience.points && experience.points.length > 0 ? (
-        <ul className="list-disc pl-5 text-sm text-stone-600 space-y-1">
+        <ul className="list-disc pl-5 text-sm text-[#2E2E2F] space-y-1">
           {experience.points.map((point, idx) => (
             <li key={idx}>{point}</li>
           ))}
         </ul>
       ) : (
         experience.description && (
-          <p className="text-sm italic text-stone-600">{experience.description}</p>
+          <p className="text-sm italic text-[#2E2E2F]">{experience.description}</p>
         )
       )}
     </div>

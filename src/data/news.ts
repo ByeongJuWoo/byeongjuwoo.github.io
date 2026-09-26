@@ -9,8 +9,14 @@ export interface News {
 export const newsData: News[] = [
   {
     date: "Sep 2026",
-    title: "CAFT accepted to NeurIPS 2026",
-    titleHtml: "<a href='https://byeongju.me/CAFT/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: inherit;'>CAFT</a> accepted to NeurIPS 2026",
+    title: "CAFT was accepted to NeurIPS 2026",
+    titleHtml: "<a href='https://byeongju.me/CAFT/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: inherit;'>CAFT</a> was accepted to NeurIPS 2026",
+    description: "",
+  },
+  {
+    date: "Sep 2026",
+    title: "VVSQ was accepted to Neurocomputing",
+    titleHtml: "<a href='https://www.sciencedirect.com/science/article/abs/pii/S0925231226022861?via%3Dihub' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: inherit;'>VVSQ</a> was accepted to Neurocomputing",
     description: "",
   },
   {
@@ -20,7 +26,7 @@ export const newsData: News[] = [
   },
   {
     date: "Jun 2026",
-    title: "Completed three-year mandatory military service at the Agency for Defense Development (ADD)",
+    title: "Completed military service at the Agency for Defense Development (ADD)",
     description: "",
   },
   {
@@ -35,8 +41,8 @@ export const newsData: News[] = [
   },
   {
     date: "Mar 2026",
-    title: "CroBo accepted to CVPR 2026 Workshop on Pixel-level Video Understanding in the Wild",
-    titleHtml: "<a href='https://seokminlee-chris.github.io/CroBo-ProjectPage/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: inherit;'>CroBo</a> accepted to CVPR 2026 Workshop on Pixel-level Video Understanding in the Wild",
+    title: "CroBo was accepted to CVPR 2026 Workshop on Pixel-level Video Understanding in the Wild",
+    titleHtml: "<a href='https://seokminlee-chris.github.io/CroBo-ProjectPage/' target='_blank' rel='noopener noreferrer' style='text-decoration: underline; color: inherit;'>CroBo</a> was accepted to CVPR 2026 Workshop on Pixel-level Video Understanding in the Wild",
     description: "",
   },
 ];

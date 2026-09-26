@@ -3,14 +3,14 @@ import {
   Mail,
   Github,
   Twitter,
-  Instagram,
+  Linkedin,
   GraduationCap,
   Download,
   MapPin,
 } from "lucide-react";
 
 import { Navbar } from "@/components/navbar";
-import { ETTime } from "@/components/et-time";
+// import { ETTime } from "@/components/et-time";
 import { MapMyVisitors } from "@/components/map-my-visitors";
 import { PublicationEntry } from "@/components/publication-entry";
 import { ExperienceEntry } from "@/components/experience-entry";
@@ -56,19 +56,19 @@ export default function Home() {
                     {aboutMe.name}
                   </h1>
                   {aboutMe.altName && (
-                    <p className="text-stone-500 text-sm mb-2">{aboutMe.altName}</p>
+                    <p className="text-[#2E2E2F] text-sm mb-2">{aboutMe.altName}</p>
                   )}
-                  <p className="text-stone-600 text-sm">{aboutMe.title}</p>
+                  <p className="text-[#2E2E2F] text-sm">{aboutMe.title}</p>
                   {aboutMe.department && (
-                    <p className="text-stone-600 text-sm">{aboutMe.department}</p>
+                    <p className="text-[#2E2E2F] text-sm">{aboutMe.department}</p>
                   )}
-                  <p className="text-stone-600 text-sm">
+                  <p className="text-[#2E2E2F] text-sm">
                     {aboutMe.institutionUrl ? (
                       <a
                         href={aboutMe.institutionUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-stone-900 transition-colors"
+                        className="hover:opacity-70 transition-opacity"
                       >
                         {aboutMe.institution}
                       </a>
@@ -90,7 +90,7 @@ export default function Home() {
                         href={aboutMe.addressURL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm text-[#2E2E2F] hover:opacity-70 transition-opacity"
                       >
                         <MapPin size={14} />
                         {aboutMe.addressOffice}
@@ -100,19 +100,12 @@ export default function Home() {
 
                   {/* Contact links */}
                   <div className="flex flex-wrap gap-x-5 gap-y-2">
-                    <a
-                      href={`mailto:${aboutMe.email}`}
-                      className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 transition-colors"
-                    >
-                      <Mail size={14} />
-                      Email
-                    </a>
                     {aboutMe.cvUrl && (
                       <a
                         href={aboutMe.cvUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm text-[#2E2E2F] hover:opacity-70 transition-opacity"
                       >
                         <Download size={14} />
                         CV
@@ -123,21 +116,28 @@ export default function Home() {
                         href={aboutMe.googleScholarUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm text-[#2E2E2F] hover:opacity-70 transition-opacity"
                       >
                         <GraduationCap size={14} />
                         Scholar
                       </a>
                     )}
-                    {aboutMe.githubUsername && (
+                    <a
+                      href={`mailto:${aboutMe.email}`}
+                      className="inline-flex items-center gap-2 text-sm text-[#2E2E2F] hover:opacity-70 transition-opacity"
+                    >
+                      <Mail size={14} />
+                      Email
+                    </a>
+                    {aboutMe.linkedinUsername && (
                       <a
-                        href={`https://github.com/${aboutMe.githubUsername}`}
+                        href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm text-[#2E2E2F] hover:opacity-70 transition-opacity"
                       >
-                        <Github size={14} />
-                        GitHub
+                        <Linkedin size={14} />
+                        LinkedIn
                       </a>
                     )}
                     {aboutMe.twitterUsername && (
@@ -145,21 +145,23 @@ export default function Home() {
                         href={`https://twitter.com/${aboutMe.twitterUsername}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm text-[#2E2E2F] hover:opacity-70 transition-opacity"
                       >
                         <Twitter size={14} />
                         Twitter
                       </a>
                     )}
-                    <a
-                      href="https://www.instagram.com/byeongju.me"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 transition-colors"
-                    >
-                      <Instagram size={14} />
-                      Instagram
-                    </a>
+                    {aboutMe.githubUsername && (
+                      <a
+                        href={`https://github.com/${aboutMe.githubUsername}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-[#2E2E2F] hover:opacity-70 transition-opacity"
+                      >
+                        <Github size={14} />
+                        GitHub
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -169,16 +171,18 @@ export default function Home() {
             {aboutMe.description && (
               <div className="pt-2">
                 <p
-                  className="font-serif text-[0.97rem] leading-relaxed text-stone-700 [&_a]:underline [&_a]:text-stone-800 [&_a:hover]:text-stone-500 mb-3"
+                  className="font-serif text-[0.97rem] leading-relaxed text-[#2E2E2F] [&_a]:underline [&_a]:text-[#2E2E2F] [&_a:hover]:opacity-70 mb-3"
                   dangerouslySetInnerHTML={{ __html: aboutMe.description }}
                 />
-                <p className="font-serif text-[0.97rem] leading-relaxed text-stone-700 mb-5">
+                {/*
+                <p className="font-serif text-[0.97rem] leading-relaxed text-[#2E2E2F] mb-5">
                   Please feel free to reach out to me at{' '}
-                  <a href={`mailto:${aboutMe.email}`} className="underline text-stone-800 hover:text-stone-500">
+                  <a href={`mailto:${aboutMe.email}`} className="underline text-[#2E2E2F] hover:opacity-70">
                     {aboutMe.email}
                   </a>
                   {' '}— it&apos;s <ETTime /> for me right now.
                 </p>
+                */}
                 {aboutMe.researchInterests && (
                   <details className="mb-4">
                     <summary className="cursor-pointer select-none font-serif text-sm text-stone-600 mb-1 tracking-wide font-bold">
@@ -204,13 +208,13 @@ export default function Home() {
             NEWS
         ════════════════════════════════════════ */}
         {newsData.length > 0 && (
-          <section id="news" className="bg-[#FAFAFA] py-9">
+          <section id="news" className="bg-[#FAFAFA] py-7">
             <div className="max-w-[980px] mx-auto px-6">
-              <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
+              <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-6">
                 News
               </h2>
               <div className="space-y-2">
-                {newsData.slice(0, 4).map((news, i) => (
+                {newsData.slice(0, 5).map((news, i) => (
                   <div key={i} className="flex flex-col sm:flex-row gap-1 sm:gap-8">
                     <span className="text-[0.97rem] text-stone-500 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
                       {news.date}
@@ -234,14 +238,14 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
-                {newsData.length > 4 && (
+                {newsData.length > 5 && (
                   <details className="group mt-2.5">
                     <summary className="[&::-webkit-details-marker]:hidden list-none cursor-pointer select-none text-[0.97rem] text-stone-500 hover:text-stone-700 transition-colors">
-                      <span className="group-open:hidden">More news ▸</span>
-                      <span className="hidden group-open:inline">More news ▾</span>
+                      <span className="group-open:hidden">Older news ▸</span>
+                      <span className="hidden group-open:inline">Older news ▾</span>
                     </summary>
                     <div className="space-y-2 mt-2">
-                      {newsData.slice(4).map((news, i) => (
+                      {newsData.slice(5).map((news, i) => (
                         <div key={i} className="flex flex-col sm:flex-row gap-1 sm:gap-8">
                           <span className="text-[0.97rem] text-stone-500 whitespace-nowrap sm:w-24 flex-shrink-0 pt-px">
                             {news.date}
@@ -277,9 +281,9 @@ export default function Home() {
             PUBLICATIONS
         ════════════════════════════════════════ */}
         {publicationData.length > 0 && (
-          <section id="publications" className="bg-[#FFFFFF] py-9">
+          <section id="publications" className="bg-[#FFFFFF] py-7">
             <div className="max-w-[980px] mx-auto px-6">
-              <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
+              <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-6">
                 Selected Publications
               </h2>
               <div className="space-y-0">
@@ -300,9 +304,9 @@ export default function Home() {
             WORK EXPERIENCE
         ════════════════════════════════════════ */}
         {experienceData.length > 0 && (
-          <section className="bg-[#FAFAFA] py-9">
+          <section className="bg-[#FAFAFA] py-7">
             <div className="max-w-[980px] mx-auto px-6">
-              <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
+              <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-6">
                 Work Experience
               </h2>
               <div className="space-y-6">

@@ -27,7 +27,7 @@ export const publicationData: Publication[] = [
   {
     year: "2026",
     conference: "NeurIPS",
-    title: "Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding",
+    title: "Aligning Forest and Trees in Images & Long Captions for Visually Grounded Understanding",
     authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
     paperUrl: "https://arxiv.org/pdf/2602.02977",
     codeUrl: "https://github.com/ByeongJuWoo/CAFT",
