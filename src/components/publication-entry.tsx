@@ -27,7 +27,7 @@ export function PublicationEntry({
             <React.Fragment key={i}>
               {isHighlighted ? (
                 <>
-                  <u>{raw}</u>
+                  <u className="font-bold text-[#2E2E2F]">{raw}</u>
                   {stars}
                 </>
               ) : (
@@ -56,9 +56,9 @@ export function PublicationEntry({
       )}
       <div className="flex flex-col flex-1">
         <h3 className="font-sans text-[1.15rem] font-bold text-[#2E2E2F] mb-2">{publication.title}</h3>
-        <p className="text-sm text-stone-600 mb-1.5">{renderAuthors(publication.authors)}</p>
+        <p className="text-sm text-[#2E2E2F] mb-1.5">{renderAuthors(publication.authors)}</p>
         <div className="flex flex-row gap-4 items-center mb-3">
-          <p className="text-sm text-stone-600">
+          <p className="text-sm text-[#2E2E2F]">
             {publication.conference} {publication.year}
           </p>
           {publication.award && (
@@ -74,7 +74,7 @@ export function PublicationEntry({
           {publication.paperUrl && (
             <a
               href={publication.paperUrl}
-              className="group inline-flex items-center gap-2 text-xs text-stone-600 hover:text-stone-900 transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-xs text-[#2E2E2F] hover:opacity-70 transition-opacity duration-300"
             >
               <ArrowUpRight
                 size={12}
@@ -86,7 +86,7 @@ export function PublicationEntry({
           {publication.pageUrl && (
             <a
               href={publication.pageUrl}
-              className="group inline-flex items-center gap-2 text-xs text-stone-600 hover:text-stone-900 transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-xs text-[#2E2E2F] hover:opacity-70 transition-opacity duration-300"
             >
               <ArrowUpRight
                 size={12}
@@ -98,7 +98,7 @@ export function PublicationEntry({
           {publication.codeUrl && (
             <a
               href={publication.codeUrl}
-              className="group inline-flex items-center gap-2 text-xs text-stone-600 hover:text-stone-900 transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-xs text-[#2E2E2F] hover:opacity-70 transition-opacity duration-300"
             >
               <ArrowUpRight
                 size={12}

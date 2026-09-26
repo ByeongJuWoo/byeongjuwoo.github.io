@@ -130,5 +130,5 @@ export const aboutMe: AboutMe = {
   // secretDescription: "I like dogs.",
   addressOffice:"Ann Arbor, Michigan",
   addressURL:"https://www.google.com/maps/search/?api=1&query=Ann+Arbor%2C+Michigan",
-  lastUpdated: "August 27, 2026",
+  lastUpdated: "September 25, 2026",
 };

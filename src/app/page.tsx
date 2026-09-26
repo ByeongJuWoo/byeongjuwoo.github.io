@@ -52,7 +52,7 @@ export default function Home() {
               <div className="flex flex-col">
                 {/* Top: name + title + institution */}
                 <div className="pt-3">
-                  <h1 className="font-sans text-[2.2rem] leading-tight font-bold text-[#2E2E2F] tracking-[0.01em] mb-1">
+                  <h1 className="font-sans text-[2.2rem] leading-tight font-bold text-[#2E2E2F] tracking-[0.01em] mb-2">
                     {aboutMe.name}
                   </h1>
                   {aboutMe.altName && (
@@ -235,8 +235,8 @@ export default function Home() {
                   </div>
                 ))}
                 {newsData.length > 4 && (
-                  <details className="group">
-                    <summary className="[&::-webkit-details-marker]:hidden list-none cursor-pointer select-none text-[0.97rem] font-bold text-stone-500 hover:text-stone-700 transition-colors">
+                  <details className="group mt-2.5">
+                    <summary className="[&::-webkit-details-marker]:hidden list-none cursor-pointer select-none text-[0.97rem] text-stone-500 hover:text-stone-700 transition-colors">
                       <span className="group-open:hidden">More news ▸</span>
                       <span className="hidden group-open:inline">More news ▾</span>
                     </summary>
@@ -280,7 +280,7 @@ export default function Home() {
           <section id="publications" className="bg-[#FFFFFF] py-9">
             <div className="max-w-[980px] mx-auto px-6">
               <h2 className="font-sans text-[1.65rem] font-bold text-[#2E2E2F] mb-8">
-                Publications
+                Selected Publications
               </h2>
               <div className="space-y-0">
                 {publicationData.map((pub, i) => (

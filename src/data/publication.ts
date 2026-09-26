@@ -25,8 +25,8 @@ export const publicationData: Publication[] = [
   //   // imageUrl: "/images/tortoise_hare.gif",
   // },
   {
-    year: "",
-    conference: "In submission",
+    year: "2026",
+    conference: "NeurIPS",
     title: "Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding",
     authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
     paperUrl: "https://arxiv.org/pdf/2602.02977",
