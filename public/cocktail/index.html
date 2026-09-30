@@ -158,6 +158,19 @@
       .cal-day.booked .cal-label, .cal-day.busy .cal-label { font-size: 0.56rem; }
     }
 
+    /* ── News ── */
+    .news-section {
+      margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .news-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .news-item {
+      display: flex; gap: 1rem; font-size: 0.9rem; line-height: 1.5;
+    }
+    .news-date {
+      color: var(--accent); font-weight: 700; white-space: nowrap; flex-shrink: 0;
+    }
+    .news-text { color: var(--text); }
+
     /* ── Stock ── */
     .stock-grid {
       display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
@@ -381,6 +394,7 @@
 <section id="welcome">
   <div class="section-title">🏠 Welcome</div>
   <p style="font-size:0.95rem;">Hi! Welcome to B2A2.</p>
+  <p style="font-size:0.95rem; margin-top:0.75rem;">Feel free to schedule a visit and come hang out for cocktails together!</p>
   <p style="font-size:0.95rem; margin-top:0.75rem;">
     📍 Location: <a href="https://www.google.com/maps/search/?api=1&query=3570+Green+Brier+Blvd+Apt+410C" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--muted);text-decoration-thickness:1px;text-underline-offset:3px;">3570 Green Brier Blvd Apt 410C</a>
   </p>
@@ -400,6 +414,8 @@
       Pick a date you'd like to visit the bar and submit a request — I'll get notified and get back to you.
     </p>
     <ul class="schedule-rules">
+      <li>No cover charge — come empty-handed</li>
+      <li>Max 2 bookings per week</li>
       <li>Groups of 2 are preferred, up to 3 guests max</li>
       <li>Visits start after 6 PM</li>
     </ul>
@@ -416,6 +432,20 @@
       <span><span class="cal-dot available"></span> Open</span>
       <span><span class="cal-dot busy"></span> Busy</span>
       <span><span class="cal-dot booked"></span> Booked</span>
+    </div>
+  </div>
+
+  <div class="news-section">
+    <div class="section-title">📰 News</div>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="news-date">Sep 26, 2026</span>
+        <span class="news-text">Picked up some soju and rice makgeolli!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Sep 23, 2026</span>
+        <span class="news-text">Bought a Kodak camera! Let's take some photos together!</span>
+      </div>
     </div>
   </div>
 </section>
