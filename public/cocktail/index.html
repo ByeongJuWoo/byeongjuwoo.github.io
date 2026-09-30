@@ -384,6 +384,9 @@
   <p style="font-size:0.95rem; margin-top:0.75rem;">
     📍 Location: <a href="https://www.google.com/maps/search/?api=1&query=3570+Green+Brier+Blvd+Apt+410C" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--muted);text-decoration-thickness:1px;text-underline-offset:3px;">3570 Green Brier Blvd Apt 410C</a>
   </p>
+  <p style="font-size:0.95rem; margin-top:0.75rem;">
+    ✉️ Contact: <a href="mailto:byeongju@umich.edu" style="color:inherit;text-decoration:underline;text-decoration-color:var(--muted);text-decoration-thickness:1px;text-underline-offset:3px;">byeongju@umich.edu</a>
+  </p>
   <div class="welcome-photos">
     <img src="../images/cocktail1.jpeg" alt="Home bar photo 1">
     <img class="mobile-hide" src="../images/cocktail2.jpeg" alt="Home bar photo 2">
@@ -1495,9 +1498,16 @@
     var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var MIN_YEAR = 2026, MIN_MONTH = 8;  // September 2026 (bar's opening month)
     var MAX_YEAR = 2026, MAX_MONTH = 11; // December 2026 (end of year)
-    var BOOKED_DATES = ['2026-09-14', '2026-09-19', '2026-09-20', '2026-09-23', '2026-09-24'];
+    var BOOKED_DATES = ['2026-09-14', '2026-09-19', '2026-09-20', '2026-09-23', '2026-09-29'];
 
-    var curYear = MIN_YEAR, curMonth = MIN_MONTH;
+    // Open on today's month by default, clamped into the bookable range.
+    var today = new Date();
+    var curYear = today.getFullYear(), curMonth = today.getMonth();
+    if (curYear < MIN_YEAR || (curYear === MIN_YEAR && curMonth < MIN_MONTH)) {
+      curYear = MIN_YEAR; curMonth = MIN_MONTH;
+    } else if (curYear > MAX_YEAR || (curYear === MAX_YEAR && curMonth > MAX_MONTH)) {
+      curYear = MAX_YEAR; curMonth = MAX_MONTH;
+    }
 
     var MAX_BOOKINGS_PER_WEEK = 2;
 

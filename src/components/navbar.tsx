@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 
 const NAV_ITEMS = [
-  { label: "Home",         href: "#home",              type: "scroll"   },
-  { label: "News",         href: "#news",              type: "scroll"   },
-  { label: "Publications", href: "#publications",      type: "scroll"   },
-  { label: "Blog",         href: "/blog/index.html",   type: "internal" },
+  { label: "Home",         href: "#home",              type: "scroll",   highlight: false },
+  { label: "News",         href: "#news",              type: "scroll",   highlight: false },
+  { label: "Publications", href: "#publications",      type: "scroll",   highlight: false },
+  { label: "Blog",         href: "/blog/index.html",   type: "internal", highlight: false },
+  { label: "Cocktail",     href: "/cocktail/",         type: "internal", highlight: true  },
 ] as const;
 
 const SCROLL_SECTIONS = ["home", "news", "publications"] as const;
@@ -52,7 +53,9 @@ export function Navbar() {
                 key={item.label}
                 href={item.href}
                 className={`text-sm font-bold transition-colors ${
-                  isActive
+                  item.highlight
+                    ? "text-amber-600 hover:text-amber-700"
+                    : isActive
                     ? "text-stone-900"
                     : "text-stone-500 hover:text-stone-800"
                 }`}
@@ -80,7 +83,11 @@ export function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="text-base font-semibold text-stone-600 hover:text-stone-900 py-2 border-b border-stone-100 last:border-0 transition-colors"
+              className={`text-base font-semibold py-2 border-b border-stone-100 last:border-0 transition-colors ${
+                item.highlight
+                  ? "text-amber-600 hover:text-amber-700"
+                  : "text-stone-600 hover:text-stone-900"
+              }`}
               onClick={() => setMenuOpen(false)}
             >
               {item.label}
