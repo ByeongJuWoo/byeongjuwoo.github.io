@@ -438,10 +438,10 @@
       Pick a date you'd like to visit the bar and submit a request — I'll get notified and get back to you.
     </p>
     <ul class="schedule-rules">
-      <li>Drinks and basic snacks are provided — feel free to bring something along if there's anything specific you'd like.</li>
-      <li>I'll accept up to 2 bookings per week.</li>
-      <li>I can host 1-3 guests per visit.</li>
-      <li>Visits start after 6 PM.</li>
+      <li>Please book at least 1-2 days before your visit.</li>
+      <li>Solo or with friends. 1 to 3 guests works great.</li>
+      <li>Let me know your preferred time (after 7 PM).</li>
+      <li>Drinks and basic snacks are provided. You're welcome to bring something along if you'd like.</li>
     </ul>
     <div class="calendar-header">
       <button class="calendar-nav-btn" id="cal-prev" aria-label="Previous month">‹</button>
@@ -920,7 +920,7 @@
     <button class="recipe-modal-close" id="booking-close" aria-label="Close">&times;</button>
     <div class="recipe-modal-title" id="booking-title"></div>
     <p class="booking-desc">
-      Please share the names of everyone attending (max 3) and your visit time (after 6 PM).
+      Please share the names of everyone attending (max 3) and your visit time (after 7 PM).
     </p>
     <textarea id="booking-message" class="booking-textarea" placeholder="e.g. John, Jane — around 8 PM"></textarea>
     <button class="booking-submit" id="booking-submit">Send Request</button>
@@ -1569,6 +1569,9 @@
     var MIN_YEAR = 2026, MIN_MONTH = 8;  // September 2026 (bar's opening month)
     var MAX_YEAR = 2026, MAX_MONTH = 11; // December 2026 (end of year)
     var BOOKED_DATES = ['2026-09-14', '2026-09-19', '2026-09-20', '2026-09-23', '2026-09-29'];
+    // Manually-blocked dates (not from a booking, not the weekly Thursday
+    // rule) — e.g. the host is just unavailable that day.
+    var MANUAL_BUSY_DATES = [];
     // Purely decorative — marks Halloween week on the calendar. Does not
     // change availability; an open day in this range is still Open, it just
     // gets a pumpkin-themed look. Busy/Booked days in this range keep their
@@ -1656,7 +1659,8 @@
         // closes too — unless this day is itself already booked.
         var isThursday = new Date(curYear, curMonth, cell.day).getDay() === 4;
         var weekFull = weekBookingCount(cell.dateStr) >= MAX_BOOKINGS_PER_WEEK;
-        var isBusy = !booking && (isThursday || weekFull);
+        var manualBusy = MANUAL_BUSY_DATES.indexOf(cell.dateStr) !== -1;
+        var isBusy = !booking && (isThursday || weekFull || manualBusy);
         var numHtml = '<span class="cal-num">' + cell.day + '</span>';
 
         if (booking) {
