@@ -107,6 +107,18 @@ export function PublicationEntry({
               <span className="tracking-wider uppercase">Code</span>
             </a>
           )}
+          {publication.checkpointsUrl && (
+            <a
+              href={publication.checkpointsUrl}
+              className="group inline-flex items-center gap-2 text-xs text-[#2E2E2F] hover:opacity-70 transition-opacity duration-300"
+            >
+              <ArrowUpRight
+                size={12}
+                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+              />
+              <span className="tracking-wider uppercase">Checkpoints</span>
+            </a>
+          )}
         </div>
         {publication.tldr && (
           <p className="text-sm italic text-stone-600 mt-4">

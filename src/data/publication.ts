@@ -6,6 +6,7 @@ export interface Publication {
   paperUrl?: string;
   codeUrl?: string;
   pageUrl?: string;
+  checkpointsUrl?: string;
   bibtex?: string;
   tldr?: string;
   imageUrl?: string;
@@ -32,6 +33,7 @@ export const publicationData: Publication[] = [
     paperUrl: "https://arxiv.org/pdf/2602.02977",
     codeUrl: "https://github.com/ByeongJuWoo/CAFT",
     pageUrl: "https://byeongju.me/CAFT/",
+    checkpointsUrl: "https://huggingface.co/byeongju-woo/CAFT",
     //bibtex: "https://arxiv.org/abs/2409.15476.bib",
     // tldr: "Textual object queries enable domain-invariant semantic pixel grouping, allowing models to generalize to entirely unseen domains.",
     imageUrl: "/images/CAFT.png"
