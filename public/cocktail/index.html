@@ -570,6 +570,7 @@
         <span class="stock-item">Milk</span>
         <span class="stock-item">Piña Colada Mix</span>
         <span class="stock-item">Egg White</span>
+        <span class="stock-item">Heavy Whipping Cream</span>
       </div>
     </div>
     <div class="stock-card syrup">
@@ -602,7 +603,7 @@
 <!-- ══════════ MENU ══════════ -->
 <section id="menu" hidden>
   <div class="menu-title-row">
-    <div class="section-title">📋 Menu</div>
+    <div class="section-title">📋 Menu 31</div>
     <label class="view-toggle" for="detail-toggle">
       <span class="view-toggle-label">Details</span>
       <span class="switch">
@@ -726,6 +727,17 @@
             <span class="menu-tag fruit">Cinnamon Powder</span>
           </div>
         </div>
+        <div class="menu-row clickable" data-recipe="white-russian">
+          <div class="menu-top"><span class="menu-name">White Russian</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.5</span> soju</span><span class="menu-abv mid">25%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="technique-tag">Float</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag liqueur">Kahlúa</span>
+            <span class="menu-tag mixer">Heavy Whipping Cream</span>
+          </div>
+        </div>
         <div class="menu-row clickable" data-recipe="screaming-orgasm">
           <div class="menu-top"><span class="menu-name">Screaming Orgasm</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">21%</span></div></div>
           <div class="menu-tags">
@@ -846,6 +858,7 @@
             <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
           </div>
         </div>
+        <!-- Long Island Iced Tea temporarily hidden — uncomment to restore (RECIPES['long-island'] is untouched):
         <div class="menu-row clickable" data-recipe="long-island">
           <div class="menu-top"><span class="menu-name unstocked">Long Island Iced Tea</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.5</span> soju</span><span class="menu-abv mid">15%</span></div></div>
           <div class="menu-tags">
@@ -860,6 +873,7 @@
             <span class="menu-tag mixer">Cola</span>
           </div>
         </div>
+        -->
         <div class="menu-row clickable" data-recipe="amf">
           <div class="menu-top"><span class="menu-name">Adios Mother Fucker (AMF)</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.2</span> soju</span><span class="menu-abv mid">13%</span></div></div>
           <div class="menu-tags">
@@ -935,6 +949,7 @@
             <span class="menu-tag base">Overproof Rum</span>
           </div>
         </div>
+        <!-- Monkey Brain temporarily hidden — uncomment to restore (RECIPES['monkey-brain'] is untouched):
         <div class="menu-row clickable" data-recipe="monkey-brain">
           <div class="menu-top"><span class="menu-name unstocked">Monkey Brain</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.2</span> soju</span><span class="menu-abv mid">20%</span></div></div>
           <div class="menu-tags">
@@ -945,6 +960,7 @@
             <span class="menu-tag liqueur">Baileys</span>
           </div>
         </div>
+        -->
         <!-- Monkey Shot temporarily hidden — uncomment to restore (RECIPES.monkey-shot is untouched):
         <div class="menu-row clickable" data-recipe="monkey-shot">
           <div class="menu-top"><span class="menu-name">Monkey Shot</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.5</span> soju</span><span class="menu-abv high">47%</span></div></div>
@@ -1064,7 +1080,7 @@
     'Cranberry Juice': 0, 'Orange Juice': 0, 'Pineapple Juice': 0, 'Lime Juice': 0,
     'Sweet & Sour Mix': 0, 'Tonic Water': 0, 'Ginger Ale': 0, 'Sprite': 0, 'Milk': 0, 'Cola': 0, 'Grenadine': 0,
     'Piña Colada Mix': 0,
-    'Sugar': 0, 'Salt': 0, 'Lemon': 0, 'Orange': 0, 'Cinnamon Powder': 0, 'Egg White': 0
+    'Sugar': 0, 'Salt': 0, 'Lemon': 0, 'Orange': 0, 'Cinnamon Powder': 0, 'Egg White': 0, 'Heavy Whipping Cream': 0
   };
 
   var RECIPES = {
@@ -1269,6 +1285,19 @@
       method: [
         'Fill a glass with ice.',
         'Build the Vodka and Kahlúa directly in the glass and stir briefly.'
+      ]
+    },
+    'white-russian': {
+      name: 'White Russian',
+      dilute: false,
+      ingredients: [
+        { n: 'Vodka', o: 2 },
+        { n: 'Kahlúa', o: 1 },
+        { n: 'Heavy Whipping Cream', o: 1, note: '(whipped, floated on top)' }
+      ],
+      method: [
+        'Build a Black Russian: fill a glass with ice, add the Vodka and Kahlúa, stir briefly.',
+        'Whip the Heavy Whipping Cream and float it on top.'
       ]
     },
     'kahlua-milk': {
