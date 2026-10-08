@@ -284,9 +284,13 @@
     }
     .menu-title-row {
       display: flex; align-items: center; justify-content: space-between;
-      gap: 0.75rem; margin-bottom: 2rem;
+      gap: 0.75rem; margin-bottom: 0.5rem;
     }
     .menu-title-row .section-title { margin-bottom: 0; }
+    .menu-intro {
+      font-size: 0.85rem; color: #666; font-style: italic;
+      margin: 0 0 1.6rem;
+    }
     .view-toggle {
       display: flex; align-items: center; gap: 0.5rem;
       cursor: pointer; user-select: none; flex-shrink: 0;
@@ -488,6 +492,10 @@
     <div class="section-title">📰 News</div>
     <div class="news-list">
       <div class="news-item">
+        <span class="news-date">Oct 06, 2026</span>
+        <span class="news-text">Picked up a whipper and a torch.</span>
+      </div>
+      <div class="news-item">
         <span class="news-date">Oct 04, 2026</span>
         <span class="news-text">Picked up Piña Colada Mix. Let's enjoy some Piña Coladas!</span>
       </div>
@@ -612,6 +620,7 @@
       </span>
     </label>
   </div>
+  <p class="menu-intro">If you don't know what to order, try the ⭐ first!</p>
   <div class="menu-categories">
     <div>
       <div class="menu-category-title">Tropical &amp; Fruity</div>
@@ -697,16 +706,17 @@
       <div class="menu-category-title">Coffee, Nutty &amp; Creamy</div>
       <div class="menu-list">
         <div class="menu-row clickable" data-recipe="kahlua-milk">
-          <div class="menu-top"><span class="menu-name">Kahlúa Milk</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.1</span> soju</span><span class="menu-abv low">5%</span></div></div>
+          <div class="menu-top"><span class="menu-name recommended">Kahlúa Milk</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">0.7</span> soju</span><span class="menu-abv low">4%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
             <span class="menu-tag liqueur">Kahlúa</span>
             <span class="menu-tag mixer">Milk</span>
+            <span class="menu-tag mixer">Heavy Whipping Cream</span>
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="amaretto-sour">
-          <div class="menu-top"><span class="menu-name">Amaretto Sour</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.0</span> soju</span><span class="menu-abv mid">12%</span></div></div>
+          <div class="menu-top"><span class="menu-name recommended">Amaretto Sour</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.0</span> soju</span><span class="menu-abv mid">12%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -727,17 +737,6 @@
             <span class="menu-tag fruit">Cinnamon Powder</span>
           </div>
         </div>
-        <div class="menu-row clickable" data-recipe="white-russian">
-          <div class="menu-top"><span class="menu-name">White Russian</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.5</span> soju</span><span class="menu-abv mid">25%</span></div></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Build</span>
-            <span class="technique-tag">Float</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Vodka</span>
-            <span class="menu-tag liqueur">Kahlúa</span>
-            <span class="menu-tag mixer">Heavy Whipping Cream</span>
-          </div>
-        </div>
         <div class="menu-row clickable" data-recipe="screaming-orgasm">
           <div class="menu-top"><span class="menu-name">Screaming Orgasm</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">21%</span></div></div>
           <div class="menu-tags">
@@ -749,8 +748,19 @@
             <span class="menu-tag liqueur">Disaronno</span>
           </div>
         </div>
+        <div class="menu-row clickable" data-recipe="white-russian">
+          <div class="menu-top"><span class="menu-name">White Russian</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.8</span> soju</span><span class="menu-abv mid">25%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="technique-tag">Float</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Vodka</span>
+            <span class="menu-tag liqueur">Kahlúa</span>
+            <span class="menu-tag mixer">Heavy Whipping Cream</span>
+          </div>
+        </div>
         <div class="menu-row clickable" data-recipe="black-russian">
-          <div class="menu-top"><span class="menu-name">Black Russian</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.5</span> soju</span><span class="menu-abv high">33%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Black Russian</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.8</span> soju</span><span class="menu-abv high">33%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -794,7 +804,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="cosmopolitan">
-          <div class="menu-top"><span class="menu-name recommended">Cosmopolitan</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv mid">14%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Cosmopolitan</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv mid">14%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -1166,7 +1176,6 @@
     cosmopolitan: {
       name: 'Cosmopolitan',
       why: 'Start here to figure out your cocktail taste.',
-      starred: true,
       dilute: true,
       ingredients: [
         { n: 'Vodka', o: 1 },
@@ -1279,8 +1288,8 @@
       name: 'Black Russian',
       dilute: false,
       ingredients: [
-        { n: 'Vodka', o: 2 },
-        { n: 'Kahlúa', o: 1 }
+        { n: 'Vodka', o: 1 },
+        { n: 'Kahlúa', o: 0.5 }
       ],
       method: [
         'Fill a glass with ice.',
@@ -1291,9 +1300,9 @@
       name: 'White Russian',
       dilute: false,
       ingredients: [
-        { n: 'Vodka', o: 2 },
-        { n: 'Kahlúa', o: 1 },
-        { n: 'Heavy Whipping Cream', o: 1, note: '(whipped, floated on top)' }
+        { n: 'Vodka', o: 1 },
+        { n: 'Kahlúa', o: 0.5 },
+        { n: 'Heavy Whipping Cream', o: 0.5, note: '(whipped, floated on top)' }
       ],
       method: [
         'Build a Black Russian: fill a glass with ice, add the Vodka and Kahlúa, stir briefly.',
@@ -1302,14 +1311,17 @@
     },
     'kahlua-milk': {
       name: 'Kahlúa Milk',
+      starred: true,
       dilute: false,
       ingredients: [
-        { n: 'Kahlúa', o: 1.5 },
-        { n: 'Milk', o: 4 }
+        { n: 'Kahlúa', o: 1 },
+        { n: 'Milk', o: 3 },
+        { n: 'Heavy Whipping Cream', o: 0.5, note: '(whipped, floated on top)' }
       ],
       method: [
         'Fill a glass with ice.',
-        'Build the Kahlúa and Milk directly in the glass and stir.'
+        'Build the Kahlúa and Milk directly in the glass and stir.',
+        'Whip the Heavy Whipping Cream and float it on top.'
       ]
     },
     orgasm: {
@@ -1343,6 +1355,7 @@
     },
     'amaretto-sour': {
       name: 'Amaretto Sour',
+      starred: true,
       dilute: true,
       ingredients: [
         { n: 'Disaronno', o: 2 },
