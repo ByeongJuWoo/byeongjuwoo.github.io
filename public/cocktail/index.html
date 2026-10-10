@@ -595,6 +595,7 @@
         <span class="stock-item">Lemon</span>
         <span class="stock-item">Orange</span>
         <span class="stock-item">Cinnamon Powder</span>
+        <span class="stock-item">Angostura Bitters</span>
       </div>
     </div>
   </div>
@@ -842,6 +843,29 @@
             <span class="tag-divider"></span>
             <span class="menu-tag base">Whisky</span>
             <span class="menu-tag liqueur">Disaronno</span>
+            <span class="menu-tag fruit">Angostura Bitters</span>
+          </div>
+        </div>
+        <div class="menu-row clickable" data-recipe="old-fashioned">
+          <div class="menu-top"><span class="menu-name">Old Fashioned</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv high">30%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Stir</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Whisky</span>
+            <span class="menu-tag fruit">Sugar</span>
+            <span class="menu-tag fruit">Angostura Bitters</span>
+            <span class="menu-tag fruit">Orange</span>
+          </div>
+        </div>
+        <div class="menu-row clickable" data-recipe="whiskey-sour">
+          <div class="menu-top"><span class="menu-name">Whiskey Sour</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">17%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Whisky</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag mixer">Egg White</span>
+            <span class="menu-tag fruit">Angostura Bitters</span>
           </div>
         </div>
       </div>
@@ -948,17 +972,6 @@
             <span class="menu-tag fruit">Sugar</span>
           </div>
         </div>
-        <div class="menu-row clickable" data-recipe="awol">
-          <div class="menu-top"><span class="menu-name">Absent Without Leave (AWOL)</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.1</span> soju</span><span class="menu-abv mid">17%</span></div></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Float</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag liqueur">Midori</span>
-            <span class="menu-tag juice">Pineapple Juice</span>
-            <span class="menu-tag base">Vodka</span>
-            <span class="menu-tag base">Overproof Rum</span>
-          </div>
-        </div>
         <!-- Monkey Brain temporarily hidden — uncomment to restore (RECIPES['monkey-brain'] is untouched):
         <div class="menu-row clickable" data-recipe="monkey-brain">
           <div class="menu-top"><span class="menu-name unstocked">Monkey Brain</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.2</span> soju</span><span class="menu-abv mid">20%</span></div></div>
@@ -981,15 +994,6 @@
           </div>
         </div>
         -->
-        <div class="menu-row clickable" data-recipe="tequila-shot">
-          <div class="menu-top"><span class="menu-name">Tequila Shot</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv high">40%</span></div></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Neat</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Tequila</span>
-            <span class="menu-tag fruit">Salt</span>
-          </div>
-        </div>
       </div>
     </div>
     <div>
@@ -1090,7 +1094,8 @@
     'Cranberry Juice': 0, 'Orange Juice': 0, 'Pineapple Juice': 0, 'Lime Juice': 0,
     'Sweet & Sour Mix': 0, 'Tonic Water': 0, 'Ginger Ale': 0, 'Sprite': 0, 'Milk': 0, 'Cola': 0, 'Grenadine': 0,
     'Piña Colada Mix': 0,
-    'Sugar': 0, 'Salt': 0, 'Lemon': 0, 'Orange': 0, 'Cinnamon Powder': 0, 'Egg White': 0, 'Heavy Whipping Cream': 0
+    'Sugar': 0, 'Salt': 0, 'Lemon': 0, 'Orange': 0, 'Cinnamon Powder': 0, 'Egg White': 0, 'Heavy Whipping Cream': 0,
+    'Angostura Bitters': 45
   };
 
   var RECIPES = {
@@ -1261,18 +1266,6 @@
         'Add 2 dashes of Milk on top for a cloudy, sky-like swirl.'
       ]
     },
-    'tequila-shot': {
-      name: 'Tequila Shot',
-      dilute: false,
-      ingredients: [
-        { n: 'Tequila', o: 1.5, note: '(neat)' },
-        { n: 'Salt', o: 0, note: '(for your wrist)' }
-      ],
-      method: [
-        'Lick the salt from your wrist.',
-        'Shoot the Tequila in one go.'
-      ]
-    },
     'monkey-shot': {
       name: 'Monkey Shot',
       why: "Byeongju's favorite base spirit.",
@@ -1374,11 +1367,42 @@
       dilute: false,
       ingredients: [
         { n: 'Whisky', o: 1.5 },
-        { n: 'Disaronno', o: 0.75 }
+        { n: 'Disaronno', o: 0.75 },
+        { n: 'Angostura Bitters', o: 0, note: '(2 dashes)' }
       ],
       method: [
         'Fill a glass with ice.',
-        'Build the Whisky and Disaronno directly in the glass and stir.'
+        'Build the Whisky, Disaronno, and Angostura Bitters directly in the glass and stir.'
+      ]
+    },
+    'old-fashioned': {
+      name: 'Old Fashioned',
+      dilute: true,
+      ingredients: [
+        { n: 'Whisky', o: 2 },
+        { n: 'Sugar', o: 1 / 6, label: '1 tsp' },
+        { n: 'Angostura Bitters', o: 0, note: '(2 dashes)' },
+        { n: 'Orange', o: 0, note: '(twist)' }
+      ],
+      method: [
+        'Muddle the Sugar and Angostura Bitters with a splash of water in a glass.',
+        'Add the Whisky and ice, and stir well.',
+        'Garnish with an orange twist.'
+      ]
+    },
+    'whiskey-sour': {
+      name: 'Whiskey Sour',
+      dilute: true,
+      ingredients: [
+        { n: 'Whisky', o: 2 },
+        { n: 'Sweet & Sour Mix', o: 0.75 },
+        { n: 'Egg White', o: 1, label: '1 egg white' },
+        { n: 'Angostura Bitters', o: 0, note: '(2 dashes)' }
+      ],
+      method: [
+        'Dry shake (no ice) the Whisky, Sweet & Sour Mix, and Egg White for 1 minute to emulsify.',
+        'Add ice and shake again, then strain into a glass filled with ice.',
+        'Top with a dash of Angostura Bitters.'
       ]
     },
     'long-island': {
@@ -1559,21 +1583,6 @@
         'Fill a glass with ice.',
         'Build the Grenadine, Sweet & Sour Mix, and Ginger Ale directly in the glass and stir.',
         'Garnish with a maraschino cherry.'
-      ]
-    },
-    awol: {
-      name: 'Absent Without Leave (AWOL)',
-      dilute: false,
-      ingredients: [
-        { n: 'Midori', o: 0.5 },
-        { n: 'Pineapple Juice', o: 0.75 },
-        { n: 'Vodka', o: 0.5 },
-        { n: 'Overproof Rum', o: 0, display: 'Overproof Rum — 3ml (float, not counted toward ABV)' }
-      ],
-      method: [
-        'Layer the Midori, Pineapple Juice, and Vodka in that order in a shot glass.',
-        'Float 3ml of Overproof Rum on top and carefully light it.',
-        'Let it burn briefly, then blow it out and shoot.'
       ]
     },
     'monkey-brain': {
