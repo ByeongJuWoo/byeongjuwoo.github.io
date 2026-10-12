@@ -72,18 +72,25 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;
     }
     .welcome-photos img {
-      width: 100%; height: 220px; object-fit: cover;
+      width: 100%; height: 240px; object-fit: cover;
+      border-radius: 10px; border: 1px solid var(--border);
+    }
+    .welcome-photos img:first-child { object-position: center 70%; }
+    .welcome-photos-tall {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1rem;
+    }
+    .welcome-photos-tall img, .welcome-photos-tall video {
+      width: 100%; height: 300px; object-fit: cover; display: block;
       border-radius: 10px; border: 1px solid var(--border);
     }
     @media (max-width: 600px) {
-      .welcome-photos img.mobile-hide { display: none; }
-      .welcome-photos img { height: 200px; }
+      .welcome-photos img { height: 215px; }
+      .welcome-photos-tall { grid-template-columns: 1fr 1fr; }
+      .welcome-photos-tall img, .welcome-photos-tall video { height: 230px; }
+      .welcome-photos-tall .mobile-hide { display: none; }
     }
 
     /* ── Schedule ── */
-    .schedule-section {
-      margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);
-    }
     .schedule-desc {
       font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin: 0.75rem 0 1rem;
     }
@@ -437,6 +444,7 @@
   <h1><span class="bb-mark">B</span>en's <span class="bb-mark">B</span>ar, <span class="bb-mark">A</span>nn <span class="bb-mark">A</span>rbor</h1>
   <nav>
     <button class="tab-btn active" data-tab="welcome">Welcome</button>
+    <button class="tab-btn" data-tab="schedule">Schedule</button>
     <button class="tab-btn" data-tab="menu">Menu</button>
     <button class="tab-btn" data-tab="stock">Stock</button>
   </nav>
@@ -455,37 +463,13 @@
   </p>
   <div class="welcome-photos">
     <img src="../images/cocktail1.jpeg" alt="Home bar photo 1">
-    <img class="mobile-hide" src="../images/cocktail2.jpeg" alt="Home bar photo 2">
-    <img class="mobile-hide" src="../images/cocktail3.jpeg" alt="Home bar photo 3">
-    <img src="../images/cocktail4.jpeg" alt="Home bar photo 4">
+    <img src="../images/cocktail3.jpeg" alt="Home bar photo 3">
   </div>
-
-  <div class="schedule-section">
-    <div class="section-title">📅 Schedule</div>
-    <p class="schedule-desc">
-      Pick a date you'd like to visit the bar and submit a request — I'll get notified and get back to you.
-    </p>
-    <ul class="schedule-rules">
-      <li>Please book at least 1-2 days before your visit.</li>
-      <li>Solo or with friends. 1 to 3 guests works great.</li>
-      <li>Let me know your preferred time (after 7 PM).</li>
-      <li>Drinks and basic snacks are provided. You're welcome to bring something along if you'd like.</li>
-    </ul>
-    <div class="calendar-header">
-      <button class="calendar-nav-btn" id="cal-prev" aria-label="Previous month">‹</button>
-      <div class="calendar-title" id="calendar-title"></div>
-      <button class="calendar-nav-btn" id="cal-next" aria-label="Next month">›</button>
-    </div>
-    <div class="calendar-weekdays">
-      <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-    </div>
-    <div class="calendar-grid" id="calendar-grid"></div>
-    <div class="calendar-legend">
-      <span><span class="cal-dot available"></span> Open</span>
-      <span><span class="cal-dot busy"></span> Busy</span>
-      <span><span class="cal-dot booked"></span> Booked</span>
-      <span><span class="cal-dot halloween"></span> 🎃 Halloween week</span>
-    </div>
+  <div class="welcome-photos-tall">
+    <img src="../images/cocktail5.jpeg" alt="Home bar photo 5">
+    <img class="mobile-hide" src="../images/cocktail6.jpeg" alt="Home bar photo 6">
+    <img class="mobile-hide" src="../images/cocktail7.jpeg" alt="Home bar photo 7">
+    <video src="../images/cocktail8.mp4" autoplay muted loop playsinline></video>
   </div>
 
   <div class="news-section">
@@ -527,6 +511,35 @@
         <span class="news-text">Thinking about a Halloween-themed bar renewal.</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══════════ SCHEDULE ══════════ -->
+<section id="schedule" hidden>
+  <div class="section-title">📅 Schedule</div>
+  <p class="schedule-desc">
+    Pick a date you'd like to visit the bar and submit a request — I'll get notified and get back to you.
+  </p>
+  <ul class="schedule-rules">
+    <li>Please book at least 1-2 days before your visit.</li>
+    <li>Solo or with friends. 1 to 3 guests works great.</li>
+    <li>Let me know your preferred time (after 7 PM).</li>
+    <li>Drinks and basic snacks are provided. You're welcome to bring something along if you'd like.</li>
+  </ul>
+  <div class="calendar-header">
+    <button class="calendar-nav-btn" id="cal-prev" aria-label="Previous month">‹</button>
+    <div class="calendar-title" id="calendar-title"></div>
+    <button class="calendar-nav-btn" id="cal-next" aria-label="Next month">›</button>
+  </div>
+  <div class="calendar-weekdays">
+    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+  </div>
+  <div class="calendar-grid" id="calendar-grid"></div>
+  <div class="calendar-legend">
+    <span><span class="cal-dot available"></span> Open</span>
+    <span><span class="cal-dot busy"></span> Busy</span>
+    <span><span class="cal-dot booked"></span> Booked</span>
+    <span><span class="cal-dot halloween"></span> 🎃 Halloween week</span>
   </div>
 </section>
 
@@ -626,6 +639,17 @@
     <div>
       <div class="menu-category-title">Tropical &amp; Fruity</div>
       <div class="menu-list">
+        <div class="menu-row clickable" data-recipe="pina-colada">
+          <div class="menu-top"><span class="menu-name unstocked">Piña Colada</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.1</span> soju</span><span class="menu-abv low">4%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Blend</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag mixer">Piña Colada Mix</span>
+            <span class="menu-tag base">White Rum</span>
+            <span class="menu-tag juice">Pineapple Juice</span>
+            <span class="menu-tag mixer">Ice</span>
+          </div>
+        </div>
         <div class="menu-row clickable" data-recipe="okbodan">
           <div class="menu-top"><span class="menu-name recommended">Okbodan (玉潽團)</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.0</span> soju</span><span class="menu-abv low">5%</span></div></div>
           <div class="menu-tags">
@@ -647,25 +671,6 @@
             <span class="menu-tag liqueur">Midori</span>
             <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
             <span class="menu-tag mixer">Sprite</span>
-          </div>
-        </div>
-        <div class="menu-row clickable" data-recipe="screwdriver">
-          <div class="menu-top"><span class="menu-name">Screwdriver</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv low">10%</span></div></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Build</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Vodka</span>
-            <span class="menu-tag juice">Orange Juice</span>
-          </div>
-        </div>
-        <div class="menu-row clickable" data-recipe="tequila-sunrise">
-          <div class="menu-top"><span class="menu-name">Tequila Sunrise</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv mid">14%</span></div></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Build</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Tequila</span>
-            <span class="menu-tag juice">Orange Juice</span>
-            <span class="menu-tag syrup">Grenadine</span>
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="woo-woo">
@@ -699,6 +704,16 @@
             <span class="menu-tag liqueur">Blue Curaçao</span>
             <span class="menu-tag juice">Pineapple Juice</span>
             <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+          </div>
+        </div>
+        <div class="menu-row clickable" data-recipe="tequila-sunrise">
+          <div class="menu-top"><span class="menu-name">Tequila Sunrise</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv mid">14%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Build</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Tequila</span>
+            <span class="menu-tag juice">Orange Juice</span>
+            <span class="menu-tag syrup">Grenadine</span>
           </div>
         </div>
       </div>
@@ -784,26 +799,6 @@
     <div>
       <div class="menu-category-title">Classics</div>
       <div class="menu-list">
-        <div class="menu-row clickable" data-recipe="margarita">
-          <div class="menu-top"><span class="menu-name recommended">Margarita</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.8</span> soju</span><span class="menu-abv high">27%</span></div></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Shake</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">Tequila</span>
-            <span class="menu-tag liqueur">Cointreau</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-            <span class="menu-tag fruit">Salt</span>
-          </div>
-        </div>
-        <div class="menu-row clickable" data-recipe="daiquiri">
-          <div class="menu-top"><span class="menu-name">Daiquiri</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">20%</span></div></div>
-          <div class="menu-tags">
-            <span class="technique-tag">Shake</span>
-            <span class="tag-divider"></span>
-            <span class="menu-tag base">White Rum</span>
-            <span class="menu-tag juice">Lime Juice</span>
-          </div>
-        </div>
         <div class="menu-row clickable" data-recipe="cosmopolitan">
           <div class="menu-top"><span class="menu-name">Cosmopolitan</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv mid">14%</span></div></div>
           <div class="menu-tags">
@@ -815,8 +810,28 @@
             <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
           </div>
         </div>
+        <div class="menu-row clickable" data-recipe="whiskey-sour">
+          <div class="menu-top"><span class="menu-name">Whiskey Sour</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">17%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Whisky</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag mixer">Egg White</span>
+            <span class="menu-tag fruit">Angostura Bitters</span>
+          </div>
+        </div>
+        <div class="menu-row clickable" data-recipe="daiquiri">
+          <div class="menu-top"><span class="menu-name">Daiquiri</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">20%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Shake</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">White Rum</span>
+            <span class="menu-tag juice">Lime Juice</span>
+          </div>
+        </div>
         <div class="menu-row clickable" data-recipe="gimlet">
-          <div class="menu-top"><span class="menu-name recommended">Gimlet</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">20%</span></div></div>
+          <div class="menu-top"><span class="menu-name recommended">Gimlet</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">21%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
@@ -836,14 +851,15 @@
             <span class="menu-tag juice">Lime Juice</span>
           </div>
         </div>
-        <div class="menu-row clickable" data-recipe="godfather">
-          <div class="menu-top"><span class="menu-name">Godfather</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.9</span> soju</span><span class="menu-abv high">36%</span></div></div>
+        <div class="menu-row clickable" data-recipe="margarita">
+          <div class="menu-top"><span class="menu-name recommended">Margarita</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">3.8</span> soju</span><span class="menu-abv high">27%</span></div></div>
           <div class="menu-tags">
-            <span class="technique-tag">Build</span>
+            <span class="technique-tag">Shake</span>
             <span class="tag-divider"></span>
-            <span class="menu-tag base">Whisky</span>
-            <span class="menu-tag liqueur">Disaronno</span>
-            <span class="menu-tag fruit">Angostura Bitters</span>
+            <span class="menu-tag base">Tequila</span>
+            <span class="menu-tag liqueur">Cointreau</span>
+            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
+            <span class="menu-tag fruit">Salt</span>
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="old-fashioned">
@@ -857,14 +873,13 @@
             <span class="menu-tag fruit">Orange</span>
           </div>
         </div>
-        <div class="menu-row clickable" data-recipe="whiskey-sour">
-          <div class="menu-top"><span class="menu-name">Whiskey Sour</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">17%</span></div></div>
+        <div class="menu-row clickable" data-recipe="godfather">
+          <div class="menu-top"><span class="menu-name">Godfather</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.9</span> soju</span><span class="menu-abv high">36%</span></div></div>
           <div class="menu-tags">
-            <span class="technique-tag">Shake</span>
+            <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
             <span class="menu-tag base">Whisky</span>
-            <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
-            <span class="menu-tag mixer">Egg White</span>
+            <span class="menu-tag liqueur">Disaronno</span>
             <span class="menu-tag fruit">Angostura Bitters</span>
           </div>
         </div>
@@ -948,7 +963,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="blue-sky">
-          <div class="menu-top"><span class="menu-name recommended">Blue Sky</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.3</span> soju</span><span class="menu-abv mid">25%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Blue Sky</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.3</span> soju</span><span class="menu-abv mid">25%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Float</span>
             <span class="tag-divider"></span>
@@ -1000,7 +1015,7 @@
       <div class="menu-category-title">Non-Alcoholic</div>
       <div class="menu-list">
         <div class="menu-row clickable" data-recipe="shirley-temple">
-          <div class="menu-top"><span class="menu-name">Shirley Temple</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">0.0</span> soju</span><span class="menu-abv low">0%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Shirley Temple</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -1010,7 +1025,7 @@
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="cinderella">
-          <div class="menu-top"><span class="menu-name">Cinderella</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">0.0</span> soju</span><span class="menu-abv low">0%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Cinderella</span></div>
           <div class="menu-tags">
             <span class="technique-tag">Build</span>
             <span class="tag-divider"></span>
@@ -1093,7 +1108,7 @@
     'Kahlúa': 20, 'Baileys': 17, 'White Chocolate Kahlúa': 16, 'Disaronno': 28,
     'Cranberry Juice': 0, 'Orange Juice': 0, 'Pineapple Juice': 0, 'Lime Juice': 0,
     'Sweet & Sour Mix': 0, 'Tonic Water': 0, 'Ginger Ale': 0, 'Sprite': 0, 'Milk': 0, 'Cola': 0, 'Grenadine': 0,
-    'Piña Colada Mix': 0,
+    'Piña Colada Mix': 0, 'Ice': 0,
     'Sugar': 0, 'Salt': 0, 'Lemon': 0, 'Orange': 0, 'Cinnamon Powder': 0, 'Egg White': 0, 'Heavy Whipping Cream': 0,
     'Angostura Bitters': 45
   };
@@ -1143,7 +1158,7 @@
         { n: 'Dry Gin', o: 2 },
         { n: 'Sweet & Sour Mix', o: 0.5 },
         { n: 'Lime Juice', o: 0.5 },
-        { n: 'Sugar', o: 1 / 6, label: '1 tsp' }
+        { n: 'Sugar', o: 0, label: '1 tsp' }
       ],
       method: [
         'Shake all ingredients with ice until the sugar dissolves.',
@@ -1251,7 +1266,6 @@
     'blue-sky': {
       name: 'Blue Sky',
       why: 'Just really pretty to look at.',
-      starred: true,
       dilute: false,
       ingredients: [
         { n: 'Vodka', o: 0.5 },
@@ -1479,6 +1493,20 @@
         'Strain into an ice-filled glass.'
       ]
     },
+    'pina-colada': {
+      name: 'Piña Colada',
+      dilute: false,
+      ingredients: [
+        { n: 'Piña Colada Mix', o: 3 },
+        { n: 'White Rum', o: 0.75 },
+        { n: 'Pineapple Juice', o: 1 },
+        { n: 'Ice', o: 2, label: '2 ice cubes' }
+      ],
+      method: [
+        'Add all ingredients to a blender.',
+        'Blend until smooth and pour into a glass.'
+      ]
+    },
     'jim-beam-highball': {
       name: 'Jim Beam Highball',
       dilute: false,
@@ -1490,18 +1518,6 @@
       method: [
         'Fill a glass with ice.',
         'Build the Whisky, Ginger Ale, and Sweet & Sour Mix directly in the glass and stir.'
-      ]
-    },
-    screwdriver: {
-      name: 'Screwdriver',
-      dilute: false,
-      ingredients: [
-        { n: 'Vodka', o: 1.5 },
-        { n: 'Orange Juice', o: 4.5 }
-      ],
-      method: [
-        'Fill a glass with ice.',
-        'Build the Vodka and Orange Juice directly in the glass and stir.'
       ]
     },
     'woo-woo': {
