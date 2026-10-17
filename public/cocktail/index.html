@@ -476,6 +476,14 @@
     <div class="section-title">📰 News</div>
     <div class="news-list">
       <div class="news-item">
+        <span class="news-date">Oct 17, 2026</span>
+        <span class="news-text">Picked up Campari and Sweet Vermouth. Negroni is now on the menu!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Oct 15, 2026</span>
+        <span class="news-text">Picked up a blender and a small candle.</span>
+      </div>
+      <div class="news-item">
         <span class="news-date">Oct 06, 2026</span>
         <span class="news-text">Picked up a whipper and a torch.</span>
       </div>
@@ -570,6 +578,8 @@
         <span class="stock-item">Baileys</span>
         <span class="stock-item">White Chocolate Kahlúa</span>
         <span class="stock-item">Disaronno</span>
+        <span class="stock-item">Campari</span>
+        <span class="stock-item">Sweet Vermouth</span>
       </div>
     </div>
     <div class="stock-card juice">
@@ -640,7 +650,7 @@
       <div class="menu-category-title">Tropical &amp; Fruity</div>
       <div class="menu-list">
         <div class="menu-row clickable" data-recipe="pina-colada">
-          <div class="menu-top"><span class="menu-name unstocked">Piña Colada</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.1</span> soju</span><span class="menu-abv low">4%</span></div></div>
+          <div class="menu-top"><span class="menu-name">Piña Colada</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">1.1</span> soju</span><span class="menu-abv low">4%</span></div></div>
           <div class="menu-tags">
             <span class="technique-tag">Blend</span>
             <span class="tag-divider"></span>
@@ -694,6 +704,7 @@
             <span class="menu-tag juice">Orange Juice</span>
           </div>
         </div>
+        <!-- Blue Hawaii temporarily hidden — uncomment to restore (RECIPES['blue-hawaii'] is untouched):
         <div class="menu-row clickable" data-recipe="blue-hawaii">
           <div class="menu-top"><span class="menu-name">Blue Hawaii</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">12%</span></div></div>
           <div class="menu-tags">
@@ -706,6 +717,8 @@
             <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
           </div>
         </div>
+        -->
+
         <div class="menu-row clickable" data-recipe="tequila-sunrise">
           <div class="menu-top"><span class="menu-name">Tequila Sunrise</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.1</span> soju</span><span class="menu-abv mid">14%</span></div></div>
           <div class="menu-tags">
@@ -839,6 +852,16 @@
             <span class="menu-tag mixer">Sweet &amp; Sour Mix</span>
             <span class="menu-tag juice">Lime Juice</span>
             <span class="menu-tag fruit">Sugar</span>
+          </div>
+        </div>
+        <div class="menu-row clickable" data-recipe="negroni">
+          <div class="menu-top"><span class="menu-name">Negroni</span><div class="menu-abv-wrap"><span class="menu-soju"><span class="soju-num">2.8</span> soju</span><span class="menu-abv mid">21%</span></div></div>
+          <div class="menu-tags">
+            <span class="technique-tag">Stir</span>
+            <span class="tag-divider"></span>
+            <span class="menu-tag base">Dry Gin</span>
+            <span class="menu-tag liqueur">Campari</span>
+            <span class="menu-tag liqueur">Sweet Vermouth</span>
           </div>
         </div>
         <div class="menu-row clickable" data-recipe="white-lady">
@@ -1110,7 +1133,7 @@
     'Sweet & Sour Mix': 0, 'Tonic Water': 0, 'Ginger Ale': 0, 'Sprite': 0, 'Milk': 0, 'Cola': 0, 'Grenadine': 0,
     'Piña Colada Mix': 0, 'Ice': 0,
     'Sugar': 0, 'Salt': 0, 'Lemon': 0, 'Orange': 0, 'Cinnamon Powder': 0, 'Egg White': 0, 'Heavy Whipping Cream': 0,
-    'Angostura Bitters': 45
+    'Angostura Bitters': 45, 'Campari': 24, 'Sweet Vermouth': 16
   };
 
   var RECIPES = {
@@ -1147,6 +1170,19 @@
         'Fill a highball glass with ice.',
         'Build the Vodka, Peach Schnapps, Orange Juice, and Cranberry Juice directly in the glass.',
         'Stir briefly and garnish with an orange slice.'
+      ]
+    },
+    negroni: {
+      name: 'Negroni',
+      dilute: true,
+      ingredients: [
+        { n: 'Dry Gin', o: 1 },
+        { n: 'Campari', o: 1 },
+        { n: 'Sweet Vermouth', o: 1 }
+      ],
+      method: [
+        'Stir the Dry Gin, Campari, and Sweet Vermouth with ice.',
+        'Strain into a glass over fresh ice and garnish with an orange twist.'
       ]
     },
     gimlet: {
@@ -1825,7 +1861,7 @@
     var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var MIN_YEAR = 2026, MIN_MONTH = 8;  // September 2026 (bar's opening month)
     var MAX_YEAR = 2026, MAX_MONTH = 11; // December 2026 (end of year)
-    var BOOKED_DATES = ['2026-09-14', '2026-09-19', '2026-09-20', '2026-09-23', '2026-09-29', '2026-10-04', '2026-10-09', '2026-10-15'];
+    var BOOKED_DATES = ['2026-09-14', '2026-09-19', '2026-09-20', '2026-09-23', '2026-09-29', '2026-10-04', '2026-10-09', '2026-10-15', '2026-10-17'];
     // Manually-blocked dates (not from a booking, not the weekly Thursday
     // rule) — e.g. the host is just unavailable that day.
     var MANUAL_BUSY_DATES = ['2026-10-16', '2026-10-19'];
