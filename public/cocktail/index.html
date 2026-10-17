@@ -1864,12 +1864,15 @@
     var BOOKED_DATES = ['2026-09-14', '2026-09-19', '2026-09-20', '2026-09-23', '2026-09-29', '2026-10-04', '2026-10-09', '2026-10-15', '2026-10-17'];
     // Manually-blocked dates (not from a booking, not the weekly Thursday
     // rule) — e.g. the host is just unavailable that day.
-    var MANUAL_BUSY_DATES = ['2026-10-16', '2026-10-19'];
+    var MANUAL_BUSY_DATES = ['2026-10-16', '2026-10-19', '2026-10-18', '2026-10-20'];
+    // Dates that would otherwise be auto-"Busy" (e.g. the weekly Thursday
+    // rule) but are manually forced back open — e.g. to show as Halloween.
+    var MANUAL_OPEN_DATES = ['2026-10-29'];
     // Purely decorative — marks Halloween week on the calendar. Does not
     // change availability; an open day in this range is still Open, it just
     // gets a pumpkin-themed look. Busy/Booked days in this range keep their
     // normal styling (no overlay), since those aren't bookable anyway.
-    var HALLOWEEN_START = '2026-10-24';
+    var HALLOWEEN_START = '2026-10-26';
     var HALLOWEEN_END = '2026-11-04';
     function isHalloweenWeek(dateStr) {
       return dateStr >= HALLOWEEN_START && dateStr <= HALLOWEEN_END;
@@ -1953,7 +1956,8 @@
         var isThursday = new Date(curYear, curMonth, cell.day).getDay() === 4;
         var weekFull = weekBookingCount(cell.dateStr) >= MAX_BOOKINGS_PER_WEEK;
         var manualBusy = MANUAL_BUSY_DATES.indexOf(cell.dateStr) !== -1;
-        var isBusy = !booking && (isThursday || weekFull || manualBusy);
+        var manualOpen = MANUAL_OPEN_DATES.indexOf(cell.dateStr) !== -1;
+        var isBusy = !booking && !manualOpen && (isThursday || weekFull || manualBusy);
         var numHtml = '<span class="cal-num">' + cell.day + '</span>';
 
         if (booking) {
